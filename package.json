@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "dependencies": {
+    "markdown-magic": "^2.0.0",
+    "markdown-table": "^3.0.0"
+  }
+}

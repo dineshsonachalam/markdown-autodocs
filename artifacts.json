@@ -1,0 +1,10 @@
+[
+    {
+        "artifact": "1",
+        "commit"  : "3421"
+    },
+    {
+        "artifact": "2",
+        "commit"  : "54321"
+    }
+]

@@ -22,7 +22,7 @@ export const generateArtifactsTable = function(content, options, config) {
     return artifactsTable
 }
 
-export const app = async function(repo, branch, githubApiToken) {
+export const app = async function(inputFilePath, repo, branch, githubApiToken) {
     const github = new githubApi(repo, branch, githubApiToken)
     const workflowNames = await github.getWorkflowNames()
     const workflowIds   = await github.getWorkflowIds(workflowNames)
@@ -33,11 +33,10 @@ export const app = async function(repo, branch, githubApiToken) {
           artifactsTable: generateArtifactsTable,
         },
     };
-    const inputMarkdownFilePath = './readme.md'
-    const markdownPath = path.join(inputMarkdownFilePath)
+    const markdownPath = path.join(inputFilePath)
     markdownMagic(markdownPath, config)
-    const result = JSON.stringify(workflowArtifacts, null, 2)
-    console.log(result)
+    const message = `Added artifacts for the ${workflowArtifacts.length} workflows`
+    console.log(message)
 }
 
 

@@ -31,9 +31,11 @@ let githubApiToken = process.env.githubApiToken
 const github = new githubApi(repo, branch, githubApiToken)
 const workflowNames = await github.getWorkflowNames()
 const workflowIds   = await github.getWorkflowIds(workflowNames)
-
-console.log("workflowIds: ",workflowIds)
+const workflowArtifacts = await github.getWorkflowArtifacts(workflowIds)
+console.log("Workflow Artifacts: ", JSON.stringify(workflowArtifacts))
 
 // owner="1", repo="2", branch="3", githubApiToken="4"
 // github.ref -> Branch name -> refs/heads/master
 // github.repository -> owner/repoName -> dineshsonachalam/Autodoc-workflow-artifacts
+
+// https://github.com/dineshsonachalam/Lucid-Dynamodb/suites/2942883115/artifacts/67433873

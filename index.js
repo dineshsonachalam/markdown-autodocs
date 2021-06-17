@@ -24,9 +24,10 @@ import githubApi from './githubApi.js'
 // };
 // const markdownPath = path.join('./README.md')
 // markdownMagic(markdownPath, config)
-let repo="2"
-let branch="3"
-let githubApiToken="4"
+let repo = process.env.repo;
+let branchInfo = process.env.branch.split("/")
+let branch  = branchInfo[branchInfo.length - 1]
+let githubApiToken = process.env.githubApiToken
 const github = new githubApi(repo, branch, githubApiToken)
 
 // owner="1", repo="2", branch="3", githubApiToken="4"

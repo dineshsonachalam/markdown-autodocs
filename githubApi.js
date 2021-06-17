@@ -43,37 +43,43 @@ export default class githubApi {
         }
         return workflowNames
     }
+
+    /**
+     * Get run_id and check_suite_id of a workflow run
+     * @param {Array} workflowNames 
+     * @returns {Array} workflowIds
+     */
+    async getWorkflowIds(workflowNames){
+        let workflowIds = []
+        let url = `${githubInfo.api_url}/${this.repo}/actions/runs?branch=${this.branch}`
+        let workflowRuns = (await get(url, this.headers)).workflow_runs
+        workflowRuns.forEach((workflowRun) => {
+            let workflowName = workflowRun.name
+            if(workflowNames.includes(workflowName)){
+                let runId = (workflowRun.id).toString();
+                let checkSuiteId = (workflowRun.check_suite_id).toString()
+                workflowIds.push({
+                    "workflow_name": workflowName,
+                    "run_id": runId,
+                    "check_suite_id": checkSuiteId
+                })
+                workflowNames = workflowNames.filter(item => item !== workflowName)
+                if(workflowNames.length===0){
+                    return workflowIds
+                }
+            }
+        });
+        return workflowIds
+    }
 }
-    
+//  [ 'Integration-Test' ]
+// /repos/{owner}/{repo}/actions/workflows/{workflow_id}    
+// https://docs.github.com/en/rest/reference/actions#workflows
+
+// https://api.github.com/dineshsonachalam/Lucid-Dynamodb/actions/workflows/Integration-Test
 
     
-    // /**
-    //  * Generates Github workflow badges
-    //  * Github API:
-    //  * 1. List all filenames in a directory. 
-    //  *    GET /repos/{repo}/contents/{path}?ref=${branch}`  
-    //  *    Docs: https://docs.github.com/en/rest/reference/repos#get-repository-content
-    //  * @returns {array} workflow_badges
-    // */
-    // async get_pipeline_info() {
-    //     const url = `${githubInfo.api_url}/${this.repo}/contents/${githubInfo.workflow_path}?ref=${this.branch}`  
-    //     const workflows = await get(url, this.headers)
-    //     let pipeline_badges = []
-    //     let pipelines       = []
 
-    //     for(var i = 0; i < workflows.length; i++) {
-    //         var workflow = workflows[i];
-    //         const workflow_yaml_url = workflow.download_url
-    //         let pipeline_name = await get_yaml_config_value(workflow_yaml_url, this.headers, "name")
-    //         const workflow_badge = `${githubInfo.url}/${this.repo}/actions/workflows/${workflow.name}/badge.svg?branch=${this.branch}`
-    //         pipeline_badges.push(workflow_badge);
-    //         pipelines.push(pipeline_name)
-    //     }        
-    //     return {
-    //         "pipelines" : pipelines,
-    //         "pipeline_badges": pipeline_badges
-    //     }      
-    // }
     
 //     /**
 //      * Get workflow details
@@ -83,24 +89,24 @@ export default class githubApi {
 //      *    Docs: https://docs.github.com/en/rest/reference/actions#list-workflow-runs-for-a-repository
 //      * For example: 
 //      *    https://api.github.com/repos/dineshsonachalam/Lucid-Dynamodb/actions/runs?branch=master      
-//      * @param {string} workflow_names
+//      * @param {string} workflowNames
 //      * @returns {array} workflows 
 //      */
-//     async get_workflow(workflow_names){
+//     async get_workflow(workflowNames){
 //         let workflows = []
 //         let url = `${githubInfo.api_url}/${this.repo}/actions/runs?branch=${this.branch}`
-//         let workflows_info = (await get(url, this.headers)).workflow_runs
-//         workflows_info.forEach((workflow) => {
-//             if(workflow_names.includes(workflow.name)){
-//                 let workflow_name = workflow.name
+//         let workflowRuns = (await get(url, this.headers)).workflow_runs
+//         workflowRuns.forEach((workflow) => {
+//             if(workflowNames.includes(workflow.name)){
+//                 let workflowName = workflow.name
 //                 let workflow_id = (workflow.id).toString();
 //                 let workflow_check_suite_id = (workflow.check_suite_id).toString()
 //                 workflows.push({
 //                     "id": workflow_id,
 //                     "check_suite_id": workflow_check_suite_id
 //                 })
-//                 workflow_names = workflow_names.filter(item => item !== workflow_name)
-//                 if(workflow_names.length===0){
+//                 workflowNames = workflowNames.filter(item => item !== workflowName)
+//                 if(workflowNames.length===0){
 //                     return workflows
 //                 }
 //             }
@@ -139,11 +145,11 @@ export default class githubApi {
 
 //     /**
 //      * Get all artifacts from a workflow.
-//      * @param {array} workflow_names 
+//      * @param {array} workflowNames 
 //      * @returns {array} artifacts
 //      */
-//     async get_artifacts(workflow_names){
-//         const workflows = await this.get_workflow(workflow_names)
+//     async get_artifacts(workflowNames){
+//         const workflows = await this.get_workflow(workflowNames)
 //         for(var i = 0; i < workflows.length; i++) {
 //             let workflow = workflows[i];
 //             let workflow_id = workflow.id

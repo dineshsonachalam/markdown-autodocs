@@ -1,0 +1,19 @@
+name: Example
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+
+  example:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+
+        - name: Test
+          uses: actions/upload-artifact@v2
+          run: |
+            echo {{ github.ref }}
+            echo {{ github.repository }}

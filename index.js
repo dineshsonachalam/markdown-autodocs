@@ -30,3 +30,7 @@ let branch="3"
 let githubApiToken="4"
 const github = new githubApi(owner, repo, branch, githubApiToken)
 
+// owner="1", repo="2", branch="3", githubApiToken="4"
+// github.ref -> Branch name
+// github.repository -> owner/repoName
+// 

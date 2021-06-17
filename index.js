@@ -29,7 +29,9 @@ let branchInfo = process.env.branch.split("/")
 let branch  = branchInfo[branchInfo.length - 1]
 let githubApiToken = process.env.githubApiToken
 const github = new githubApi(repo, branch, githubApiToken)
-github.getWorkflowNames()
+const workflowNames = await github.getWorkflowNames()
+
+console.log("workflowNames: ",workflowNames)
 
 // owner="1", repo="2", branch="3", githubApiToken="4"
 // github.ref -> Branch name -> refs/heads/master

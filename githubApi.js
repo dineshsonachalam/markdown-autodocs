@@ -33,19 +33,15 @@ export default class githubApi {
      */
     async getWorkflowNames(){
         const url = `${githubInfo.api_url}/${this.repo}/contents/${githubInfo.workflow_path}?ref=${this.branch}`  
-        // const workflows = await get(url, this.headers)
-        // let pipeline_badges = []
-        // let pipelines       = []
-
-        // for(var i = 0; i < workflows.length; i++) {
-        //     var workflow = workflows[i];
-        //     const workflow_yaml_url = workflow.download_url
-        //     let pipeline_name = await get_yaml_config_value(workflow_yaml_url, this.headers, "name")
-        //     const workflow_badge = `${githubInfo.url}/${this.repo}/actions/workflows/${workflow.name}/badge.svg?branch=${this.branch}`
-        //     pipeline_badges.push(workflow_badge);
-        //     pipelines.push(pipeline_name)
-        // }
-        console.log(url)   
+        const workflows = await get(url, this.headers)
+        let workflowNames = []
+        for(var i = 0; i < workflows.length; i++) {
+            var workflow = workflows[i];
+            const workflowYamlUrl = workflow.download_url
+            let workflowName = await getYamlConfigValue(workflowYamlUrl, this.headers, "name")
+            workflowNames.push(workflowName)
+        }
+        return workflowNames
     }
 }
     

@@ -107,8 +107,8 @@ export default class githubApi {
             if(artifacts.length>0){
                 workflowArtifacts.push(
                     {
-                        "workflow_name": workflow['name'],
-                        "workflow_run_url": workflow['run_url'],
+                        "name": workflow['name'],
+                        "run_url": workflow['run_url'],
                         "run_id": runId,
                         "check_suite_id": checkSuiteId,
                         "artifacts": artifacts

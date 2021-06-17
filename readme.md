@@ -15,3 +15,5 @@ https://stackoverflow.com/questions/62750603/github-actions-trigger-another-acti
 Table headers: Artifact | Worflow
 
 Publish it as npm package and also publish it as workflow action.
+
+You need to a npm package CLI.

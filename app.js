@@ -36,7 +36,7 @@ export const app = async function(inputFilePath, repo, branch, githubApiToken) {
     const markdownPath = path.join(inputFilePath)
     markdownMagic(markdownPath, config)
     const message = `Added artifacts for the ${workflowArtifacts.length} workflows`
-    console.log(message)
+    return message
 }
 
 

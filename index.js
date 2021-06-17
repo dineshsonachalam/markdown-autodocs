@@ -1,8 +1,6 @@
-// import path from 'path'
-// import markdownMagic from 'markdown-magic'
-// import {markdownTable} from 'markdown-table'
-
-import path from 'path';
+import path from 'path'
+import markdownMagic from 'markdown-magic'
+import {markdownTable} from 'markdown-table'
 import githubApi from './githubApi.js'
 
 

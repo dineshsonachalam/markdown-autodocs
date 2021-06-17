@@ -35,6 +35,6 @@ export const getYamlConfigValue = async function(url, headers, filter) {
     }
     const response = await fetch(url, requestOptions)
     const textResponse = await response.text()
-    const yaml_doc = YAML.parse(textResponse);
-    return yaml_doc[filter]
+    const yamlDoc = YAML.parse(textResponse);
+    return yamlDoc[filter]
 }

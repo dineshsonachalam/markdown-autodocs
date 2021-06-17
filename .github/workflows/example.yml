@@ -14,5 +14,5 @@ jobs:
 
         - name: Test
           run: |
-            echo {{ github.ref }}
-            echo {{ github.repository }}
+            echo ${{ github.ref }}
+            echo ${{ github.repository }}

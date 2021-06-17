@@ -95,16 +95,18 @@ export default class githubApi {
     /**
      * Get workflow artifacts
      * @param {Array} workflowIds 
-     * @returns {Array} workflowArtifacts
+     * @returns {Object} workflowArtifacts, totalArtifacts
      */
     async getWorkflowArtifacts(workflowIds){
         let workflowArtifacts = []
+        let totalArtifacts = 0
         for(var i = 0; i < workflowIds.length; i++) {
             let workflow = workflowIds[i];
             let runId = workflow['run_id']
             let checkSuiteId = workflow['check_suite_id']
             let artifacts = await this.getArtifactsDownloadUrl(runId, checkSuiteId)
             if(artifacts.length>0){
+                totalArtifacts = totalArtifacts + artifacts.length
                 workflowArtifacts.push(
                     {
                         "name": workflow['name'],
@@ -116,6 +118,9 @@ export default class githubApi {
                 )
             }
         }
-        return workflowArtifacts  
+        return {
+            "workflowArtifacts" : workflowArtifacts,
+            "totalArtifacts" : totalArtifacts 
+        }
     }
 }

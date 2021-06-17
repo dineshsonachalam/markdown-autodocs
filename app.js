@@ -26,16 +26,16 @@ export const app = async function(inputFilePath, repo, branch, githubApiToken) {
     const github = new githubApi(repo, branch, githubApiToken)
     const workflowNames = await github.getWorkflowNames()
     const workflowIds   = await github.getWorkflowIds(workflowNames)
-    const workflowArtifacts = await github.getWorkflowArtifacts(workflowIds)
+    const workflowInfo = await github.getWorkflowArtifacts(workflowIds)
     const config = {
-        workflows: workflowArtifacts,
+        workflows: workflowInfo.workflowArtifacts,
         transforms: {
           artifactsTable: generateArtifactsTable,
         },
     };
     const markdownPath = path.join(inputFilePath)
     markdownMagic(markdownPath, config)
-    const message = `Added artifacts for the ${workflowArtifacts.length} workflows`
+    const message = `Added ${workflowInfo.totalArtifacts} artifacts`
     return message
 }
 

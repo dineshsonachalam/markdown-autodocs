@@ -17,3 +17,7 @@ Table headers: Artifact | Worflow
 Publish it as npm package and also publish it as workflow action.
 
 You need to a npm package CLI.
+
+Also publish it as a github package.
+
+https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry

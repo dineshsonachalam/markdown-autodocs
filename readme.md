@@ -24,3 +24,5 @@ https://docs.github.com/en/packages/working-with-a-github-packages-registry/work
 1. Clone the repository and then navigate to it.
 2. Run ```npm install``` to install the dependencies.
 3. Run ```npm install -g .``` to install the CLI. <br>
+
+npm publish --access public

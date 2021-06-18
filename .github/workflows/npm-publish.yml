@@ -35,3 +35,9 @@ jobs:
           with:
             commit_message: Apply automatic changes
             branch: ${{ github.head_ref }}
+        
+        - name: Publish NPM package
+          run: |
+            npm publish --access public
+          env:
+              NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}

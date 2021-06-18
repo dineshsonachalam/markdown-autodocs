@@ -29,7 +29,9 @@ jobs:
         
         - name: Bump a package version
           run: |
+            cat package.json | grep -i "version"
             npm version patch  
+            cat package.json | grep -i "version"
           env:
               NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
         

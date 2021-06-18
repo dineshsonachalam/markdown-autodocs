@@ -34,13 +34,9 @@ jobs:
         # Reference: https://github.com/actions/checkout#push-a-commit-using-the-built-in-token
         - name: Commit files
           run: |
-            git config --local user.email "$(git log --format='%ae' HEAD^!)"
-            git config --local user.name "$(git log --format='%an' HEAD^!)"
-            git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
-            git pull github ${GITHUB_REF} --ff-only
+            touch .artifacts.json
+            git config user.name github-actions
+            git config user.email github-actions@github.com
             git add .
-            if [ -z "$(git status --porcelain)" ]; then
-              exit 0
-            fi
-            git commit -m "Bump package version"
-            git push github HEAD:${GITHUB_REF}
+            git commit -m "generated"
+            git push

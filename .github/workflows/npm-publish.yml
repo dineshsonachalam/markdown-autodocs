@@ -24,7 +24,7 @@ jobs:
           run: |
             git config user.email "dineshsonachalam@gmail.com"
             git config user.name "Dinesh Sonachalam"
-            cat package.json
+            git branch -u origin/master
         
         - name: Bump a package version
           run: |

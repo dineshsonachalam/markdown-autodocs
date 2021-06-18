@@ -31,12 +31,16 @@ jobs:
         - name: Bump a package version
           run: |
             npm version patch  
-            cat package.json
-            git status
           env:
               NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
 
-        - uses: stefanzweifel/git-auto-commit-action@v4
+        - name: Commit files
+          run: |
+            git add package.json readme.md
+            git commit -m "Add changes" package.json readme.md
+        
+        - name: Push changes
+          uses: ad-m/github-push-action@master
           with:
-            commit_message: Apply automatic changes
-            file_pattern: readme.md package.json
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            branch: ${{ github.ref }}

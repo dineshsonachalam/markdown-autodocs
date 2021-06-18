@@ -28,13 +28,9 @@ jobs:
         - name: Bump a package version
           run: |
             npm version patch  
-            date > artifacts.txt
           env:
               NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
         
-        # Reference: https://github.com/actions/checkout#push-a-commit-using-the-built-in-token
         - uses: stefanzweifel/git-auto-commit-action@v4
           with:
-            # Optional, but recommended
-            # Defaults to "Apply automatic changes"
-            commit_message: Automated Change
+            commit_message: Apply automatic changes

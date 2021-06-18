@@ -12,7 +12,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
-        
+      
         # Setup .npmrc file to publish to npm
         - uses: actions/setup-node@v1.4.4
           with:
@@ -22,20 +22,18 @@ jobs:
         
         - name: Configure Git
           run: |
-            git config user.email "dineshsonachalam@gmail.com"
-            git config user.name "Dinesh Sonachalam"
+            git config user.name github-actions
+            git config user.email github-actions@github.com
         
         - name: Bump a package version
           run: |
             npm version patch  
           env:
               NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
-
+        
+        # Reference: https://github.com/actions/checkout#push-a-commit-using-the-built-in-token
         - name: Commit files
           run: |
-            date > generated.txt
-            git config user.name github-actions
-            git config user.email github-actions@github.com
-            git add .
-            git commit -m "generated"
+            git add package.json
+            git commit -m "generated" package.json
             git push

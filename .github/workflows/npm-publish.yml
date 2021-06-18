@@ -12,6 +12,10 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
+        
+        - name: Add npm credentials
+          run: npm set //https://registry.npmjs.org/:_authToken ${{ secrets.NPM_ACCESS_TOKEN }}
+
         - name: Bump a package version
           run:  npm version patch
         

@@ -12,6 +12,8 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
+          with:
+            ref: ${{ github.head_ref }}
         
         # Setup .npmrc file to publish to npm
         - uses: actions/setup-node@v1.4.4
@@ -24,7 +26,6 @@ jobs:
           run: |
             git config user.email "dineshsonachalam@gmail.com"
             git config user.name "Dinesh Sonachalam"
-            git branch -u origin/master
         
         - name: Bump a package version
           run: |

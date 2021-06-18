@@ -25,16 +25,11 @@ jobs:
             git config user.name dineshsonachalam
             git config user.email dineshsonachalam@gmail.com
         
-        - name: Bump a package version
-          run: |
-            cat package.json | grep -i "version"
-            npm version patch  
-            cat package.json | grep -i "version"
-          env:
-              NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
-        
+        - run: npm version patch  
         - uses: stefanzweifel/git-auto-commit-action@v4
           with:
             commit_message: Apply automatic changes
             branch: ${{ github.head_ref }}
+          env:
+              NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
 

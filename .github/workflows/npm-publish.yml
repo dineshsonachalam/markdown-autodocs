@@ -24,8 +24,9 @@ jobs:
           run: |
             git config user.name dineshsonachalam
             git config user.email dineshsonachalam@gmail.com
+
         
-        - run: npm version patch  
+        - run: npm i
         - uses: stefanzweifel/git-auto-commit-action@v4
           with:
             commit_message: Apply automatic changes

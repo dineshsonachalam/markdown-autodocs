@@ -1,0 +1,22 @@
+name: Integration-Test
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - latest
+
+jobs:
+  publish-package-to-npm:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Bump a package version
+          run:  npm version patch
+        
+        - uses: stefanzweifel/git-auto-commit-action@v4
+          with:
+            commit_message: Apply automatic changes
+            file_pattern: *.json *.md
+          

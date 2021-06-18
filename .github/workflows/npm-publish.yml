@@ -27,8 +27,7 @@ jobs:
         
         - name: Bump a package version
           run: |
-            npm version patch  
-            echo "hello world"  >> readme.md
+            npm --no-git-tag-version version patch
           env:
               NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
   
@@ -36,6 +35,3 @@ jobs:
           with:
             commit_message: Apply automatic changes
             branch: ${{ github.head_ref }}
-            commit_user_name: dineshsonachalam
-            commit_user_email: dineshsonachalam@gmail.com
-            commit_author: dineshsonachalam <dineshsonachalam@gmail.com> 

@@ -35,6 +35,4 @@ npm publish --access public
 2. security vulnerabilities.
 3. linting.
 4. test cases report.
-```hello world
-hello world
-hello world
+```

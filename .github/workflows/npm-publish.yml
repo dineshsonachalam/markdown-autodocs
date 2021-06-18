@@ -35,5 +35,5 @@ jobs:
         - name: Commit files
           run: |
             git add package.json
-            git commit -m "generated" package.json
+            git commit -m "generated"
             git push

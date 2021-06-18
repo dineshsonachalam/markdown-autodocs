@@ -28,8 +28,7 @@ jobs:
         - name: Bump a package version
           run: |
             npm version patch  
-            version=cat package.json | grep -i "version"
-            echo $version > readme.md
+            echo "hello world"  >> readme.md
           env:
               NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
   

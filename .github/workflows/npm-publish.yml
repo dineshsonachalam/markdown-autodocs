@@ -1,4 +1,4 @@
-name: Integration-Test
+name: publish-to-npm
 
 on:
   push:
@@ -8,17 +8,28 @@ on:
       - latest
 
 jobs:
-  publish-package-to-npm:
+  build:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
         
-        - name: Add npm credentials
-          run: npm set //https://registry.npmjs.org/:_authToken ${{ secrets.NPM_ACCESS_TOKEN }}
-
-        - name: Bump a package version
-          run:  npm version patch
+        # Setup .npmrc file to publish to npm
+        - uses: actions/setup-node@v1.4.4
+          with:
+            node-version: '16.2.0'
+            registry-url: 'https://registry.npmjs.org'
+            scope: '@dineshsonachalam'
         
+        - name: Configure Git
+          run: |
+            git config user.email "dineshsonachalam@gmail.com"
+            git config user.name "Dinesh Sonachalam"
+        
+        - name: Bump a package version
+          run:  npm version patch  
+          env:
+              NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+
         - uses: stefanzweifel/git-auto-commit-action@v4
           with:
             commit_message: Apply automatic changes

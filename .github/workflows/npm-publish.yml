@@ -36,7 +36,6 @@ jobs:
 
         - name: Commit files
           run: |
-            git add package.json readme.md
             git commit -m "Add changes" package.json readme.md
         
         - name: Push changes

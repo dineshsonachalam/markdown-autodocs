@@ -32,16 +32,8 @@ jobs:
             npm version patch  
           env:
               NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
-
-        - name: "Run if changes have been detected"
-          if: steps.auto-commit-action.outputs.changes_detected == 'true'
-          run: echo "Changes!"
-
-        - name: "Run if no changes have been detected"
-          if: steps.auto-commit-action.outputs.changes_detected == 'false'
-          run: echo "No Changes!"
         
-        - uses: stefanzweifel/git-auto-commit-action@v4
+        - uses: stefanzweifel/git-auto-commit-action@feature/skip-dirty-check
           with:
             commit_message: Apply automatic changes
 

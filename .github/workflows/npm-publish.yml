@@ -35,8 +35,6 @@ jobs:
         - name: Commit files
           run: |
             touch .artifacts.json
-            git config user.name github-actions
-            git config user.email github-actions@github.com
-            git add .
-            git commit -m "generated"
+            git add package.json
+            git commit -m "generated" package.json
             git push

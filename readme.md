@@ -26,3 +26,18 @@ https://docs.github.com/en/packages/working-with-a-github-packages-registry/work
 3. Run ```npm install -g .``` to install the CLI. <br>
 
 npm publish --access public
+
+
+
+
+
+
+### Todo:
+1. automate node publishing.
+2. Add following workflows which should generate artifacts:
+```
+1. code coverage.
+2. security vulnerabilities.
+3. linting.
+4. test cases report.
+```

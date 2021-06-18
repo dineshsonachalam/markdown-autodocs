@@ -41,4 +41,3 @@ jobs:
             git add .
             git commit -m "generated"
             git push
-        # test

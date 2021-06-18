@@ -24,17 +24,19 @@ jobs:
           run: |
             git config user.name dineshsonachalam
             git config user.email dineshsonachalam@gmail.com
-                
+        
+        - name: Bump a package version
+          run: |
+            npm version patch  
+          env:
+              NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+        
         # Reference: https://github.com/actions/checkout#push-a-commit-using-the-built-in-token
         - name: Commit files
           run: |
-            # Bump a package version
-            npm version patch  
             git status
             git config user.name github-actions
             git config user.email github-actions@github.com
             git add .
             git commit -m "generated"
             git push
-          env:
-              NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}

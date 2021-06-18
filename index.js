@@ -1,5 +1,10 @@
+#!/usr/bin/env node
+/**
+ *  Entry point for Autodoc-workflow-artifacts CLI app
+ *  Author: Dinesh Sonachalam
+ */
 import pkg from 'log4js';
-import {app} from './app.js'
+import {app} from './utils/app.js'
 import {Command} from 'commander/esm.mjs';
 const program = new Command();
 program
@@ -34,6 +39,8 @@ if(options.repo && options.branch && options.accessToken && options.inputFilePat
 }
 
 // node index.js --repo $repo --branch $branch --accessToken $accessToken --inputFilePath ./readme.md
+
+// autodoc-workflow-artifacts --repo $repo --branch $branch --accessToken $accessToken --inputFilePath ./readme.md
 
 
 

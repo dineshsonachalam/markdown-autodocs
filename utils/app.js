@@ -3,7 +3,13 @@ import markdownMagic from 'markdown-magic'
 import Table from 'table-builder'
 import githubApi from './githubApi.js'
 
-
+/**
+ * Module to generate artifacts html table.
+ * @param {String} content 
+ * @param {Object} options 
+ * @param {Object} config 
+ * @returns {String} artifactsTable
+ */
 export const generateArtifactsTable = function(content, options, config) {
     let workflows = config.workflows
     let artifactsTableData = []
@@ -28,6 +34,13 @@ export const generateArtifactsTable = function(content, options, config) {
     return artifactsTable
 }
 
+/**
+ * @param {String} inputFilePath 
+ * @param {String} repo 
+ * @param {String} branch 
+ * @param {String} githubApiToken 
+ * @returns {String} message
+ */
 export const app = async function(inputFilePath, repo, branch, githubApiToken) {
     const github = new githubApi(repo, branch, githubApiToken)
     const workflowNames = await github.getWorkflowNames()

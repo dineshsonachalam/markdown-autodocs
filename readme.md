@@ -17,3 +17,10 @@ You need to a npm package CLI.
 Also publish it as a github package.
 
 https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry
+
+
+## Installation
+
+1. Clone the repository and then navigate to it.
+2. Run ```npm install``` to install the dependencies.
+3. Run ```npm install -g .``` to install the CLI. <br>

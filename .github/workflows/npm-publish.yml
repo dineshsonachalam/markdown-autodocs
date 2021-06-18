@@ -36,5 +36,5 @@ jobs:
         - uses: stefanzweifel/git-auto-commit-action@v4
           with:
             commit_message: Apply automatic changes
-            file_pattern: *.json
+            file_pattern: package.json
 

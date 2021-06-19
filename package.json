@@ -15,8 +15,14 @@
     "index.js",
     "utils/*"
   ],
+  "jest": {
+    "reporters": [
+      "default",
+      "jest-html-reporters"
+    ]
+  },
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text mocha"
+    "test": "jest ./test/*.test.js"
   },
   "type": "module",
   "dependencies": {
@@ -28,8 +34,7 @@
     "yaml": "^1.10.2"
   },
   "devDependencies": {
-    "eslint": "^7.28.0",
-    "mocha": "^9.0.1",
-    "nyc": "^15.1.0"
+    "eslint": "^7.29.0",
+    "jest-html-reporters": "^2.1.6"
   }
 }

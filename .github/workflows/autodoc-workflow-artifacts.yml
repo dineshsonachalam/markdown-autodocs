@@ -1,0 +1,28 @@
+name: autodoc-workflow-artifacts
+
+on:
+  workflow_run:
+    workflows: ["publish-to-npm"]
+    types:
+      - completed
+  push:
+    branches:
+      - master
+    tags:
+      - latest
+
+jobs:        
+  autoupdate-readme:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        
+        - name: Install dependencies
+          run: |
+            sudo npm i -g autodoc-workflow-artifacts
+            echo $GITHUB_REPOSITORY
+            echo $GITHUB_REF
+            echo $${{ secrets.GITHUB_TOKEN }}
+            
+# autodoc-workflow-artifacts --repo $repo --branch $branch --accessToken $accessToken --inputFilePath ./readme.md
+

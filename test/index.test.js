@@ -3,6 +3,7 @@ describe('Validate autodoc-workflow-artifacts CLI', () => {
   beforeEach(() => {
     jest.setTimeout(25000);
   });
+  
   it('Gave all the required arguments to the CLI as an input, it should now return a success message', (done) => {
     exec(
       'node index.js --repo $TEST_REPO --branch $TEST_BRANCH --accessToken $TEST_ACCESSTOKEN --inputFilePath ./readme.md',
@@ -14,6 +15,7 @@ describe('Validate autodoc-workflow-artifacts CLI', () => {
   });
 
   it('Missed required arguments to the CLI as an input, it should now return a failure message', (done) => {
+    jest.setTimeout(15000);
     exec(
       'node index.js --repo $repo --branch $branch --accessToken $accessToken',
       (error, stdout, stderr) => {

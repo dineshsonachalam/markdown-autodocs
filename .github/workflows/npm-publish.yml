@@ -1,10 +1,6 @@
 name: publish-to-npm
 
 on:
-  workflow_run:
-    workflows: ["integration-test", "license-checker", "security-audit"]
-    types:
-      - completed
   push:
     branches:
       - master
@@ -16,13 +12,6 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
-      
-        # Setup .npmrc file to publish to npm
-        - uses: actions/setup-node@v1.4.4
-          with:
-            node-version: '16.2.0'
-            registry-url: 'https://registry.npmjs.org'
-            scope: '@dineshsonachalam'
         
         - name: Configure Git
           run: |
@@ -34,13 +23,83 @@ jobs:
             npm --no-git-tag-version version patch
           env:
               NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
-  
+        
+        - name: Install dependencies
+            sudo npm install -g license-checker npm-audit-html cost-of-modules
+            npm i
+            
         - uses: stefanzweifel/git-auto-commit-action@v4
           with:
             commit_message: Bump package version
             branch: ${{ github.head_ref }}
             file_pattern: package.json
-        
+
+  integration-tests:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Start integration test
+          env: 
+            TEST_REPO: ${{ secrets.TEST_REPO }}
+            TEST_BRANCH: ${{ secrets.TEST_BRANCH }}
+            TEST_ACCESSTOKEN: ${{ secrets.TEST_ACCESSTOKEN }}
+          run: npm test
+
+        - name: Upload Jest integration test report to Artifact
+          uses: actions/upload-artifact@v2
+          with:
+            name: Jest-integration-test-report
+            path: ${{ github.workspace }}/jest_html_reporters.html
+
+  module-dependencies-license-checker:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Get all dependent module licenses
+          run: |
+            license-checker --summary
+            license-checker --csv --out ./module-dependencies-license-report.csv
+
+        - name: Upload module-dependencies license report to Artifact
+          uses: actions/upload-artifact@v2
+          with:
+            name: module-dependencies-license-report
+            path: ${{ github.workspace }}/module-dependencies-license-report.csv
+
+  scan-for-vulnerabilities:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Scan for vulnerabilities and report them in a html file
+          run:
+            npm audit --json | npm-audit-html --output vulnerabilities-audit-report.html
+
+        - name: Upload vulnerabilities report to Artifact
+          uses: actions/upload-artifact@v2
+          with:
+            name: vulnerabilities-audit-report
+            path: ${{ github.workspace }}/vulnerabilities-audit-report.html
+
+  size-of-dependencies-stats:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Get size of dependencies
+          run: |
+            npm i
+            cost-of-modules | tee size-of-dependencies.log
+
+        - name: Upload size of dependencies stats to Artifact
+          uses: actions/upload-artifact@v2
+          with:
+            name: size-of-dependencies
+            path: ${{ github.workspace }}/size-of-dependencies.log
+  
+  deploy:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+
         - uses: JS-DevTools/npm-publish@v1
           with:
             token:  ${{ secrets.NPM_ACCESS_TOKEN }}

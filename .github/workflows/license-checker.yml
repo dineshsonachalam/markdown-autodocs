@@ -16,8 +16,8 @@ jobs:
           run: |
             sudo npm install -g license-checker
             cd ${{ github.workspace }}
-            cat package.json
-            license-checker --summary
+            ls
+            license-checker --start ./ --summary
             license-checker --csv --out ./module-dependencies-license-report.csv
 
         - name: Upload module-dependencies license report to Artifact
@@ -27,3 +27,8 @@ jobs:
             path: ${{ github.workspace }}/module-dependencies-license-report.csv
 
 
+
+
+
+
+            

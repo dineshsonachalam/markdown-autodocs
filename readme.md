@@ -68,4 +68,5 @@ npx license-checker --csv --out ./report.csv
 
 
 
-
+npm install -g npm-audit-html
+npm audit --json | npm-audit-html --output report.html 

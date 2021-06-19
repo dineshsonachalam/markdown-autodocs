@@ -17,10 +17,10 @@ inputs:
 runs:
   using: composite
   steps:
-    - run: |
-        sudo npm i -g autodoc-workflow-artifacts
-        autodoc-workflow-artifacts --repo ${{ GITHUB_REPOSITORY }} --branch ${{ inputs.branch }} --inputFilePath ${{ inputs.input_file_path }} --accessToken ${{ secrets.GITHUB_TOKEN }} 
+    - run: sudo npm i -g autodoc-workflow-artifacts
       shell: bash
+    - run: autodoc-workflow-artifacts --repo ${{ GITHUB_REPOSITORY }} --branch ${{ inputs.branch }} --inputFilePath ${{ inputs.input_file_path }} --accessToken ${{ secrets.GITHUB_TOKEN }} 
+      shell: bash  
 
 branding:
   icon: 'package'

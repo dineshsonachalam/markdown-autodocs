@@ -25,6 +25,6 @@ jobs:
           uses: actions/upload-artifact@v2
           with:
             name: Jest-integration-test-report
-            path: /home/runner/work/Autodoc-workflow-artifacts/Autodoc-workflow-artifacts/jest_html_reporters.html
+            path: ${{ github.workspace }}/jest_html_reporters.html
 
 

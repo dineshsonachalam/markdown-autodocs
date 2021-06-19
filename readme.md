@@ -56,3 +56,16 @@ instead of text. Now it will produce a report inside ./coverage/index.html.
 https://istanbul.js.org/docs/tutorials/mocha/
 
 # tests
+
+
+npm i -g nodejs-health-checker
+
+npm i -g .
+
+npx license-checker --csv --out ./report.csv
+
+
+
+npx license-checker --csv --out ./module-dependencies-license-report.csv
+
+

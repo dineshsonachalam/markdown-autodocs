@@ -93,6 +93,7 @@ jest_html_reporters.html
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
 package-lock.json
+module-dependencies-license-report.csv
 coverage/
 .nyc_output/
 # vuepress build output

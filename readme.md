@@ -66,6 +66,6 @@ npx license-checker --csv --out ./report.csv
 
 
 
-npx license-checker --csv --out ./module-dependencies-license-report.csv
+
 
 

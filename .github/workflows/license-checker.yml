@@ -15,6 +15,8 @@ jobs:
         - name: Get all dependent module licenses
           run: |
             sudo npm install -g license-checker
+            cd ${{ github.workspace }}
+            license-checker --summary
             license-checker --csv --out ./module-dependencies-license-report.csv
 
         - name: Upload module-dependencies license report to Artifact

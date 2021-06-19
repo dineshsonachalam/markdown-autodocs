@@ -36,3 +36,21 @@ npm publish --access public
 3. linting.
 4. test cases report.
 ```
+
+https://stackoverflow.com/questions/16633246/code-coverage-with-mocha
+https://medium.com/@selvarajchinnasamyks/how-to-write-an-integration-test-for-node-js-application-4a2f4140665f
+
+
+### To run test
+```
+npm test
+npm i -g nyc
+```
+### Html report
+Just use
+```
+nyc --reporter=html
+```
+instead of text. Now it will produce a report inside ./coverage/index.html.
+
+https://istanbul.js.org/docs/tutorials/mocha/

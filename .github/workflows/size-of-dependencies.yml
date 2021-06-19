@@ -1,0 +1,32 @@
+name: size-of-dependencies
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - latest
+
+jobs:
+  size-of-dependencies-stats:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Get size of dependencies
+          run: |
+            npm install -g cost-of-modules
+            npm i
+            cost-of-modules | tee size-of-dependencies.log
+
+        - name: Upload size of dependencies stats to Artifact
+          uses: actions/upload-artifact@v2
+          with:
+            name: size-of-dependencies
+            path: ${{ github.workspace }}/size-of-dependencies.log
+
+
+
+
+
+
+            

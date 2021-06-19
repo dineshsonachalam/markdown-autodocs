@@ -5,9 +5,9 @@ author: Dinesh Sonachalam <dineshsonachalam@gmail.com>
 
 inputs:
   branch:
-    description: Git branch name, where changes should be pushed too. Required if Action is used on the `pull_request` event
+    description: Git branch name, where changes should be pushed too.
     required: false
-    default: ${{ github.head_ref }}
+    default: ${{ github.ref }}
 
   input_file_path:
     description: Local file path to the README.md. Defaults to the current directory (`./README.md`)

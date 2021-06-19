@@ -14,8 +14,8 @@ jobs:
         - uses: actions/checkout@v2
         - name: Get all dependent module licenses
           run: |
-          npm install -g license-checker
-          license-checker --csv --out ./module-dependencies-license-report.csv
+            npm install -g license-checker
+            license-checker --csv --out ./module-dependencies-license-report.csv
 
         - name: Upload module-dependencies license report to Artifact
           uses: actions/upload-artifact@v2

@@ -38,9 +38,3 @@ if(options.repo && options.branch && options.accessToken && options.inputFilePat
   logger.info("This CLI requires repo, branch, accessToken, inputFilePath arguments")
 }
 
-// node index.js --repo $repo --branch $branch --accessToken $accessToken --inputFilePath ./readme.md
-
-// autodoc-workflow-artifacts --repo $repo --branch $branch --accessToken $accessToken --inputFilePath ./readme.md
-
-
-

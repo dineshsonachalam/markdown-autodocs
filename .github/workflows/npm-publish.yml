@@ -1,6 +1,10 @@
 name: publish-to-npm
 
 on:
+  workflow_run:
+    workflows: ["integration-test", "license-checker", "security-audit", "size-of-dependencies"]
+    types:
+      - completed
   push:
     branches:
       - master

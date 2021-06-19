@@ -1,0 +1,27 @@
+name: Audodoc workflow artifacts
+description: 'Auto documenting workflow artifacts table in README.md.'
+
+author: Dinesh Sonachalam <dineshsonachalam@gmail.com>
+
+inputs:
+  branch:
+    description: Git branch name, where changes should be pushed too. Required if Action is used on the `pull_request` event
+    required: false
+    default: ${{ github.head_ref }}
+
+  input_file_path:
+    description: Local file path to the README.md. Defaults to the current directory (`./README.md`)
+    required: false
+    default: './README.md'
+
+runs:
+  using: composite
+  steps:
+    - run: |
+        sudo npm i -g autodoc-workflow-artifacts
+        autodoc-workflow-artifacts --repo ${{ GITHUB_REPOSITORY }} --branch ${{ inputs.branch }} --inputFilePath ${{ inputs.input_file_path }} --accessToken ${{ secrets.GITHUB_TOKEN }} 
+      shell: bash
+
+branding:
+  icon: 'package'
+  color: green

@@ -13,10 +13,8 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         
-        - name: Install dependencies
-          run: |
-            sudo npm i -g autodoc-workflow-artifacts
-            autodoc-workflow-artifacts --repo $GITHUB_REPOSITORY --branch $GITHUB_REF --accessToken ${{ secrets.GITHUB_TOKEN }} --inputFilePath ./readme.md
+        - name: Autodoc workflow artifacts
+        - uses: ./
 
         - uses: stefanzweifel/git-auto-commit-action@v4
           with:

@@ -58,7 +58,9 @@ jobs:
         - uses: actions/checkout@v2
         
         - name: Install dependencies
-          run: npm i
+          run: |
+            npm i
+            sudo npm install -g npm-audit-html
         
         - name: Scan for vulnerabilities and report them in a html file
           run: npm audit --json | npm-audit-html --output vulnerabilities-audit-report.html

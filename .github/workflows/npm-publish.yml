@@ -12,27 +12,16 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
-        
+    
         - name: Configure Git
           run: |
             git config user.name dineshsonachalam
             git config user.email dineshsonachalam@gmail.com
         
-        - name: Bump a package version
-          run: |
-            npm --no-git-tag-version version patch
-          env:
-              NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
-        
         - name: Install dependencies
+          run: |
             sudo npm install -g license-checker npm-audit-html cost-of-modules
             npm i
-            
-        - uses: stefanzweifel/git-auto-commit-action@v4
-          with:
-            commit_message: Bump package version
-            branch: ${{ github.head_ref }}
-            file_pattern: package.json
 
   integration-tests:
       runs-on: ubuntu-latest
@@ -71,8 +60,7 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         - name: Scan for vulnerabilities and report them in a html file
-          run:
-            npm audit --json | npm-audit-html --output vulnerabilities-audit-report.html
+          run: npm audit --json | npm-audit-html --output vulnerabilities-audit-report.html
 
         - name: Upload vulnerabilities report to Artifact
           uses: actions/upload-artifact@v2
@@ -85,9 +73,7 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         - name: Get size of dependencies
-          run: |
-            npm i
-            cost-of-modules | tee size-of-dependencies.log
+          run: cost-of-modules | tee size-of-dependencies.log
 
         - name: Upload size of dependencies stats to Artifact
           uses: actions/upload-artifact@v2
@@ -99,6 +85,17 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
+        
+        - name: Bump a package version
+          run: npm --no-git-tag-version version patch
+          env:
+              NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+        
+        - uses: stefanzweifel/git-auto-commit-action@v4
+          with:
+            commit_message: Bump package version
+            branch: ${{ github.head_ref }}
+            file_pattern: package.json
 
         - uses: JS-DevTools/npm-publish@v1
           with:

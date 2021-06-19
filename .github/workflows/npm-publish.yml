@@ -37,12 +37,6 @@ jobs:
             branch: ${{ github.head_ref }}
             file_pattern: package.json
         
-        - name: Publish NPM package
-          run: |
-            npm publish --access public
-          env:
-              NODE_AUTH_TOKEN:
-
         - uses: JS-DevTools/npm-publish@v1
           with:
             token:  ${{ secrets.NPM_ACCESS_TOKEN }}

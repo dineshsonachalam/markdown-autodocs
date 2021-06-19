@@ -1,6 +1,10 @@
 name: publish-to-npm
 
 on:
+  workflow_run:
+    workflows: ["integration-test"]
+    types:
+      - completed
   push:
     branches:
       - master
@@ -9,8 +13,6 @@ on:
 
 jobs:
   build:
-    # Requires dependent jobs to be successful
-    needs: ["integration-test", "license-checker", "security-audit", "size-of-dependencies"]
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2

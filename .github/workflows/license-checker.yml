@@ -16,6 +16,7 @@ jobs:
           run: |
             sudo npm install -g license-checker
             cd ${{ github.workspace }}
+            cat package.json
             license-checker --summary
             license-checker --csv --out ./module-dependencies-license-report.csv
 

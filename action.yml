@@ -19,14 +19,6 @@ runs:
   steps:
     - run: sudo npm i -g autodoc-workflow-artifacts
       shell: bash
-    - run: echo ${{ github.repository }}
-      shell: bash
-    - run: echo ${{ inputs.branch }}
-      shell: bash
-    - run: echo ${{ github.token }}
-      shell: bash
-    - run: echo ${{ inputs.input_file_path }}
-      shell: bash
     - run: autodoc-workflow-artifacts --repo ${{ github.repository }} --branch ${{ inputs.branch }}  --accessToken ${{ github.token }} --inputFilePath ${{ inputs.input_file_path }}
       shell: bash  
 

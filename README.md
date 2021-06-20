@@ -1,4 +1,4 @@
-<a href="https://github.com/marketplace/actions/audodoc-workflow-artifacts"><img src="https://i.imgur.com/Kod5IUj.png"/></a>
+<a href="https://github.com/marketplace/actions/audodoc-workflow-artifacts"><img src="https://i.imgur.com/ZAC4qPa.png"/></a>
 <p align="center">
     <a href="https://github.com/dineshsonachalam/Autodoc-workflow-artifacts/actions/workflows/npm-publish.yml">
         <img src="https://github.com/dineshsonachalam/Autodoc-workflow-artifacts/actions/workflows/npm-publish.yml/badge.svg"/>

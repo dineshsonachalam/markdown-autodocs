@@ -88,3 +88,43 @@ jobs:
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/) © [dineshsonachalam](https://www.github.com/dineshsonachalam)
+
+
+## Example (Code block):
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=./examples/autodoc-workflow-artifacts.yml) -->
+<!-- The below code snippet is automatically added from ./examples/autodoc-workflow-artifacts.yml -->
+```yml
+name: autodoc-workflow-artifacts
+
+on:
+  workflow_run:
+    workflows:
+      - publish-to-npm
+    types:
+      - completed
+
+jobs:        
+  autoupdate-readme:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+
+        - uses: ./
+
+        - uses: stefanzweifel/git-auto-commit-action@v4
+          with:
+            commit_message: Autodoc workflow artifacts
+            branch: ${{ github.head_ref }}
+            file_pattern: README.md
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```
+dineshsonachalam@macbook markdown-autodocs % node index.js -c code-block  -i ./README.md
+✔ README.md Updated
+ Transforms run
+  ⁕ CODE:src=./examples/autodoc-workflow-artifacts.yml
+
+[2021-06-20T19:39:07.225] [INFO] default - Autodocumented code-block in ./README.md
+dineshsonachalam@macbook markdown-autodocs %
+```

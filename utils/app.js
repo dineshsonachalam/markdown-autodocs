@@ -35,17 +35,19 @@ export const generateArtifactsTable = function(content, options, config) {
 }
 
 /**
- * @param {String} inputFilePath 
+ * @param {String} outputFilePath 
  * @param {String} repo 
  * @param {String} branch 
  * @param {String} githubApiToken 
  * @returns {String} message
  */
-export const app = async function(category, inputFilePath, repo="", branch="", githubApiToken="") {
+export const app = async function(category, outputFilePath, repo="", branch="", githubApiToken="") {
+    const markdownPath = path.join(outputFilePath)
     if(category == "code-block"){
-        return "code-block"
+        markdownMagic(markdownPath)
+        return `Autodocumented code-block in ${outputFilePath}`
     }else if(category == "json-to-html-table"){
-        return "json-to-html-table"
+        return `Converted JSON to HTML table. Then autodocumented HTML table in ${outputFilePath}`
     }else if(category == "workflow-artifacts-table"){
         const github = new githubApi(repo, branch, githubApiToken)
         const workflowNames = await github.getWorkflowNames()
@@ -57,9 +59,8 @@ export const app = async function(category, inputFilePath, repo="", branch="", g
               artifactsTable: generateArtifactsTable,
             },
         };
-        const markdownPath = path.join(inputFilePath)
         markdownMagic(markdownPath, config)
-        const message = `Added ${workflowInfo.totalArtifacts} artifacts`
+        const message = `Autodocumented ${workflowInfo.totalArtifacts} artifacts in artifactsTable - ${outputFilePath}`
         return message
     }
 }

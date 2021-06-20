@@ -8,7 +8,7 @@ import {app} from './utils/app.js'
 import {Command} from 'commander/esm.mjs';
 const program = new Command();
 program
-  .option('-i, --inputFilePath <type>', 'Input file path')
+  .option('-i, --outputFilePath <type>', 'Output file path')
   .option('-c, --category <type>', 'code-block, json-to-html-table, workflow-artifacts-table')
   .option('-r, --repo <type>', 'Repo name')
   .option('-b, --branch <type>', 'Branch name')
@@ -20,12 +20,12 @@ const { getLogger } = pkg;
 const logger = getLogger();
 logger.level = "info";
 
-if((options.category == "code-block" || options.category == "json-to-html-table") && options.inputFilePath){
+if((options.category == "code-block" || options.category == "json-to-html-table") && options.outputFilePath){
   let category = options.category
-  let inputFilePath = options.inputFilePath 
-  const message = await app(category, inputFilePath)
+  let outputFilePath = options.outputFilePath 
+  const message = await app(category, outputFilePath)
   logger.info(message) 
-}else if(options.category == "workflow-artifacts-table" && options.inputFilePath && options.repo && options.branch && options.accessToken){
+}else if(options.category == "workflow-artifacts-table" && options.outputFilePath && options.repo && options.branch && options.accessToken){
   let category = options.category
   let repo = options.repo
   let branchInfo  = options.branch
@@ -37,16 +37,16 @@ if((options.category == "code-block" || options.category == "json-to-html-table"
     branch = options.branch
   }
   let accessToken = options.accessToken
-  let inputFilePath = options.inputFilePath  
-  const message = await app(category, inputFilePath, repo, branch, accessToken)
+  let outputFilePath = options.outputFilePath  
+  const message = await app(category, outputFilePath, repo, branch, accessToken)
   logger.info(message)
 } else {
     logger.info("Missed arguments. Please make sure if you missed any arguments.")
     if(options.category == "code-block"){
-      logger.info("This CLI requires inputFilePath argument for code-block category")
+      logger.info("This CLI requires outputFilePath argument for code-block category")
     }else if(options.category == "json-to-html-table"){
-      logger.info("This CLI requires inputFilePath argument for json-to-html-table category")
+      logger.info("This CLI requires outputFilePath argument for json-to-html-table category")
     }else if(options.category == "workflow-artifacts-table"){
-      logger.info("This CLI requires repo, branch, accessToken, inputFilePath arguments for workflow-artifacts-table category")
+      logger.info("This CLI requires repo, branch, accessToken, outputFilePath arguments for workflow-artifacts-table category")
     }
 }

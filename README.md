@@ -35,7 +35,7 @@ Add the following step at the end of your job, after other steps that might add 
 The following is an extended example with all possible options available for this Action.
 
 ```yaml
-- uses: dineshsonachalam/Autodoc-workflow-artifacts@v1
+- uses: dineshsonachalam/Autodoc-workflow-artifacts@v2
   with:
     # Optional branch name where commit should be pushed to.
     # Defaults to the current branch.
@@ -64,7 +64,7 @@ jobs:
       steps:
         - uses: actions/checkout@v2
 
-        - uses: dineshsonachalam/Autodoc-workflow-artifacts@v1
+        - uses: dineshsonachalam/Autodoc-workflow-artifacts@v2
 
         - uses: stefanzweifel/git-auto-commit-action@v4
           with:

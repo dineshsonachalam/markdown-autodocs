@@ -1,5 +1,7 @@
 import fs from "fs";
+import path from 'path'
 import Table from 'table-builder'
+import markdownMagic from 'markdown-magic'
 
 export const generateHtmlTable = function(tableHeaders, tableRow, className) {
     return ((new Table({'class': className}))
@@ -9,7 +11,8 @@ export const generateHtmlTable = function(tableHeaders, tableRow, className) {
     )
 }
 
-export const convertJsonToHtmlTable = function(inputFilePath) {
+export const convertJsonToHtmlTable = function(content, options = {}, config) {
+    const inputFilePath = options["src"]
     let tableRow = JSON.parse(fs.readFileSync(inputFilePath))
     if(Object.keys(tableRow).length>0){
         let tableHeaderData = Object.keys(tableRow[0])
@@ -17,14 +20,22 @@ export const convertJsonToHtmlTable = function(inputFilePath) {
         tableHeaderData.forEach((header) => {
             tableHeaders[header]=header
         })
-        return generateHtmlTable(tableHeaders, tableRow, "JSON-TO-HTML-TABLE")
+        console.log("tableHeaders: ", tableHeaders)
+        console.log("tableRow: ", tableRow)
+        const htmlTable = generateHtmlTable(tableHeaders, tableRow, "JSON-TO-HTML-TABLE")
+        console.log("HTML Table: ", htmlTable)
+        return htmlTable
     }else {
         return ""
     }
+
 }
 
-let inputFilePath='./app.json'
-
-let result = convertJsonToHtmlTable(inputFilePath)
-console.log(result)
-
+const outputFilePath='./README.md'
+const markdownPath = path.join(outputFilePath)
+const config = {
+    transforms: {
+      JSON_TO_HTML_TABLE: convertJsonToHtmlTable,
+    },
+};
+markdownMagic(markdownPath, config)

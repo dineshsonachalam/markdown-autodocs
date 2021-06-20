@@ -131,3 +131,15 @@ dineshsonachalam@macbook markdown-autodocs %
 
 ### Todo:
 1. Integrate git autocommit in markdown-autodocs:
+
+
+<!-- AUTO-GENERATED-CONTENT:START (JSON_TO_HTML_TABLE:src=./app1.json) -->
+<table class="JSON-TO-HTML-TABLE"><thead><tr><th class="name-th">name</th><th class="age-th">age</th><th class="link-th">link</th></tr></thead><tbody ><tr ><td class="name-td td_text">Larry Wall</td><td class="age-td td_num">57</td><td class="link-td td_text"><a href='http://www.wall.org/~larry/'>www.wall.org/~larry/</a></td></tr>
+<tr ><td class="name-td td_text">Bill Gates</td><td class="age-td td_num">56</td><td class="link-td td_text"><a href='http://www.microsoft.com'>www.microsoft.com</a></td></tr>
+<tr ><td class="name-td td_text">Daffy Duck</td><td class="age-td td_num">75</td><td class="link-td td_num"></td></tr></tbody></table>
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+<!-- AUTO-GENERATED-CONTENT:START (JSON_TO_HTML_TABLE:src=./app2.json) -->
+<table class="JSON-TO-HTML-TABLE"><thead><tr><th class="name-th">name</th><th class="age-th">age</th><th class="link-th">link</th></tr></thead><tbody ><tr ><td class="name-td td_text">Dinesh Sonachalam</td><td class="age-td td_num">57</td><td class="link-td td_text"><a href='http://www.wall.org/~larry/'>www.wall.org/~larry/</a></td></tr>
+<tr ><td class="name-td td_text">Niranjan Sonachalam</td><td class="age-td td_num">56</td><td class="link-td td_text"><a href='http://www.microsoft.com'>www.microsoft.com</a></td></tr></tbody></table>
+<!-- AUTO-GENERATED-CONTENT:END -->

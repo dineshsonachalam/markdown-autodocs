@@ -10,7 +10,7 @@ inputs:
     default: ${{ github.ref }}
 
   input_file_path:
-    description: Local file path to the README.md. Defaults to the current directory (`./README.md`)
+    description: Local file path to the README.md. Defaults to the root of the repo (`./README.md`)
     required: false
     default: './README.md'
 

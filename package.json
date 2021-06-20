@@ -1,15 +1,15 @@
 {
-  "name": "autodoc-workflow-artifacts",
+  "name": "markdown-autodocs",
   "version": "1.0.84",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dineshsonachalam/Autodoc-workflow-artifacts"
+    "url": "https://github.com/dineshsonachalam/markdown-autodocs"
   },
   "author": "Dinesh Sonachalam",
   "license": "MIT",
   "main": "index.js",
   "bin": {
-    "autodoc-workflow-artifacts": "index.js"
+    "markdown-autodocs": "index.js"
   },
   "files": [
     "index.js",

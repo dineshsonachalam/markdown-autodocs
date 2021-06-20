@@ -31,7 +31,7 @@ Add the following step at the end of your job, after other steps that might add 
 
 ```yaml
 # Autodoc workflow artifacts in ./README.md
-- uses: dineshsonachalam/Autodoc-workflow-artifacts@v1
+- uses: dineshsonachalam/Autodoc-workflow-artifacts@v2
 
 # To commit the updated ./README.md and  push them back to the GitHub repository
 - uses: stefanzweifel/git-auto-commit-action@v4

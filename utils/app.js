@@ -41,21 +41,27 @@ export const generateArtifactsTable = function(content, options, config) {
  * @param {String} githubApiToken 
  * @returns {String} message
  */
-export const app = async function(inputFilePath, repo, branch, githubApiToken) {
-    const github = new githubApi(repo, branch, githubApiToken)
-    const workflowNames = await github.getWorkflowNames()
-    const workflowIds   = await github.getWorkflowIds(workflowNames)
-    const workflowInfo = await github.getWorkflowArtifacts(workflowIds)
-    const config = {
-        workflows: workflowInfo.workflowArtifacts,
-        transforms: {
-          artifactsTable: generateArtifactsTable,
-        },
-    };
-    const markdownPath = path.join(inputFilePath)
-    markdownMagic(markdownPath, config)
-    const message = `Added ${workflowInfo.totalArtifacts} artifacts`
-    return message
+export const app = async function(category, inputFilePath, repo="", branch="", githubApiToken="") {
+    if(category == "code-block"){
+        return "code-block"
+    }else if(category == "json-to-html-table"){
+        return "json-to-html-table"
+    }else if(category == "workflow-artifacts-table"){
+        const github = new githubApi(repo, branch, githubApiToken)
+        const workflowNames = await github.getWorkflowNames()
+        const workflowIds   = await github.getWorkflowIds(workflowNames)
+        const workflowInfo = await github.getWorkflowArtifacts(workflowIds)
+        const config = {
+            workflows: workflowInfo.workflowArtifacts,
+            transforms: {
+              artifactsTable: generateArtifactsTable,
+            },
+        };
+        const markdownPath = path.join(inputFilePath)
+        markdownMagic(markdownPath, config)
+        const message = `Added ${workflowInfo.totalArtifacts} artifacts`
+        return message
+    }
 }
 
 

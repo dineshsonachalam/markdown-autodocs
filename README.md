@@ -1,5 +1,11 @@
 <a href="https://github.com/marketplace/actions/audodoc-workflow-artifacts"><img src="https://i.imgur.com/Kod5IUj.png"/></a>
 <p align="center">
+    <a href="https://github.com/dineshsonachalam/Autodoc-workflow-artifacts/actions/workflows/npm-publish.yml">
+        <img src="https://github.com/dineshsonachalam/Autodoc-workflow-artifacts/actions/workflows/npm-publish.yml/badge.svg"/>
+    </a>
+    <a href="https://github.com/dineshsonachalam/Autodoc-workflow-artifacts/actions/workflows/autodoc-workflow-artifacts.yml">
+        <img src="https://github.com/dineshsonachalam/Autodoc-workflow-artifacts/actions/workflows/autodoc-workflow-artifacts.yml/badge.svg"/>
+    </a>
     <a href="https://badge.fury.io/js/autodoc-workflow-artifacts">
       <img src="https://badge.fury.io/js/autodoc-workflow-artifacts.svg" alt="npm version" height="18">     
     </a>
@@ -9,6 +15,7 @@
     <a href="https://github.com/dineshsonachalam/Lucid-Dynamodb/blob/master/LICENSE" target="_blank">
         <img src="https://img.shields.io/apm/l/atomic-design-ui.svg" alt="MIT License">
     </a>
+   
 </p>
 
 A GitHub Action for auto documenting workflow artifacts table in README.md.

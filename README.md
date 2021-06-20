@@ -128,3 +128,6 @@ dineshsonachalam@macbook markdown-autodocs % node index.js -c code-block  -i ./R
 [2021-06-20T19:39:07.225] [INFO] default - Autodocumented code-block in ./README.md
 dineshsonachalam@macbook markdown-autodocs %
 ```
+
+### Todo:
+1. Integrate git autocommit in markdown-autodocs:

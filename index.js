@@ -9,7 +9,7 @@ import {Command} from 'commander/esm.mjs';
 const program = new Command();
 program
   .option('-i, --inputFilePath <type>', 'Input file path')
-  .option('-o, --category <type>', 'code-block, json-to-html-table, workflow-artifacts-table')
+  .option('-c, --category <type>', 'code-block, json-to-html-table, workflow-artifacts-table')
   .option('-r, --repo <type>', 'Repo name')
   .option('-b, --branch <type>', 'Branch name')
   .option('-a, --accessToken <type>', 'Github Access token')

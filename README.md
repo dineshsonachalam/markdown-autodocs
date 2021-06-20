@@ -1,8 +1,21 @@
-# Audodoc workflow artifacts
+<a href="https://github.com/marketplace/actions/audodoc-workflow-artifacts"><img src="https://i.imgur.com/BIj2Y2q.png"/></a>
+<p align="center">
+    <a href="https://badge.fury.io/js/autodoc-workflow-artifacts">
+      <img src="https://badge.fury.io/js/autodoc-workflow-artifacts.svg" alt="npm version" height="18">     
+    </a>
+    <a href="https://packagephobia.com/result?p=badge@0.2.1">
+      <img src="https://packagephobia.com/badge?p=badge@0.2.1">
+    </a>
+    <a href="https://github.com/dineshsonachalam/Lucid-Dynamodb/blob/master/LICENSE" target="_blank">
+        <img src="https://img.shields.io/apm/l/atomic-design-ui.svg" alt="MIT License">
+    </a>
+</p>
+
+
 
 The GitHub Action for auto documenting workflow artifacts table in README.md.
 
-<a href="https://nodei.co/npm/autodoc-workflow-artifacts/"><img src="https://nodei.co/npm/autodoc-workflow-artifacts.png"></a>
+
 
 ## Artifacts
 <!-- AUTO-GENERATED-CONTENT:START (artifactsTable) -->

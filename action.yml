@@ -8,22 +8,18 @@ inputs:
     description: Value used for the commit author. Defaults to the username of whoever triggered this workflow run.
     required: false
     default: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-
   commit_user_email:
     description: Email address used for the commit user
     required: false
     default: actions@github.com
-  
   branch:
     description: Git branch name, where changes should be pushed too.
     required: false
     default: ${{ github.ref }}
-
   output_file_path:
     description: Local file path to the README.md. Defaults to the root of the repo (`./README.md`)
     required: false
     default: './README.md'
-  
   commit_message:
     description: Commit message
     required: false

@@ -17,9 +17,9 @@ inputs:
 runs:
   using: composite
   steps:
-    - run: sudo npm i -g autodoc-workflow-artifacts
+    - run: sudo npm i -g markdown-autodocs-test
       shell: bash
-    - run: autodoc-workflow-artifacts --repo ${{ github.repository }} --branch ${{ inputs.branch }}  --accessToken ${{ github.token }} --inputFilePath ${{ inputs.input_file_path }}
+    - run: markdown-autodocs-test --repo ${{ github.repository }} --branch ${{ inputs.branch }}  --accessToken ${{ github.token }} --inputFilePath ${{ inputs.input_file_path }}
       shell: bash  
 
 branding:

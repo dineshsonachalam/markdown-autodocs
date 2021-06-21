@@ -1,4 +1,4 @@
-name: autodoc-workflow-artifacts
+name: markdown-autodocs-test
 
 on:
   workflow_run:

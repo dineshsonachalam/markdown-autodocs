@@ -28,9 +28,9 @@ inputs:
 runs:
   using: composite
   steps:
-    - run: git config user.name ${{ inputs.commit_author }}
+    - run: git config user.name github-actions
       shell: bash
-    - run: git config user.email ${{ inputs.commit_user_email }}
+    - run: git config user.email github-actions@github.com
       shell: bash
     - run: sudo npm i -g markdown-autodocs-test
       shell: bash
@@ -43,7 +43,8 @@ runs:
     - run: git push origin ${{ github.head_ref }}
       shell: bash 
 
-
 branding:
   icon: 'package'
   color: blue
+
+# https://github.com/actions/checkout#push-a-commit-using-the-built-in-token

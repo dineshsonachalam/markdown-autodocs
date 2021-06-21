@@ -13,6 +13,11 @@ inputs:
     description: Local file path to the README.md. Defaults to the root of the repo (`./README.md`)
     required: false
     default: './README.md'
+  
+  commit_message:
+    description: Commit message
+    required: false
+    default: Apply automatic changes
 
 runs:
   using: composite
@@ -21,11 +26,15 @@ runs:
       shell: bash
     - run: markdown-autodocs-test -c workflow-artifact-table -o ${{ inputs.output_file_path }} -r ${{ github.repository }} -b ${{ inputs.branch }}  -a ${{ github.token }} 
       shell: bash  
-    - uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: Autodoc workflow artifacts
-        branch: ${{ github.head_ref }}
-        file_pattern: README.md
+    - run: markdown-autodocs-test -c workflow-artifact-table -o ${{ inputs.output_file_path }} -r ${{ github.repository }} -b ${{ inputs.branch }}  -a ${{ github.token }} 
+      shell: bash  
+    - run: git add ${{ inputs.output_file_path }}
+      shell: bash  
+    - run: git commit -m ${{ inputs.commit_message  }} ${{ inputs.output_file_path }}
+      shell: bash  
+    - run: git push origin ${{ github.head_ref }}
+      shell: bash 
+
 
 branding:
   icon: 'package'

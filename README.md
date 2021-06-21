@@ -170,3 +170,6 @@ accessToken:  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
 
 [2021-06-21T09:22:32.957] [INFO] default - Autodocumented 3 artifacts in artifactsTable - ./README.md
 ```
+
+### Add example repo:
+1. Add example repo and example youtube video.

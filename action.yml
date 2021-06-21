@@ -21,7 +21,12 @@ runs:
       shell: bash
     - run: markdown-autodocs-test -c workflow-artifact-table -o ${{ inputs.output_file_path }} -r ${{ github.repository }} -b ${{ inputs.branch }}  -a ${{ github.token }} 
       shell: bash  
-      
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Autodoc workflow artifacts
+        branch: ${{ github.head_ref }}
+        file_pattern: README.md
+
 branding:
   icon: 'package'
   color: blue

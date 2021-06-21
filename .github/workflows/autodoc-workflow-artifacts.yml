@@ -14,9 +14,3 @@ jobs:
         - uses: actions/checkout@v2
 
         - uses: ./
-
-        - uses: stefanzweifel/git-auto-commit-action@v4
-          with:
-            commit_message: Autodoc workflow artifacts
-            branch: ${{ github.head_ref }}
-            file_pattern: README.md

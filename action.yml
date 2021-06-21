@@ -4,15 +4,15 @@ description: 'Auto documenting workflow artifacts table in README.md.'
 author: Dinesh Sonachalam <dineshsonachalam@gmail.com>
 
 inputs:
-  commit_user_email:
-    description: Email address used for the commit user
-    required: false
-    default: actions@github.com
-  
   commit_author:
     description: Value used for the commit author. Defaults to the username of whoever triggered this workflow run.
     required: false
     default: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+
+  commit_user_email:
+    description: Email address used for the commit user
+    required: false
+    default: actions@github.com
   
   branch:
     description: Git branch name, where changes should be pushed too.
@@ -32,23 +32,20 @@ inputs:
 runs:
   using: composite
   steps:
+    - run: git config user.name ${{ inputs.commit_author }}
+      shell: bash
+    - run: git config user.email ${{ inputs.commit_user_email }}
+      shell: bash
     - run: sudo npm i -g markdown-autodocs-test
       shell: bash
     - run: markdown-autodocs-test -c workflow-artifact-table -o ${{ inputs.output_file_path }} -r ${{ github.repository }} -b ${{ inputs.branch }}  -a ${{ github.token }} 
       shell: bash  
-    - run: git config --global user.email ${{ inputs.commit_user_email }}
-      shell: bash  
-    - run: git config --global user.name ${{ inputs.commit_author }}
-      shell: bash
     - run: git add ${{ inputs.output_file_path }}
       shell: bash  
     - run: git commit -m "${{ inputs.commit_message  }}" ${{ inputs.output_file_path }}
       shell: bash  
     - run: git push origin ${{ github.head_ref }}
       shell: bash 
-
-  
- 
 
 
 branding:

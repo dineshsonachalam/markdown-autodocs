@@ -8,8 +8,8 @@ import {app} from './utils/app.js'
 import {Command} from 'commander/esm.mjs';
 const program = new Command();
 program
-  .option('-i, --outputFilePath <type>', 'Output file path')
-  .option('-c, --category <type>', 'code-block, json-to-html-table, workflow-artifacts-table')
+  .option('-o, --outputFilePath <type>', 'Output file path')
+  .option('-c, --category <type>', 'code-block, json-to-html-table, workflow-artifact-table')
   .option('-r, --repo <type>', 'Repo name')
   .option('-b, --branch <type>', 'Branch name')
   .option('-a, --accessToken <type>', 'Github Access token')
@@ -25,7 +25,7 @@ if((options.category == "code-block" || options.category == "json-to-html-table"
   let outputFilePath = options.outputFilePath 
   const message = await app(category, outputFilePath)
   logger.info(message) 
-}else if(options.category == "workflow-artifacts-table" && options.outputFilePath && options.repo && options.branch && options.accessToken){
+}else if(options.category == "workflow-artifact-table" && options.outputFilePath && options.repo && options.branch && options.accessToken){
   let category = options.category
   let repo = options.repo
   let branchInfo  = options.branch
@@ -38,6 +38,11 @@ if((options.category == "code-block" || options.category == "json-to-html-table"
   }
   let accessToken = options.accessToken
   let outputFilePath = options.outputFilePath  
+  console.log("category: ", category)
+  console.log("outputFilePath: ", outputFilePath)
+  console.log("repo: ",repo)
+  console.log("branch: ",branch)
+  console.log("accessToken: ",accessToken)
   const message = await app(category, outputFilePath, repo, branch, accessToken)
   logger.info(message)
 } else {
@@ -46,7 +51,7 @@ if((options.category == "code-block" || options.category == "json-to-html-table"
       logger.info("This CLI requires outputFilePath argument for code-block category")
     }else if(options.category == "json-to-html-table"){
       logger.info("This CLI requires outputFilePath argument for json-to-html-table category")
-    }else if(options.category == "workflow-artifacts-table"){
-      logger.info("This CLI requires repo, branch, accessToken, outputFilePath arguments for workflow-artifacts-table category")
+    }else if(options.category == "workflow-artifact-table"){
+      logger.info("This CLI requires repo, branch, accessToken, outputFilePath arguments for workflow-artifact-table category")
     }
 }

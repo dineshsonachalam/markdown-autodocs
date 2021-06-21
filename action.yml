@@ -26,8 +26,6 @@ runs:
       shell: bash
     - run: markdown-autodocs-test -c workflow-artifact-table -o ${{ inputs.output_file_path }} -r ${{ github.repository }} -b ${{ inputs.branch }}  -a ${{ github.token }} 
       shell: bash  
-    - run: markdown-autodocs-test -c workflow-artifact-table -o ${{ inputs.output_file_path }} -r ${{ github.repository }} -b ${{ inputs.branch }}  -a ${{ github.token }} 
-      shell: bash  
     - run: git add ${{ inputs.output_file_path }}
       shell: bash  
     - run: git commit -m ${{ inputs.commit_message  }} ${{ inputs.output_file_path }}

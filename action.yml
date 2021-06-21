@@ -9,7 +9,7 @@ inputs:
     required: false
     default: ${{ github.ref }}
 
-  input_file_path:
+  output_file_path:
     description: Local file path to the README.md. Defaults to the root of the repo (`./README.md`)
     required: false
     default: './README.md'
@@ -19,9 +19,9 @@ runs:
   steps:
     - run: sudo npm i -g markdown-autodocs-test
       shell: bash
-    - run: markdown-autodocs-test --repo ${{ github.repository }} --branch ${{ inputs.branch }}  --accessToken ${{ github.token }} --inputFilePath ${{ inputs.input_file_path }}
+    - run: markdown-autodocs-test -c workflow-artifact-table -o ${{ inputs.output_file_path }} -r ${{ github.repository }} -b ${{ inputs.branch }}  -a ${{ github.token }} 
       shell: bash  
-
+      
 branding:
   icon: 'package'
   color: blue

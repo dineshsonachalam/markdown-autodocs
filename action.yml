@@ -28,7 +28,7 @@ runs:
       shell: bash  
     - run: git add ${{ inputs.output_file_path }}
       shell: bash  
-    - run: git commit -m ${{ inputs.commit_message  }} ${{ inputs.output_file_path }}
+    - run: git commit -m "${{ inputs.commit_message  }}" ${{ inputs.output_file_path }}
       shell: bash  
     - run: git push origin ${{ github.head_ref }}
       shell: bash 

@@ -24,10 +24,16 @@ inputs:
     description: Commit message
     required: false
     default: Apply automatic changes
+  test:
+    description: test
+    required: false
+    default: ["dinesh", "niranjan", "rani"]
 
 runs:
   using: composite
   steps:
+    - run: echo '${{ inputs.test  }}'
+      shell: bash
     - run: git config user.name '${{ inputs.commit_author  }}'
       shell: bash
     - run: git config user.email '${{ inputs.commit_user_email  }}'

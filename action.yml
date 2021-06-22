@@ -32,6 +32,8 @@ inputs:
 runs:
   using: composite
   steps:
+    - run: python3 app.py
+      shell: bash
     - run: echo '${{ inputs.test  }}'
       shell: bash
     - run: git config user.name '${{ inputs.commit_author  }}'

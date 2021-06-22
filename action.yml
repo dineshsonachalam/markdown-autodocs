@@ -27,8 +27,8 @@ inputs:
   test:
     description: test
     required: false
-    default: ["dinesh", "niranjan", "rani"]
-
+    default: "readme.md,test.md,hello.md"
+# https://github.community/t/can-docker-action-receive-a-list-as-an-input-argument/18503/2
 runs:
   using: composite
   steps:

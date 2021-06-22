@@ -29,6 +29,7 @@ inputs:
     required: false
     default: "readme.md,test.md,hello.md"
 # https://github.community/t/can-docker-action-receive-a-list-as-an-input-argument/18503/2
+# create a cli - https://realpython.com/python-command-line-arguments/#the-python-standard-library
 runs:
   using: composite
   steps:

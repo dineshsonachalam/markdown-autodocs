@@ -29,7 +29,6 @@ export default class githubApi {
      */
     async getWorkflowNames(){
         const url = `${githubInfo.apiUrl}/${this.repo}/contents/${githubInfo.workflowPath}?ref=${this.branch}`  
-        console.log("URL: ",url)
         const workflows = await get(url, this.headers)
         let workflowNames = []
         for(var i = 0; i < workflows.length; i++) {

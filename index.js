@@ -22,49 +22,21 @@ export const gitCliargs = function() {
   return options
 }
 
-export const main = function() {
+export const main = async function() {
   const logger = getLogger();
   logger.level = "info";
   const options = gitCliargs()
-  console.log(options)
+  const outputFilePaths = options.outputFilePath
+  const categories = options.category
+  const repo = options.repo
+  const branch = options.branch
+  const accessToken = options.accessToken
+  for (const outputFilePath of outputFilePaths){
+    for (const category of categories){
+        const message = await app(outputFilePath, category, repo, branch, accessToken)
+        logger.info(message) 
+    }
+  }
 }
 
-main()
-
-
-
-// if((options.categories == "code-block" || options.categories == "json-to-html-table") && options.outputFilePaths){
-//   let categories = options.categories
-//   let outputFilePaths = options.outputFilePaths 
-//   const message = await app(categories, outputFilePaths)
-//   logger.info(message) 
-// }else if(options.categories == "workflow-artifact-table" && options.outputFilePaths && options.repo && options.branch && options.accessToken){
-//   let categories = options.categories
-//   let repo = options.repo
-//   let branchInfo  = options.branch
-//   let branch = ""
-//   if(branchInfo.includes("refs/heads")){
-//     branchInfo = branchInfo.split("/")
-//     branch = branchInfo[branchInfo.length - 1]
-//   }else{
-//     branch = options.branch
-//   }
-//   let accessToken = options.accessToken
-//   let outputFilePaths = options.outputFilePaths  
-//   console.log("categories: ", categories)
-//   console.log("outputFilePaths: ", outputFilePaths)
-//   console.log("repo: ",repo)
-//   console.log("branch: ",branch)
-//   console.log("accessToken: ",accessToken)
-//   const message = await app(categories, outputFilePaths, repo, branch, accessToken)
-//   logger.info(message)
-// } else {
-//     logger.info("Missed arguments. Please make sure if you missed any arguments.")
-//     if(options.categories == "code-block"){
-//       logger.info("This CLI requires outputFilePaths argument for code-block categories")
-//     }else if(options.categories == "json-to-html-table"){
-//       logger.info("This CLI requires outputFilePaths argument for json-to-html-table categories")
-//     }else if(options.categories == "workflow-artifact-table"){
-//       logger.info("This CLI requires repo, branch, accessToken, outputFilePaths arguments for workflow-artifact-table categories")
-//     }
-// }
+await main()

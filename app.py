@@ -28,7 +28,7 @@ if __name__ == "__main__":
     commit_author = args.commit_author
     commit_user_email = args.commit_user_email
     commit_message = args.commit_message
-    branch = args.branch
+    branch = (args.branch).split("/")[-1]
     output_file_paths = option_processor(args.output_file_paths)
     categories = option_processor(args.categories)
     print("repo: ",repo)
@@ -39,6 +39,8 @@ if __name__ == "__main__":
     print("branch: ", branch)
     print("output_file_paths: ", output_file_paths)
     print("categories: ", categories)
+    ma_cli_command = "node index.js --outputFilePath {} --category {} --repo {} --branch {} --accessToken {}".format(output_file_paths, categories, repo, branch, access_token)
+    os.system(ma_cli_command)
 
 # python3 app.py -repo $repo -access_token $accessToken -commit_author 'dineshsonachalam' -commit_user_email 'dineshsonachalam@gmail.com' -commit_message 'Apply automatic changes' -branch 'master' -output_file_paths '[./README.md]' -categories '[code-block,json-to-html-table,workflow-artifact-table]'    
 # commit_author:  dineshsonachalam

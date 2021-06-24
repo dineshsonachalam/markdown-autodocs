@@ -63,7 +63,7 @@ export const generateArtifactsTable = function(content, options = {}, config) {
  * @param {String} githubApiToken 
  * @returns {String} message
  */
-export const app = async function(category, outputFilePath, repo="", branch="", githubApiToken="") {
+export const app = async function(outputFilePath, category, repo, branch, githubApiToken) {
     const markdownPath = path.join(outputFilePath)
     if(category == "code-block"){
         markdownMagic(markdownPath)

@@ -1,5 +1,5 @@
-name: Audodoc workflow artifacts
-description: 'Auto documenting workflow artifacts table in README.md.'
+name: Markdown autodocs
+description: 'A github action that automatically format markdown files, sync external docs/src code & make better docs.'
 
 author: Dinesh Sonachalam <dineshsonachalam@gmail.com>
 

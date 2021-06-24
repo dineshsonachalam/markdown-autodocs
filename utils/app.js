@@ -4,7 +4,14 @@ import markdownMagic from 'markdown-magic'
 import Table from 'table-builder'
 import githubApi from './githubApi.js'
 
-
+/**
+ * 
+ * Generate HTML table
+ * @param {Object} tableHeaders 
+ * @param {Array} tableRows 
+ * @param {String} className
+ * @returns {Object} htmlTable 
+ */
 export const generateHtmlTable = function(tableHeaders, tableRows, className) {
     return ((new Table({'class': className}))
         .setHeaders(tableHeaders)

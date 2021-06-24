@@ -1,15 +1,15 @@
 {
-  "name": "markdown-autodocs-test",
-  "version": "1.0.20",
+  "name": "markdown-autodocs",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dineshsonachalam/markdown-autodocs-test"
+    "url": "https://github.com/dineshsonachalam/markdown-autodocs"
   },
   "author": "Dinesh Sonachalam",
   "license": "MIT",
   "main": "index.js",
   "bin": {
-    "markdown-autodocs-test": "index.js"
+    "markdown-autodocs": "index.js"
   },
   "files": [
     "index.js",

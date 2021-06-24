@@ -1,5 +1,5 @@
 const { exec } = require('child_process');
-describe('Validate markdown-autodocs-test CLI', () => {
+describe('Validate markdown-autodocs CLI', () => {
   
   beforeEach(() => {
     jest.setTimeout(25000);

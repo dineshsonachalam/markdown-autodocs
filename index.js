@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- *  Entry point for markdown-autodocs-test CLI app
+ *  Entry point for markdown-autodocs CLI app
  *  Author: Dinesh Sonachalam
  */
 

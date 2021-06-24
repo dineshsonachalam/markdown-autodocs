@@ -29,10 +29,10 @@ if __name__ == "__main__":
     branch = (args.branch).split("/")[-1]
     output_file_paths = option_processor(args.output_file_paths)
     categories = option_processor(args.categories)
-    ma_cli_command = "markdown-autodocs-test --outputFilePath {} --category {} --repo {} --branch {} --accessToken {}".format(output_file_paths, categories, repo, branch, access_token)
+    ma_cli_command = "markdown-autodocs --outputFilePath {} --category {} --repo {} --branch {} --accessToken {}".format(output_file_paths, categories, repo, branch, access_token)
     os.system("git config user.name '{}'".format(commit_author))
     os.system("git config user.email '{}'".format(commit_user_email))
-    os.system("sudo npm i -g markdown-autodocs-test")
+    os.system("sudo npm i -g markdown-autodocs")
     os.system(ma_cli_command)
     os.system("git add {}".format(output_file_paths))
     os.system("git commit -m '{}' {}".format(commit_message, output_file_paths))

@@ -79,6 +79,7 @@ export const app = async function(outputFilePath, category, repo, branch, github
     }else if(category == "workflow-artifact-table"){
         const github = new githubApi(repo, branch, githubApiToken)
         const workflowNames = await github.getWorkflowNames()
+        console.log("workflowNames: ", workflowNames)
         const workflowIds   = await github.getWorkflowIds(workflowNames)
         const workflowInfo = await github.getWorkflowArtifacts(workflowIds)
         const config = {

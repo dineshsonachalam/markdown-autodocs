@@ -1,5 +1,0 @@
-[
-    { "name":"Larry Wall", "age":57, "link": "<a href='http://www.wall.org/~larry/'>www.wall.org/~larry/</a>" },
-    { "name":"Bill Gates", "age":56, "link": "<a href='http://www.microsoft.com'>www.microsoft.com</a>" },
-    { "name":"Daffy Duck", "age":75, "link": "" }
-  ]

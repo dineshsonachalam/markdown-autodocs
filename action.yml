@@ -30,8 +30,12 @@ inputs:
     default: '[code-block,json-to-html-table,workflow-artifact-table]'
 
 runs:
-  using: 'node12'
-  main: './.action/index.js'
+  using: composite
+  steps:
+    - run: wget https://gist.githubusercontent.com/dineshsonachalam/2fafcf76db264154ec553fe6a4dcdc11/raw/6d65a960ce65389782f8db3fd140a9503aedb689/action.py
+      shell: bash
+    - run: python3 action.py -repo '${{ github.repository }}' -access_token '${{ github.token }}' -commit_author '${{ inputs.commit_author  }}' -commit_user_email '${{ inputs.commit_user_email  }}' -commit_message '${{ inputs.commit_message  }}' -branch '${{ inputs.branch }}' -output_file_paths '${{ inputs.output_file_paths }}' -categories '${{ inputs.categories }}'
+      shell: bash
 
 branding:
   icon: 'package'

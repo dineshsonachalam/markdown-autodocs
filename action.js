@@ -14,7 +14,7 @@
 //   core.setFailed(error.message);
 // }
 
-const core = require('@actions/core');
+import * as core from '@actions/core';
 
 try {
   const repo = core.getInput('repo');

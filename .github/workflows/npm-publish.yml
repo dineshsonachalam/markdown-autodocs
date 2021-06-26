@@ -91,8 +91,23 @@ jobs:
             name: size-of-dependencies
             path: ${{ github.workspace }}/size-of-dependencies.log
   
-  deploy:
+  update_release_version:
       needs: size-of-dependencies-stats
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Update release version in docs.
+          run: |
+            pip3 install ruamel.yaml
+            python3 update_release_version.py
+            git config user.name dineshsonachalam
+            git config user.email dineshsonachalam@gmail.com
+            git add docs/latest-release.yml docs/markdown-autodocs.yml
+            git commit -m "Updated release version in YAML docs" docs/latest-release.yml docs/markdown-autodocs.yml
+            git push origin '${{ inputs.branch }}'
+
+  deploy:
+      needs: update_release_version
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2

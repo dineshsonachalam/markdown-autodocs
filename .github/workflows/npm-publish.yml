@@ -98,13 +98,13 @@ jobs:
         - uses: actions/checkout@v2
         - name: Update release version in docs.
           run: |
-            pip3 install ruamel.yaml
-            python3 update_release_version.py
+            sudo pip3 install ruamel.yaml
+            sudo python3 update_release_version.py
             git config user.name dineshsonachalam
             git config user.email dineshsonachalam@gmail.com
             git add docs/latest-release.yml docs/markdown-autodocs.yml
             git commit -m "Updated release version in YAML docs" docs/latest-release.yml docs/markdown-autodocs.yml
-            git push origin '${{ inputs.branch }}'
+            git push origin master
 
   deploy:
       needs: update_release_version

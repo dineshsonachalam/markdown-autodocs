@@ -43,7 +43,7 @@ Add the following step at the end of your job, after other steps that might add 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=./docs/latest-release.yml) -->
 <!-- The below code snippet is automatically added from ./docs/latest-release.yml -->
 ```yml
-uses: dineshsonachalam/markdown-autodocs@v1.0.0
+uses: dineshsonachalam/markdown-autodocs@v1.0.1
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
@@ -51,13 +51,14 @@ The following is an extended example with all possible options available for thi
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=./docs/markdown-autodocs.yml) -->
 <!-- The below code snippet is automatically added from ./docs/markdown-autodocs.yml -->
 ```yml
-- uses: dineshsonachalam/markdown-autodocs@v1.0.0
+- name: Markdown autodocs
+- uses: dineshsonachalam/markdown-autodocs@v1.0.1
   with:
     # Optional, defaults to author of the commit that triggered the run
     commit_author: Author <actions@github.com>
 
     # Optional, defaults to "actions@github.com"
-    commit_user_email: my-github-actions-bot@example.org
+    commit_user_email: actions@github.com
 
     # Optional, but recommended
     # Defaults to "Apply automatic changes"
@@ -67,8 +68,7 @@ The following is an extended example with all possible options available for thi
     # Defaults to the current branch.
     branch: feature-123
 
-    # Optional output file paths
-    # Defaults to '[./README.md]'.
+    # Optional output file paths, defaults to '[./README.md]'.
     output_file_paths: '[./README.md]'
 
     # Categories to automatically sync or transform its contents in the markdown files.
@@ -79,6 +79,26 @@ The following is an extended example with all possible options available for thi
 
 ## Example Workflow
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=./docs/example-workflow.yml) -->
+<!-- The below code snippet is automatically added from ./docs/example-workflow.yml -->
+```yml
+name: markdown-autodocs
+
+on:
+  workflow_run:
+    workflows:
+      - integration-tests
+    types:
+      - completed
+
+jobs:        
+  autoupdate-readme:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        
+        - name: Markdown autodocs
+          uses: dineshsonachalam/markdown-autodocs@v1.0.0
+```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ## Inputs

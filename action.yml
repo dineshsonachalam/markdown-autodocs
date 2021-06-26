@@ -31,7 +31,7 @@ inputs:
 
 runs:
   using: 'node12'
-  main: './action/index.js'
+  main: './.action/index.js'
 
 branding:
   icon: 'package'

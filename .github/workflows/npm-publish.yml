@@ -96,14 +96,15 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
-        - name: Update release version in docs.
+        - name: Update release and bump package version
           run: |
             sudo pip3 install ruamel.yaml
             sudo python3 update_release_version.py
+            npm --no-git-tag-version version patch
             git config user.name dineshsonachalam
             git config user.email dineshsonachalam@gmail.com
-            git add docs/latest-release.yml docs/markdown-autodocs.yml
-            git commit -m "Updated release version in YAML docs" docs/latest-release.yml docs/markdown-autodocs.yml
+            git add docs/latest-release.yml docs/markdown-autodocs.yml package.json
+            git commit -m "Updated release version in YAML docs" docs/latest-release.yml docs/markdown-autodocs.yml package.json
             git push origin master
 
   deploy:
@@ -111,18 +112,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
-        
-        - name: Bump a package version
-          run: npm --no-git-tag-version version patch
-          env:
-              NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
-        
-        - uses: stefanzweifel/git-auto-commit-action@v4
-          with:
-            commit_message: Bump package version
-            branch: ${{ github.head_ref }}
-            file_pattern: package.json
-
+                
         - uses: JS-DevTools/npm-publish@v1
           with:
             token:  ${{ secrets.NPM_ACCESS_TOKEN }}

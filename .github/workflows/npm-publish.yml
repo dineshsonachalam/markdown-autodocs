@@ -17,6 +17,7 @@ jobs:
           run: |
             echo "release_version: "
             echo ${{ github.event.release.tag_name }}
+            ${{ github.event.release.tag_name }}
 
         - name: Install dependencies
           run: npm i

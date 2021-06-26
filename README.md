@@ -37,3 +37,12 @@ This `README.md` is generated with `markdown-autodocs` [view the raw file](https
 * [Running the tests](#running-the-tests)
 * [Credits](#credits) 
 * [License](#license)
+## Usage
+
+Add the following step at the end of your job, after other steps that might add or change files.
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=./docs/latest-release.yml) -->
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+The following is an extended example with all possible options available for this Action.
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=./docs/markdown-autodocs.yml) -->
+<!-- AUTO-GENERATED-CONTENT:END -->

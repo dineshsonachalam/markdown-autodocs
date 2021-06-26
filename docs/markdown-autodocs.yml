@@ -1,10 +1,11 @@
+- name: Markdown autodocs
 - uses: dineshsonachalam/markdown-autodocs@v1.0.0
   with:
     # Optional, defaults to author of the commit that triggered the run
     commit_author: Author <actions@github.com>
 
     # Optional, defaults to "actions@github.com"
-    commit_user_email: my-github-actions-bot@example.org
+    commit_user_email: actions@github.com
 
     # Optional, but recommended
     # Defaults to "Apply automatic changes"
@@ -14,8 +15,7 @@
     # Defaults to the current branch.
     branch: feature-123
 
-    # Optional output file paths
-    # Defaults to '[./README.md]'.
+    # Optional output file paths, defaults to '[./README.md]'.
     output_file_paths: '[./README.md]'
 
     # Categories to automatically sync or transform its contents in the markdown files.

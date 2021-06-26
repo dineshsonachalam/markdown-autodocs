@@ -46,3 +46,11 @@ Add the following step at the end of your job, after other steps that might add 
 The following is an extended example with all possible options available for this Action.
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=./docs/markdown-autodocs.yml) -->
 <!-- AUTO-GENERATED-CONTENT:END -->
+
+## Example Workflow
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=./docs/example-workflow.yml) -->
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+## Inputs
+
+Checkout [`action.yml`](https://github.com/dineshsonachalam/markdown-autodocs/blob/master/action.yml) for a full list of supported inputs.

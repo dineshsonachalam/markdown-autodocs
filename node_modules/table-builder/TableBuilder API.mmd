@@ -1,0 +1,113 @@
+# TableBuilder API
+
+## setData
+
+**Args**:
+
+* `{RawData} data` - array of object rows
+
+**Types**:
+
+* `{{ HeaderKey -> RawCell }[]} RawData` - array of object rows 
+* `{String} HeaderKey` - data & headers binding keys type (see also `setHeaders`)
+* `{*} RawCell` - raw cell value
+* `{String} CellRepr` - printable value representation (see also `setPrism`)
+
+
+
+----
+
+## setPrism
+Setup cell values presentation map-methods
+
+
+
+
+----
+
+## setPrisms
+Setup cell values presentation map-methods
+
+
+
+----
+
+## setGroups
+Setup grouping by headers
+
+**Args**:
+
+* `{{ HeaderKey -> (HeaderTitle, count, totals) => HeaderTitle }}`
+
+
+----
+
+## setHeaders
+
+**Args**:
+
+* `{Map|Headers|{HeaderKey -> HeaderTitle}|HeaderTitle[]} headers`
+
+**Types**:
+
+* `{Tuple<HeaderKey,HeaderTitle>[]}` Headers - internal headers structure
+* `{String} HeaderKey` - data & headers binding keys type (see also `setData`)
+* `{String} HeaderTitle`
+
+
+
+----
+
+## setVertHeaders
+
+
+----
+
+## setTotal
+Setup total map-method for header
+
+**Args**:
+
+* `{HeaderKey|HeaderKey[]} header`
+* `{(Cell[] column, Data data) => CellRepr} calcTotal`
+
+**Types**:
+
+* `{{ HeaderKey -> Cell }[]} Data`
+* `{{ raw: RawCell, presentation: CellRepr }} Cell`
+
+
+
+----
+
+## SetTotals
+Setup total map-methods for headers
+
+**Args**:
+
+* `{{ HeaderKey -> (Cell[] column, Data data) => CellRepr }} totalsMap`
+
+
+----
+
+## render
+
+Run building and return table html
+
+
+----
+
+## todo
+
+* dinamics (filter, multisort) based on list.js or not
+* keeping data model
+* changing/accessing api
+* add support of docrel
+* type constructors with asserts
+* add setPrisms, SetTotals
+* write tests
+* decompose
+* run building and another activity only in render() method, push intermediate method into preordered list
+* introduce plugins system (call hooks for different cells)
+* add N/A maps
+* tagBuilder as a dependency injection (for compatibility with: html, createElement, React.Component)

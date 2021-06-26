@@ -13,11 +13,6 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         
-        - name: tag number
-          run : | 
-            echo ${{ github.event.release.tag_name }}
-            echo ${{ github.ref }}
-            echo "TAG=${GITHUB_REF/refs\/tags\//}"
         - name: Install dependencies
           run: npm i
         

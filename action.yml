@@ -30,10 +30,8 @@ inputs:
     default: '[code-block,json-to-html-table,workflow-artifact-table]'
 
 runs:
-  using: composite
-  steps:
-    - run: python3 app.py -repo '${{ github.repository }}' -access_token '${{ github.token }}' -commit_author '${{ inputs.commit_author  }}' -commit_user_email '${{ inputs.commit_user_email  }}' -commit_message '${{ inputs.commit_message  }}' -branch '${{ inputs.branch }}' -output_file_paths '${{ inputs.output_file_paths }}' -categories '${{ inputs.categories }}'
-      shell: bash
+  using: 'node12'
+  main: 'action.js'
 
 branding:
   icon: 'package'

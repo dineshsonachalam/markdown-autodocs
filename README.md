@@ -23,7 +23,7 @@ The comments markdown autodocs uses are hidden in markdown and when viewed as HT
 
 This `README.md` is generated with `markdown-autodocs` [view the raw file](https://raw.githubusercontent.com/dineshsonachalam/markdown-autodocs/master/README.md) to see how.
 
-[Video demo - In-Progress](http://www.youtube.com/watch?v=4V2utrvxwJ8) • [Example Repo](https://github.com/dineshsonachalam/repo-using-markdown-autodocs)
+[Video demo - In-Progress](http://www.youtube.com) • [Example Repo](https://github.com/dineshsonachalam/repo-using-markdown-autodocs)
 
 ## Table of contents
 * [Usage](#usage)

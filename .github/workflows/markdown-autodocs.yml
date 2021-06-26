@@ -14,4 +14,4 @@ jobs:
         - uses: actions/checkout@v2
         
         - name: Markdown autodocs
-        - uses: ./ # Uses an action in the root directory
+          uses: ./ # Uses an action in the root directory

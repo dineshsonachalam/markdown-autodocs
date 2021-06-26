@@ -1,4 +1,4 @@
-name: publish-to-npm
+name: integration-tests
 
 on:
   push:
@@ -105,7 +105,7 @@ jobs:
             git config user.email dineshsonachalam@gmail.com
             git add docs/latest-release.yml docs/markdown-autodocs.yml package.json
             git commit -m "Updated release version in YAML docs" docs/latest-release.yml docs/markdown-autodocs.yml package.json
-            git push origin master
+            git push origin '${{ github.ref }}'
 
   deploy:
       needs: update_release_version

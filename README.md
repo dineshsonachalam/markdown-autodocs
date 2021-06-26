@@ -10,7 +10,7 @@
       <img src="https://img.shields.io/npm/v/markdown-autodocs?color=dark%20green&label=npm%20package" alt="npm version" height="20">     
     </a>
     <a href="https://github.com/dineshsonachalam/markdown-autodocs/blob/master/LICENSE" target="_blank">
-        <img src="https://img.shields.io/apm/l/atomic-design-ui.svg " alt="MIT License" height="20">
+        <img src="https://badgen.net/github/license/dineshsonachalam/markdown-autodocs" alt="MIT License" height="20">
     </a>
 </p>
 

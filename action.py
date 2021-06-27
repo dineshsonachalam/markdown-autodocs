@@ -16,7 +16,6 @@ def get_cli_args():
 def option_processor(option):
     option = option.translate({ord(i):None for i in '[]" '})
     option = option.split(",")
-    option = sorted(option, reverse=True)
     option = ' '.join(option)
     return option
 

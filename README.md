@@ -33,6 +33,7 @@
 - [Usage](#usage)
   - [Adding markdown-autodocs in your workflow](#adding-markdown-autodocs-in-your-workflow)
   - [Extended example with all possible options available for this Action](#extended-example-with-all-possible-options-available-for-this-action)
+- [Github Workflow Artifacts](#github-workflow-artifacts)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -42,9 +43,9 @@ To make your repo more appealing and useful you need to provide example code sni
 This problem can be solved using <b>markdown-autodocs</b> a GitHub Action that automatically generates & updates markdown content (like your README.md) from external or remote files. You need to add markers in your README.md that will tell markdown-autodocs where to insert the code snippet.
 
 ## Features
-* Code block: Insert code snippet in your markdown file from external or remote files.
-* JSON to HTML table: Insert HTML Table in your markdown file by converting JSON file contents to HTML table.
-* Github Workflow Artifacts table: Insert Github workflow artifacts table in your markdown file by getting the latest artifacts for a workflow run.
+* <b>Code block:</b> Insert code snippet in your markdown file from external or remote files.
+* <b>JSON to HTML table:</b> Insert HTML Table in your markdown file by converting JSON file contents to HTML table.
+* <b>Github Workflow Artifacts table:</b> Insert the Github workflow artifacts table in your markdown file by getting the latest artifacts for a workflow run.
 
 ## Examples
 
@@ -56,31 +57,31 @@ Get code from an external file or URL and insert it in your markdown.
 - `src`: The relative path to the code to pull in, or the `URL` where the raw code lives
 
 <p align="center">Get code from external file</p>
-<a href="https://gist.github.com/dineshsonachalam/f8eb73a29a379b3944fbfb0213c558bb#get-code-from-external-file">
+<a href="https://gist.github.com/dineshsonachalam/f8eb73a29a379b3944fbfb0213c558bb#get-code-from-external-file" target="_blank">
     <img src="https://i.imgur.com/c8FskHr.png"/>
 </a>
 
 
 <p align="center">Get code from remote file</p>
-<a href="https://gist.github.com/dineshsonachalam/f8eb73a29a379b3944fbfb0213c558bb#get-code-from-remote-file">
+<a href="https://gist.github.com/dineshsonachalam/f8eb73a29a379b3944fbfb0213c558bb#get-code-from-remote-file" target="_blank">
   <img src="https://i.imgur.com/kQ6qhlI.png"/>
 </a>
 
 ### JSON to HTML table
-Get JSON contents from an external file and convert it into HTML table and insert's it in your markdown.
+Get JSON contents from an external file and convert it into an HTML table and insert's it in your markdown.
 
 **Options:**
 - `src`: The relative path to the JSON file to pull in.
 
-<a href="https://gist.github.com/dineshsonachalam/f8eb73a29a379b3944fbfb0213c558bb#json-to-html-table">
+<a href="https://gist.github.com/dineshsonachalam/f8eb73a29a379b3944fbfb0213c558bb#json-to-html-table" target="_blank">
   <img src="https://i.imgur.com/t0pwMk2.png"/>
 </a>
 
 ### Github Workflow Artifacts table
 
-Get the list of latest artifacts generated from a workflow run. Generates a workflow artifacts table consists of artifacts download and workflow url in a HTML table and insert's it in your markdown file.
+Get the list of the latest artifacts generated from a workflow run. Generates a workflow artifacts table consists of artifacts download and workflow URL in an HTML table and inserts it in your markdown file.
 
-<a href="https://gist.github.com/dineshsonachalam/f8eb73a29a379b3944fbfb0213c558bb#github-workflow-artifacts-table">
+<a href="https://gist.github.com/dineshsonachalam/f8eb73a29a379b3944fbfb0213c558bb#github-workflow-artifacts-table" target="_blank">
   <img src="https://i.imgur.com/Gr6P0bM.png"/>
 </a>
 
@@ -125,6 +126,11 @@ uses: dineshsonachalam/markdown-autodocs@v1.0.2
     # Defaults to '[code-block,json-to-html-table,workflow-artifact-table]'
     categories: '[code-block,json-to-html-table,workflow-artifact-table]'
 ```
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+## Github Workflow Artifacts
+
+<!-- MARKDOWN-AUTO-DOCS:START (WORKFLOW_ARTIFACT_TABLE) -->
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## Contributing

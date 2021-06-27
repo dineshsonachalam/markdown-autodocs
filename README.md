@@ -29,7 +29,6 @@
 * Usage
   * Adding markdown-autodocs in your workflow
   * Extended example with all possible options available for this Action
-  * Example workflow
 * Contributing
 * License
 
@@ -83,3 +82,24 @@ Get the list of latest artifacts generated from a workflow run. Generates a work
 
 ### [📦 Example Repo which uses all the markdown-autodocs feature](https://github.com/dineshsonachalam/repo-using-markdown-autodocs)
 
+## Usage
+
+### Adding markdown-autodocs in your workflow
+Add the following step at the end of your job, after other steps that might add or change files.
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./docs/latest-release.yml) -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+###  Extended example with all possible options available for this Action
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./docs/markdown-autodocs.yml) -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+## Contributing
+
+
+* [Code of Conduct](CODE_OF_CONDUCT.md)
+* [Contributing Guideline](CONTRIBUTING.md)
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/) © [dineshsonachalam](https://www.github.com/dineshsonachalam)

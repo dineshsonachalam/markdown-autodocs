@@ -23,21 +23,25 @@
 </p>
 
 ## Table of contents
-* Why markdown-autodocs?
-* Features
-* Examples
-* Usage
-  * Adding markdown-autodocs in your workflow
-  * Extended example with all possible options available for this Action
-* Contributing
-* License
+- [Why markdown-autodocs?](#why-markdown-autodocs)
+- [Features](#features)
+- [Examples](#examples)
+  - [CODE Block](#code-block)
+  - [JSON to HTML table](#json-to-html-table)
+  - [Github Workflow Artifacts table](#github-workflow-artifacts-table)
+  - [Example Repo which uses all the markdown-autodocs feature](#example-repo-which-uses-all-the-markdown-autodocs-feature)
+- [Usage](#usage)
+  - [Adding markdown-autodocs in your workflow](#adding-markdown-autodocs-in-your-workflow)
+  - [Extended example with all possible options available for this Action](#extended-example-with-all-possible-options-available-for-this-action)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Why markdown-autodocs?
 To make your repo more appealing and useful you need to provide example code snippets in your README.md. Manually copy and pasting each code snippet in their respective places in your README would be inefficient and time-consuming.
 
 This problem can be solved using <b>markdown-autodocs</b> a GitHub Action that automatically generates & updates markdown content (like your README.md) from external or remote files. You need to add markers in your README.md that will tell markdown-autodocs where to insert the code snippet.
 
-## ⚡️ Features
+## Features
 * Code block: Insert code snippet in your markdown file from external or remote files.
 * JSON to HTML table: Insert HTML Table in your markdown file by converting JSON file contents to HTML table.
 * Github Workflow Artifacts table: Insert Github workflow artifacts table in your markdown file by getting the latest artifacts for a workflow run.
@@ -80,7 +84,7 @@ Get the list of latest artifacts generated from a workflow run. Generates a work
   <img src="https://i.imgur.com/Gr6P0bM.png"/>
 </a>
 
-### [📦 Example Repo which uses all the markdown-autodocs feature](https://github.com/dineshsonachalam/repo-using-markdown-autodocs)
+### [Example Repo which uses all the markdown-autodocs feature](https://github.com/dineshsonachalam/repo-using-markdown-autodocs)
 
 ## Usage
 

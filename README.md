@@ -1,4 +1,9 @@
-<a href="https://github.com/marketplace/actions/markdown-autodocs"><img src="https://i.imgur.com/ZAC4qPa.png"/></a>
+<h1 align="center">
+  <a href="https://github.com/marketplace/actions/markdown-autodocs">
+    <img src="https://i.imgur.com/ZAC4qPa.png"/>
+  </a>
+</h1>
+<p align="center">A GitHub Action that automatically generates & updates markdown content (like your README.md) from external or remote files.</p>
 <p align="center">
     <a href="https://github.com/dineshsonachalam/markdown-autodocs/actions/workflows/npm-publish.yml">
         <img src="https://github.com/dineshsonachalam/markdown-autodocs/actions/workflows/npm-publish.yml/badge.svg"/>
@@ -17,93 +22,64 @@
     </a>
 </p>
 
-A GitHub action that uses comment blocks in markdown files to automatically sync or transform its contents. Then to commit the markdown files and push them back to the GitHub repository. By default, the commit is made in the name of "GitHub Actions" and co-authored by the user that made the last commit.
-- Automatically keep markdown files up to date from local or remote code sources
-- Create an HTML table from JSON file and add the table to markdown files.
-- Identifies all the artifacts generated from a workflow. Then add the artifacts table consisting of the artifact download and workflow-run URL in the markdown files.
-
-The comments markdown autodocs uses are hidden in markdown and when viewed as HTML.
-
-This `README.md` is generated with `markdown-autodocs` [view the raw file](https://raw.githubusercontent.com/dineshsonachalam/markdown-autodocs/master/README.md) to see how.
-
-[Video demo - In-Progress](http://www.youtube.com) • [Example Repo](https://github.com/dineshsonachalam/repo-using-markdown-autodocs)
-
 ## Table of contents
-* [Usage](#usage)
-* [Example Workflow](#example-workflow)
-* [Inputs](#inputs)
-* [Transforms](#transforms)
-  * [CODE](#code)
-  * [REMOTE](#remote)
-  * [JSON_TO_HTML_TABLE](#json_to_html_table)
-  * [WORKFLOW_ARTIFACT_TABLE](#workflow_artifact_table)
-* [Running the tests](#running-the-tests)
-* [Credits](#credits) 
-* [License](#license)
-## Usage
+* Why markdown-autodocs?
+* Features
+* Examples
+* Usage
+  * Adding markdown-autodocs in your workflow
+  * Extended example with all possible options available for this Action
+  * Example workflow
+* Contributing
+* License
 
-Add the following step at the end of your job, after other steps that might add or change files.
-<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./docs/latest-release.yml) -->
-<!-- The below code snippet is automatically added from ./docs/latest-release.yml -->
-```yml
-uses: dineshsonachalam/markdown-autodocs@v1.0.1
-```
-<!-- MARKDOWN-AUTO-DOCS:END -->
+## Why markdown-autodocs?
+To make your repo more appealing and useful you need to provide example code snippets in your README.md. Manually copy and pasting each code snippet in their respective places in your README would be inefficient and time-consuming.
 
-The following is an extended example with all possible options available for this Action.
-<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./docs/markdown-autodocs.yml) -->
-<!-- The below code snippet is automatically added from ./docs/markdown-autodocs.yml -->
-```yml
-- name: Markdown autodocs
-- uses: dineshsonachalam/markdown-autodocs@v1.0.1
-  with:
-    # Optional, defaults to author of the commit that triggered the run
-    commit_author: Author <actions@github.com>
+This problem can be solved using <b>markdown-autodocs</b> a GitHub Action that automatically generates & updates markdown content (like your README.md) from external or remote files. You need to add markers in your README.md that will tell markdown-autodocs where to insert the code snippet.
 
-    # Optional, defaults to "actions@github.com"
-    commit_user_email: actions@github.com
+## ⚡️ Features
+* Code block: Insert code snippet in your markdown file from external or remote files.
+* JSON to HTML table: Insert HTML Table in your markdown file by converting JSON file contents to HTML table.
+* Github Workflow Artifacts table: Insert Github workflow artifacts table in your markdown file by getting the latest artifacts for a workflow run.
 
-    # Optional, but recommended
-    # Defaults to "Apply automatic changes"
-    commit_message: Apply automatic changes
+## Examples
 
-    # Optional branch name where commit should be pushed to.
-    # Defaults to the current branch.
-    branch: feature-123
+### CODE Block
 
-    # Optional output file paths, defaults to '[./README.md]'.
-    output_file_paths: '[./README.md]'
+Get code from an external file or URL and insert it in your markdown.
 
-    # Categories to automatically sync or transform its contents in the markdown files.
-    # Defaults to '[code-block,json-to-html-table,workflow-artifact-table]'
-    categories: '[code-block,json-to-html-table,workflow-artifact-table]'
-```
-<!-- MARKDOWN-AUTO-DOCS:END -->
+**Options:**
+- `src`: The relative path to the code to pull in, or the `URL` where the raw code lives
 
-## Example Workflow
-<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./docs/example-workflow.yml) -->
-<!-- The below code snippet is automatically added from ./docs/example-workflow.yml -->
-```yml
-name: markdown-autodocs
+<p align="center">Get code from external file</p>
+<a href="https://gist.github.com/dineshsonachalam/f8eb73a29a379b3944fbfb0213c558bb#get-code-from-external-file">
+    <img src="https://i.imgur.com/c8FskHr.png"/>
+</a>
 
-on:
-  workflow_run:
-    workflows:
-      - integration-tests
-    types:
-      - completed
 
-jobs:        
-  autoupdate-readme:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        
-        - name: Markdown autodocs
-          uses: dineshsonachalam/markdown-autodocs@v1.0.0
-```
-<!-- MARKDOWN-AUTO-DOCS:END -->
+<p align="center">Get code from remote file</p>
+<a href="https://gist.github.com/dineshsonachalam/f8eb73a29a379b3944fbfb0213c558bb#get-code-from-remote-file">
+  <img src="https://i.imgur.com/kQ6qhlI.png"/>
+</a>
 
-## Inputs
+### JSON to HTML table
+Get JSON contents from an external file and convert it into HTML table and insert's it in your markdown.
 
-Checkout [`action.yml`](https://github.com/dineshsonachalam/markdown-autodocs/blob/master/action.yml) for a full list of supported inputs.
+**Options:**
+- `src`: The relative path to the JSON file to pull in.
+
+<a href="https://gist.github.com/dineshsonachalam/f8eb73a29a379b3944fbfb0213c558bb#json-to-html-table">
+  <img src="https://i.imgur.com/t0pwMk2.png"/>
+</a>
+
+### Github Workflow Artifacts table
+
+Get the list of latest artifacts generated from a workflow run. Generates a workflow artifacts table consists of artifacts download and workflow url in a HTML table and insert's it in your markdown file.
+
+<a href="https://gist.github.com/dineshsonachalam/f8eb73a29a379b3944fbfb0213c558bb#github-workflow-artifacts-table">
+  <img src="https://i.imgur.com/Gr6P0bM.png"/>
+</a>
+
+### [📦 Example Repo which uses all the markdown-autodocs feature](https://github.com/dineshsonachalam/repo-using-markdown-autodocs)
+

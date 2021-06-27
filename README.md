@@ -9,6 +9,9 @@
     <a href="https://www.npmjs.com/package/markdown-autodocs">
       <img src="https://img.shields.io/npm/v/markdown-autodocs?color=dark%20green&label=npm%20package" alt="npm version" height="20">     
     </a>
+    <a href="https://github.com/dineshsonachalam/markdown-autodocs/releases">
+      <img src="https://badgen.net/github/release/dineshsonachalam/markdown-autodocs" alt="latest release" height="20">     
+    </a>
     <a href="https://github.com/dineshsonachalam/markdown-autodocs/blob/master/LICENSE" target="_blank">
         <img src="https://badgen.net/github/license/dineshsonachalam/markdown-autodocs" alt="MIT License" height="20">
     </a>

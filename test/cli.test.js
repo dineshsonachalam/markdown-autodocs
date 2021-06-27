@@ -19,7 +19,7 @@ describe('Validate markdown-autodocs CLI', () => {
     exec(
       'node index.js -c code-block -o ./README.md -r $TEST_REPO -b $TEST_BRANCH -a $TEST_ACCESSTOKEN',
       (error, stdout, stderr) => {
-        expect(stdout).toMatch(/(Autodocumented code-block)/i)
+        expect(stdout).toMatch(/(Auto documented code-block)/i)
         done();
       }
     );

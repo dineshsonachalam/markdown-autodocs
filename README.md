@@ -40,24 +40,25 @@ This `README.md` is generated with `markdown-autodocs` [view the raw file](https
 ## Usage
 
 Add the following step at the end of your job, after other steps that might add or change files.
-<!-- AUTO-GENERATED-CONTENT:START (CODE:src=./docs/latest-release.yml) -->
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./docs/latest-release.yml) -->
 <!-- The below code snippet is automatically added from ./docs/latest-release.yml -->
 ```yml
 uses: dineshsonachalam/markdown-autodocs@v1.0.0
 ```
-<!-- AUTO-GENERATED-CONTENT:END -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
 
 The following is an extended example with all possible options available for this Action.
-<!-- AUTO-GENERATED-CONTENT:START (CODE:src=./docs/markdown-autodocs.yml) -->
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./docs/markdown-autodocs.yml) -->
 <!-- The below code snippet is automatically added from ./docs/markdown-autodocs.yml -->
 ```yml
+- name: Markdown autodocs
 - uses: dineshsonachalam/markdown-autodocs@v1.0.0
   with:
     # Optional, defaults to author of the commit that triggered the run
     commit_author: Author <actions@github.com>
 
     # Optional, defaults to "actions@github.com"
-    commit_user_email: my-github-actions-bot@example.org
+    commit_user_email: actions@github.com
 
     # Optional, but recommended
     # Defaults to "Apply automatic changes"
@@ -67,19 +68,38 @@ The following is an extended example with all possible options available for thi
     # Defaults to the current branch.
     branch: feature-123
 
-    # Optional output file paths
-    # Defaults to '[./README.md]'.
+    # Optional output file paths, defaults to '[./README.md]'.
     output_file_paths: '[./README.md]'
 
     # Categories to automatically sync or transform its contents in the markdown files.
     # Defaults to '[code-block,json-to-html-table,workflow-artifact-table]'
     categories: '[code-block,json-to-html-table,workflow-artifact-table]'
 ```
-<!-- AUTO-GENERATED-CONTENT:END -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## Example Workflow
-<!-- AUTO-GENERATED-CONTENT:START (CODE:src=./docs/example-workflow.yml) -->
-<!-- AUTO-GENERATED-CONTENT:END -->
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./docs/example-workflow.yml) -->
+<!-- The below code snippet is automatically added from ./docs/example-workflow.yml -->
+```yml
+name: markdown-autodocs
+
+on:
+  workflow_run:
+    workflows:
+      - integration-tests
+    types:
+      - completed
+
+jobs:        
+  autoupdate-readme:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        
+        - name: Markdown autodocs
+          uses: dineshsonachalam/markdown-autodocs@v1.0.0
+```
+<!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## Inputs
 

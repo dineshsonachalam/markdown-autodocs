@@ -32,7 +32,7 @@
   - [Extended example with all possible options available for this Action](#extended-example-with-all-possible-options-available-for-this-action)
 - [Github Workflow Artifacts](#github-workflow-artifacts)
 - [Contributing](#contributing)
-- [Used By](#used-by)
+- [Used By](#-used-by)
 - [License](#license)
 
 ## Why markdown-autodocs?

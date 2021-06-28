@@ -32,6 +32,7 @@
   - [Extended example with all possible options available for this Action](#extended-example-with-all-possible-options-available-for-this-action)
 - [Github Workflow Artifacts](#github-workflow-artifacts)
 - [Contributing](#contributing)
+- [Used By](#used-by)
 - [License](#license)
 
 ## Why markdown-autodocs?
@@ -139,6 +140,11 @@ uses: dineshsonachalam/markdown-autodocs@v1.0.2
 
 * [Code of Conduct](CODE_OF_CONDUCT.md)
 * [Contributing Guideline](CONTRIBUTING.md)
+
+## 🚀 Used By
+
+* [LucidDynamodb - A minimalistic wrapper to AWS DynamoDB](https://github.com/dineshsonachalam/Lucid-Dynamodb)
+
 
 
 ## License

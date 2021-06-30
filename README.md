@@ -85,7 +85,7 @@ Get the list of the latest artifacts generated from a workflow run. Generates a 
 
 ### [Example Repo which uses all the markdown-autodocs feature](https://github.com/dineshsonachalam/repo-using-markdown-autodocs)
 
-## ⚡️ Local usage without Github action
+## Local usage without Github action
 
 **Install markdown-autodocs CLI:**
 ```

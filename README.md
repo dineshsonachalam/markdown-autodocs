@@ -85,6 +85,40 @@ Get the list of the latest artifacts generated from a workflow run. Generates a 
 
 ### [Example Repo which uses all the markdown-autodocs feature](https://github.com/dineshsonachalam/repo-using-markdown-autodocs)
 
+## ⚡️ Local usage without Github action
+
+**Install markdown-autodocs CLI:**
+```
+npm i -g markdown-autodocs
+```
+
+**markdown-autodocs CLI usage:**
+```
+dineshsonachalam@macbook ~ % markdown-autodocs --help
+Usage: markdown-autodocs [options]
+
+Options:
+  -o, --outputFilePath <outputFilePaths...>  Output file paths
+  -c, --category <categories...>             code-block, json-to-html-table, workflow-artifact-table
+  -r, --repo <type>                          Repo name
+  -b, --branch <type>                        Branch name
+  -a, --accessToken <type>                   Github Access token
+  -h, --help                                 display help for command
+```
+
+1. Code block
+```
+markdown-autodocs -c code-block -o ./README.md 
+```
+2. JSON to HTML table
+```
+markdown-autodocs -c json-to-html-table -o ./README.md
+```
+3. Github workflow artifacts table
+```
+markdown-autodocs -c workflow-artifact-table -o ./README.md -r $REPO -b $BRANCH -a $ACCESSTOKEN
+```
+
 ## Usage
 
 ### Adding markdown-autodocs in your workflow

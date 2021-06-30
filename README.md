@@ -27,6 +27,7 @@
   - [JSON to HTML table](#json-to-html-table)
   - [Github Workflow Artifacts table](#github-workflow-artifacts-table)
   - [Example Repo which uses all the markdown-autodocs feature](#example-repo-which-uses-all-the-markdown-autodocs-feature)
+- [Local usage without Github action](#local-usage-without-github-action)
 - [Usage](#usage)
   - [Adding markdown-autodocs in your workflow](#adding-markdown-autodocs-in-your-workflow)
   - [Extended example with all possible options available for this Action](#extended-example-with-all-possible-options-available-for-this-action)

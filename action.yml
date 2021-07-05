@@ -38,5 +38,5 @@ runs:
       shell: bash
 
 branding:
-  icon: 'package'
+  icon: 'book'
   color: blue

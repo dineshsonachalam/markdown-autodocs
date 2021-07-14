@@ -2,7 +2,7 @@ import fs from "fs";
 import path from 'path'
 import markdownMagic from 'markdown-magic'
 import Table from 'table-builder'
-import GithubApi from './GithubApi.js'
+import GithubApi from './api.js'
 
 /**
  * 
@@ -87,11 +87,16 @@ export const app = async function(outputFilePath, category, repo, branch, github
     }else if(category == "workflow-artifact-table"){
         const github = new GithubApi(repo, branch, githubApiToken)
         const workflowNames = await github.getWorkflowNames()
+        console.log("workflowNames: ", workflowNames)
         const workflowIds   = await github.getWorkflowIds(workflowNames)
+        console.log("workflowIds: ", workflowIds)
         const workflowInfo = await github.getWorkflowArtifacts(workflowIds)
+        console.log("workflowInfo:", workflowInfo)
+        const workflows = workflowInfo.workflowArtifacts
+        console.log("workflows: ",workflows)
         const config = {
             matchWord: 'MARKDOWN-AUTO-DOCS',
-            workflows: workflowInfo.workflowArtifacts,
+            workflows: workflows,
             transforms: {
               WORKFLOW_ARTIFACT_TABLE: generateArtifactsTable,
             },

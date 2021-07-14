@@ -77,7 +77,9 @@ export default class GithubApi {
      */
     async getArtifactsDownloadUrl(runId, checkSuiteId){
         let url = `${githubInfo.apiUrl}/${this.repo}/actions/runs/${runId}/artifacts`
+        console.log("===>URL: ", url)
         const artifacts = (await get(url, this.headers)).artifacts
+        console.log("Artifacts: ", artifacts)
         let artifactsDownloadUrl = []
         for(var i = 0; i < artifacts.length; i++) {
             let artifact = artifacts[i]

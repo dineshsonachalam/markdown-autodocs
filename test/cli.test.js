@@ -8,7 +8,7 @@ describe('Validate markdown-autodocs CLI', () => {
         done();
       }
     );
-  }, 10000);
+  }, 800000);
   
   it('Autodoc code block. Gave all the required arguments to the CLI as an input, it should now return a success message', (done) => {
     exec(
@@ -18,7 +18,7 @@ describe('Validate markdown-autodocs CLI', () => {
         done();
       }
     );
-  }, 10000);
+  }, 800000);
 
   it('Autodoc json-to-html-table. Gave all the required arguments to the CLI as an input, it should now return a success message', (done) => {
     exec(
@@ -28,5 +28,5 @@ describe('Validate markdown-autodocs CLI', () => {
         done();
       }
     );
-  }, 10000);
+  }, 800000);
 });

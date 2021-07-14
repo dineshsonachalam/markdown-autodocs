@@ -13,7 +13,7 @@ const githubInfo = {
  * @param {string} branch 
  * @param {string} githubApiToken 
  */
-export default class githubApi {
+export default class GithubApi {
     constructor(repo, branch, githubApiToken) {
         this.repo   = repo
         this.branch = branch

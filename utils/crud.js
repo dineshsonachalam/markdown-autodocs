@@ -17,8 +17,7 @@ export const get = async function(url, headers) {
         headers: headers
     }
     const response = await fetch(url, requestOptions)
-    const jsonResponse = await response.json()
-    return jsonResponse
+    return response.json()
 }
 
 /**

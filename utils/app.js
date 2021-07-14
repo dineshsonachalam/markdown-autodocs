@@ -2,7 +2,7 @@ import fs from "fs";
 import path from 'path'
 import markdownMagic from 'markdown-magic'
 import Table from 'table-builder'
-import githubApi from './githubApi.js'
+import GithubApi from './GithubApi.js'
 
 /**
  * 
@@ -29,8 +29,7 @@ export const convertJsonToHtmlTable = function(content, options = {}, config) {
         tableHeaderData.forEach((header) => {
             tableHeaders[header]=header
         })
-        const htmlTable = generateHtmlTable(tableHeaders, tableRows, "JSON-TO-HTML-TABLE")
-        return htmlTable
+        return generateHtmlTable(tableHeaders, tableRows, "JSON-TO-HTML-TABLE")
     }else {
         return ""
     }
@@ -58,8 +57,7 @@ export const generateArtifactsTable = function(content, options = {}, config) {
             })
         })
     })
-    let artifactsTable = generateHtmlTable(tableHeaders, tableRows, "ARTIFACTS-TABLE")
-    return artifactsTable
+    return generateHtmlTable(tableHeaders, tableRows, "ARTIFACTS-TABLE")
 }
 
 /**
@@ -87,7 +85,7 @@ export const app = async function(outputFilePath, category, repo, branch, github
         markdownMagic(markdownPath, config)        
         return `Converted JSON to HTML table. Then auto-documented HTML table in ${outputFilePath}`
     }else if(category == "workflow-artifact-table"){
-        const github = new githubApi(repo, branch, githubApiToken)
+        const github = new GithubApi(repo, branch, githubApiToken)
         const workflowNames = await github.getWorkflowNames()
         const workflowIds   = await github.getWorkflowIds(workflowNames)
         const workflowInfo = await github.getWorkflowArtifacts(workflowIds)

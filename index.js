@@ -18,8 +18,7 @@ export const gitCliargs = function() {
     .option('-b, --branch <type>', 'Branch name')
     .option('-a, --accessToken <type>', 'Github Access token')  
   program.parse(process.argv)
-  const options = program.opts()
-  return options
+  return program.opts()
 }
 
 export const main = async function() {

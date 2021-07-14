@@ -29,6 +29,12 @@ jobs:
             GITHUB_TOKEN: ${{ github.token }}
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
+        - name: SonarCloud Scan
+          uses: SonarSource/sonarcloud-github-action@master
+          env:
+            GITHUB_TOKEN: ${{ github.token }}
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
         - name: Upload Jest integration test report to Artifact
           uses: actions/upload-artifact@v2
           with:

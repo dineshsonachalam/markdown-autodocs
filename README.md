@@ -168,7 +168,6 @@ uses: dineshsonachalam/markdown-autodocs@v1.0.2
 
 ## Contributing
 
-
 * [Code of Conduct](CODE_OF_CONDUCT.md)
 * [Contributing Guideline](CONTRIBUTING.md)
 
@@ -176,7 +175,6 @@ uses: dineshsonachalam/markdown-autodocs@v1.0.2
 
 * [iro.js - 🎨 Modular color picker widget for JavaScript, with support for a bunch of color formats](https://github.com/jaames/iro.js)
 * [LucidDynamodb - A minimalistic wrapper to AWS DynamoDB](https://github.com/dineshsonachalam/Lucid-Dynamodb)
-
 
 
 ## License

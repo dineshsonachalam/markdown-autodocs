@@ -2,7 +2,7 @@ const { exec } = require('child_process');
 describe('Validate markdown-autodocs CLI', () => {
   
   beforeEach(() => {
-    jest.setTimeout(60000);
+    jest.setTimeout(195000);
   });
   
   it('Autodoc workflow artifact table. Gave all the required arguments to the CLI as an input, it should now return a success message', (done) => {

@@ -5,8 +5,8 @@
 </h1>
 <p align="center">A GitHub Action that automatically generates & updates markdown content (like your README.md) from external or remote files.</p>
 <p align="center">
-    <a href="https://sonarcloud.io/dashboard?id=dineshsonachalam_markdown-autodocs">
-        <img src="https://sonarcloud.io/api/project_badges/quality_gate?project=dineshsonachalam_markdown-autodocs"/>
+    <a href="https://sonarcloud.io/dashboard?id=markdown-autodocs">
+        <img src="https://sonarcloud.io/api/project_badges/quality_gate?project=markdown-autodocs"/>
     </a>
 </p>
 <p align="center">

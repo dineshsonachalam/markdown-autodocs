@@ -2,7 +2,7 @@ import fs from "fs";
 import path from 'path'
 import markdownMagic from 'markdown-magic'
 import Table from 'table-builder'
-import GithubApi from './api.js'
+import GithubApi from './GithubApi.js'
 
 /**
  * 
@@ -31,7 +31,7 @@ export const convertJsonToHtmlTable = function(content, options = {}, config) {
         })
         return generateHtmlTable(tableHeaders, tableRows, "JSON-TO-HTML-TABLE")
     }else {
-        return ""
+        return "<!-- The JSON file is empty. Cannot convert JSON to HTML Table  -->"
     }
 }
 
@@ -87,13 +87,9 @@ export const app = async function(outputFilePath, category, repo, branch, github
     }else if(category == "workflow-artifact-table"){
         const github = new GithubApi(repo, branch, githubApiToken)
         const workflowNames = await github.getWorkflowNames()
-        console.log("workflowNames: ", workflowNames)
         const workflowIds   = await github.getWorkflowIds(workflowNames)
-        console.log("workflowIds: ", workflowIds)
         const workflowInfo = await github.getWorkflowArtifacts(workflowIds)
-        console.log("workflowInfo:", workflowInfo)
         const workflows = workflowInfo.workflowArtifacts
-        console.log("workflows: ",workflows)
         const config = {
             matchWord: 'MARKDOWN-AUTO-DOCS',
             workflows: workflows,

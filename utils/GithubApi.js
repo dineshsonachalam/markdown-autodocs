@@ -31,12 +31,11 @@ export default class GithubApi {
         const url = `${githubInfo.apiUrl}/${this.repo}/contents/${githubInfo.workflowPath}?ref=${this.branch}`  
         const workflows = await get(url, this.headers)
         let workflowNames = []
-        for(var i = 0; i < workflows.length; i++) {
-            var workflow = workflows[i];
+        for (let workflow of workflows) {
             const workflowYamlUrl = workflow.download_url
             let workflowName = await getYamlConfigValue(workflowYamlUrl, this.headers, "name")
             workflowNames.push(workflowName)
-        }
+        }        
         return workflowNames
     }
 
@@ -74,15 +73,12 @@ export default class GithubApi {
      * @param {string} runId 
      * @param {string} checkSuiteId 
      * @returns {array} artifactsDownloadUrl
-     */
+    */
     async getArtifactsDownloadUrl(runId, checkSuiteId){
         let url = `${githubInfo.apiUrl}/${this.repo}/actions/runs/${runId}/artifacts`
-        console.log("===>URL: ", url)
         const artifacts = (await get(url, this.headers)).artifacts
-        console.log("Artifacts: ", artifacts)
         let artifactsDownloadUrl = []
-        for(var i = 0; i < artifacts.length; i++) {
-            let artifact = artifacts[i]
+        for (let artifact of artifacts) {
             let artifactId = artifact.id
             let artifactName = artifact.name
             let artifactDownloadUrl = `${githubInfo.url}/${this.repo}/suites/${checkSuiteId}/artifacts/${artifactId}`
@@ -90,7 +86,7 @@ export default class GithubApi {
                 name: artifactName,
                 url : artifactDownloadUrl
             })
-        }
+        }        
         return artifactsDownloadUrl
     }
 
@@ -102,8 +98,7 @@ export default class GithubApi {
     async getWorkflowArtifacts(workflowIds){
         let workflowArtifacts = []
         let totalArtifacts = 0
-        for(var i = 0; i < workflowIds.length; i++) {
-            let workflow = workflowIds[i];
+        for (let workflow of workflowIds) {
             let runId = workflow['run_id']
             let checkSuiteId = workflow['check_suite_id']
             let artifacts = await this.getArtifactsDownloadUrl(runId, checkSuiteId)

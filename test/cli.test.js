@@ -1,10 +1,5 @@
 const { exec } = require('child_process');
-describe('Validate markdown-autodocs CLI', () => {
-  
-  beforeEach(() => {
-    jest.setTimeout(195000);
-  });
-  
+describe('Validate markdown-autodocs CLI', () => {  
   it('Autodoc workflow artifact table. Gave all the required arguments to the CLI as an input, it should now return a success message', (done) => {
     exec(
       'node index.js -c workflow-artifact-table -o ./README.md -r $TEST_REPO -b $TEST_BRANCH -a $TEST_ACCESSTOKEN',
@@ -13,7 +8,7 @@ describe('Validate markdown-autodocs CLI', () => {
         done();
       }
     );
-  });
+  }, 10000);
   
   it('Autodoc code block. Gave all the required arguments to the CLI as an input, it should now return a success message', (done) => {
     exec(
@@ -23,7 +18,7 @@ describe('Validate markdown-autodocs CLI', () => {
         done();
       }
     );
-  });
+  }, 10000);
 
   it('Autodoc json-to-html-table. Gave all the required arguments to the CLI as an input, it should now return a success message', (done) => {
     exec(
@@ -33,5 +28,5 @@ describe('Validate markdown-autodocs CLI', () => {
         done();
       }
     );
-  });
+  }, 10000);
 });

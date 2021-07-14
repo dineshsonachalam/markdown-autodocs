@@ -7,7 +7,7 @@ on:
     tags:
       - latest
 
-jobs:        
+jobs:
   integration-tests:
       runs-on: ubuntu-latest
       steps:
@@ -22,6 +22,12 @@ jobs:
             TEST_BRANCH: ${{ secrets.TEST_BRANCH }}
             TEST_ACCESSTOKEN: ${{ secrets.TEST_ACCESSTOKEN }}
           run: npm test
+  
+        - name: SonarCloud Scan
+          uses: sonarsource/sonarcloud-github-action@master
+          env:
+            GITHUB_TOKEN: ${{ github.token }}
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
         - name: Upload Jest integration test report to Artifact
           uses: actions/upload-artifact@v2

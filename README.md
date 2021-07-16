@@ -60,11 +60,11 @@ Get code from an external file or URL and insert it in your markdown.
 **Options:**
 - `src`: The relative path to the code to pull in, or the `URL` where the raw code lives
 
-<a href="./docs/examples.md" target="_blank">
+<a href="./docs/examples.md#get-code-from-external-file" target="_blank">
     <img src="https://i.imgur.com/NUMReeR.png"/>
 </a>
 
-<a href="./docs/examples.md" target="_blank">
+<a href="./docs/examples.md#get-code-from-remote-file" target="_blank">
   <img src="https://i.imgur.com/blYRUXN.png"/>
 </a>
 
@@ -74,7 +74,7 @@ Get JSON contents from an external file and convert it into an HTML table and in
 **Options:**
 - `src`: The relative path to the JSON file to pull in.
 
-<a href="./docs/examples.md" target="_blank">
+<a href="./docs/examples.md#json-to-html-table" target="_blank">
   <img src="https://i.imgur.com/5pTHIpS.png"/>
 </a>
 
@@ -82,7 +82,7 @@ Get JSON contents from an external file and convert it into an HTML table and in
 
 Get the list of the latest artifacts generated from a workflow run. Generates a workflow artifacts table consists of artifacts download and workflow URL in an HTML table and inserts it in your markdown file.
 
-<a href="./docs/examples.md" target="_blank">
+<a href="./docs/examples.md#github-workflow-artifacts-table" target="_blank">
   <img src="https://i.imgur.com/gVHiSB8.png"/>
 </a>
 

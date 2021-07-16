@@ -20,6 +20,13 @@ export const generateHtmlTable = function(tableHeaders, tableRows, className) {
     )
 }
 
+/**
+ * Module to generate JSON to HTML table.
+ * @param {String} content 
+ * @param {Object} options 
+ * @param {Object} config 
+ * @returns {String} htmlTable
+ */
 export const convertJsonToHtmlTable = function(content, options = {}, config) {
     const inputFilePath = options["src"]
     let tableRows = JSON.parse(fs.readFileSync(inputFilePath))
@@ -31,7 +38,7 @@ export const convertJsonToHtmlTable = function(content, options = {}, config) {
         })
         return generateHtmlTable(tableHeaders, tableRows, "JSON-TO-HTML-TABLE")
     }else {
-        return "<!-- The JSON file is empty. Cannot convert JSON to HTML Table  -->"
+        return ""
     }
 }
 

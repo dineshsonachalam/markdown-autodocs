@@ -3,7 +3,7 @@ name: markdown-autodocs
 on:
   workflow_run:
     workflows:
-      - integration-tests
+      - tests
     types:
       - completed
 

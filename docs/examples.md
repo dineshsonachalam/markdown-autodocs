@@ -4,18 +4,15 @@
 
 Get code from an external file or URL and insert it in your markdown.
 
-<center>
-    <p>Get code from external file</p>
-</center>
+#### Get code from external file
 
 ```
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./relative/path/to/code.js) -->
 <!-- MARKDOWN-AUTO-DOCS:END -->
 ```
 
-<center>
-    <p>Get code from remote file</p>
-</center>
+
+#### Get code from remote file
 
 ```
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=https://raw.githubusercontent.com/kubernetes/kubectl/master/docs/book/examples/nginx/nginx.yaml) -->

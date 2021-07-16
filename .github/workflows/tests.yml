@@ -28,11 +28,11 @@ jobs:
             GITHUB_TOKEN: ${{ github.token }}
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-        - name: Upload Jest integration test report to Artifact
-          uses: actions/upload-artifact@v2
-          with:
-            name: Jest-integration-test-report
-            path: ${{ github.workspace }}/jest_html_reporters.html
+        # - name: Upload Jest integration test report to Artifact
+        #   uses: actions/upload-artifact@v2
+        #   with:
+        #     name: Jest-integration-test-report
+        #     path: ${{ github.workspace }}/jest_html_reporters.html
 
   module-dependencies-license-checker:
       needs: integration-tests

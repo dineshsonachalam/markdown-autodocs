@@ -37,4 +37,3 @@ if __name__ == "__main__":
     os.system("git add {}".format(output_file_paths))
     os.system("git commit -m '{}' {}".format(commit_message, output_file_paths))
     os.system("git push origin {}".format(branch))
-

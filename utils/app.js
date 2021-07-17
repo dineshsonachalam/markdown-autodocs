@@ -1,8 +1,8 @@
-import fs from "fs";
-import path from 'path'
-import markdownMagic from 'markdown-magic'
-import Table from 'table-builder'
-import GithubApi from './GithubApi.js'
+import fs from "fs"
+import path from "path"
+import markdownMagic from "markdown-magic"
+import Table from "table-builder"
+import GithubApi from "./GithubApi.js"
 
 /**
  * 
@@ -13,11 +13,11 @@ import GithubApi from './GithubApi.js'
  * @returns {Object} htmlTable 
  */
 export const generateHtmlTable = function(tableHeaders, tableRows, className) {
-    return ((new Table({'class': className}))
+    return ((new Table({"class": className}))
         .setHeaders(tableHeaders)
         .setData(tableRows)
         .render()
-    )
+    );
 }
 
 /**
@@ -28,7 +28,7 @@ export const generateHtmlTable = function(tableHeaders, tableRows, className) {
  * @returns {String} htmlTable
  */
 export const convertJsonToHtmlTable = function(content, options = {}, config) {
-    const inputFilePath = options["src"]
+    const inputFilePath = options["src"];
     let tableRows = JSON.parse(fs.readFileSync(inputFilePath))
     if(Object.keys(tableRows).length>0){
         let tableHeaderData = Object.keys(tableRows[0])
@@ -36,9 +36,9 @@ export const convertJsonToHtmlTable = function(content, options = {}, config) {
         tableHeaderData.forEach((header) => {
             tableHeaders[header]=header
         })
-        return generateHtmlTable(tableHeaders, tableRows, "JSON-TO-HTML-TABLE")
+        return generateHtmlTable(tableHeaders, tableRows, "JSON-TO-HTML-TABLE");
     }else {
-        return ""
+        return "";
     }
 }
 
@@ -64,7 +64,7 @@ export const generateArtifactsTable = function(content, options = {}, config) {
             })
         })
     })
-    return generateHtmlTable(tableHeaders, tableRows, "ARTIFACTS-TABLE")
+    return generateHtmlTable(tableHeaders, tableRows, "ARTIFACTS-TABLE");
 }
 
 /**
@@ -75,37 +75,37 @@ export const generateArtifactsTable = function(content, options = {}, config) {
  * @returns {String} message
  */
 export const app = async function(outputFilePath, category, repo, branch, githubApiToken) {
-    const markdownPath = path.join(outputFilePath)
+    const markdownPath = path.join(outputFilePath);
     if(category == "code-block"){
         const config = {
             matchWord: 'MARKDOWN-AUTO-DOCS'
-        }
+        };
         markdownMagic(markdownPath, config)
-        return `Auto documented code-block in ${outputFilePath}`
+        return `Auto documented code-block in ${outputFilePath}`;
     }else if(category == "json-to-html-table"){
         const config = {
             matchWord: 'MARKDOWN-AUTO-DOCS',
             transforms: {
               JSON_TO_HTML_TABLE: convertJsonToHtmlTable,
             },
-        }
+        };
         markdownMagic(markdownPath, config)        
         return `Converted JSON to HTML table. Then auto-documented HTML table in ${outputFilePath}`
     }else if(category == "workflow-artifact-table"){
-        const github = new GithubApi(repo, branch, githubApiToken)
-        const workflowNames = await github.getWorkflowNames()
-        const workflowIds   = await github.getWorkflowIds(workflowNames)
-        const workflowInfo = await github.getWorkflowArtifacts(workflowIds)
-        const workflows = workflowInfo.workflowArtifacts
+        const github = new GithubApi(repo, branch, githubApiToken);
+        const workflowNames = await github.getWorkflowNames();
+        const workflowIds   = await github.getWorkflowIds(workflowNames);
+        const workflowInfo = await github.getWorkflowArtifacts(workflowIds);
+        const workflows = workflowInfo.workflowArtifacts;
         const config = {
             matchWord: 'MARKDOWN-AUTO-DOCS',
             workflows: workflows,
             transforms: {
               WORKFLOW_ARTIFACT_TABLE: generateArtifactsTable,
             },
-        }
+        };
         markdownMagic(markdownPath, config)
-        return `Auto documented ${workflowInfo.totalArtifacts} artifacts in artifactsTable - ${outputFilePath}`
+        return `Auto documented ${workflowInfo.totalArtifacts} artifacts in artifactsTable - ${outputFilePath}`;
     }
 }
 

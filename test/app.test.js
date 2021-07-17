@@ -1,5 +1,5 @@
 import {app} from '../utils/app.js'
-const { exec } = require('child_process');
+const { exec } = require("child_process");
 function Output(error, stdout, stderr){
     console.log("message: ", stdout)
     return {}

@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 <h1 align="center">
   <a href="https://github.com/marketplace/actions/markdown-autodocs">
     <img src="https://i.imgur.com/ZAC4qPa.png"/>
@@ -33,19 +42,30 @@
 ## Table of contents
 
 *   [Why markdown-autodocs?](#why-markdown-autodocs)
+
 *   [Features](#features)
+
 *   [Examples](#examples)
     *   [CODE Block](#code-block)
+
     *   [JSON to HTML table](#json-to-html-table)
+    
     *   [Github Workflow Artifacts table](#github-workflow-artifacts-table)
+
 *   [Example Repo which uses all the markdown-autodocs feature](#example-repo-which-uses-all-the-markdown-autodocs-feature)
+
 *   [Local usage without Github action](#local-usage-without-github-action)
+
 *   [Usage](#usage)
     *   [Adding markdown-autodocs in your workflow](#adding-markdown-autodocs-in-your-workflow)
     *   [Extended example with all possible options available for this Action](#extended-example-with-all-possible-options-available-for-this-action)
+
 *   [Github Workflow Artifacts](#github-workflow-artifacts)
+
 *   [Contributing](#contributing)
+
 *   [Used By](#-used-by)
+
 *   [License](#license)
 
 ## Why markdown-autodocs
@@ -172,9 +192,9 @@ uses: dineshsonachalam/markdown-autodocs@v1.0.2
 
 ## Github Workflow Artifacts
 <!-- MARKDOWN-AUTO-DOCS:START (WORKFLOW_ARTIFACT_TABLE) -->
-<table class="ARTIFACTS-TABLE"><thead><tr><th class="artifact-th">Artifact</th><th class="workflow-th">Workflow</th></tr></thead><tbody ><tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/3262268158/artifacts/75919358>module-dependencies-license-report</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/1039755121>tests</a></td></tr>
-<tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/3262268158/artifacts/75919359>size-of-dependencies</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/1039755121>tests</a></td></tr>
-<tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/3262268158/artifacts/75919360>vulnerabilities-audit-report</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/1039755121>tests</a></td></tr></tbody></table>
+<table class="ARTIFACTS-TABLE"><thead><tr><th class="artifact-th">Artifact</th><th class="workflow-th">Workflow</th></tr></thead><tbody ><tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/3262206455/artifacts/75917755>module-dependencies-license-report</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/1039719076>tests</a></td></tr>
+<tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/3262206455/artifacts/75917756>size-of-dependencies</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/1039719076>tests</a></td></tr>
+<tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/3262206455/artifacts/75917757>vulnerabilities-audit-report</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/1039719076>tests</a></td></tr></tbody></table>
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## Contributing

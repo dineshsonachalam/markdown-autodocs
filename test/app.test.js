@@ -24,7 +24,7 @@ describe('should test App functionality', () => {
     
     test('should test workflow-artifact-table', async () => {
         expect(await app("./TEST_README.md", "workflow-artifact-table", repo, branch, githubApiToken))
-        .toMatch("Auto documented 4 artifacts in artifactsTable - ./TEST_README.md") 
+        .toMatch("Auto documented 0 artifacts in artifactsTable - ./TEST_README.md") 
     });
     
     test('should test code-block', async () => {

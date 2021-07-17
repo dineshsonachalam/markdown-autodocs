@@ -2,8 +2,8 @@
     Module to perform CRUD operations.
     Author: Dinesh Sonachalam
 */
-import YAML from 'yaml'
-import fetch from 'cross-fetch';
+import YAML from "yaml";
+import fetch from "cross-fetch";
 
 /**
  * GET Request
@@ -18,7 +18,7 @@ export const get = async function(url, headers) {
     };
     const response = await fetch(url, requestOptions);
     return response.json();
-}
+};
 
 /**
  * GET Yaml config value
@@ -36,4 +36,4 @@ export const getYamlConfigValue = async function(url, headers, filter) {
     const textResponse = await response.text();
     const yamlDoc = YAML.parse(textResponse);
     return yamlDoc[filter];
-}
+};

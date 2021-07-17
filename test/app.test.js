@@ -45,7 +45,7 @@ describe("should test App functionality", () => {
     });
 
     test("should test convertJsonToHtmlTable", () => {
-        const htmlTable = `<table class="JSON-TO-HTML-TABLE"><thead><tr><th class="username-th">username</th></tr></thead><tbody ><tr ><td class="username-td td_text">dineshsonachalam</td></tr></tbody></table>`
+        const htmlTable = `<table class="JSON-TO-HTML-TABLE"><thead><tr><th class="username-th">username</th></tr></thead><tbody ><tr ><td class="username-td td_text">dineshsonachalam</td></tr></tbody></table>`;
         expect(convertJsonToHtmlTable("", {"src": "./contributors.json"}, "")).toMatch(htmlTable);
         expect(convertJsonToHtmlTable("", {"src": "./sponsors.json"}, "")).toMatch("");
     });
@@ -68,8 +68,8 @@ describe("should test App functionality", () => {
                     "url": "https://github.com/dineshsonachalam/markdown-autodocs/suites/3262597270/artifacts/75928186"
                 }]
             }]
-        } 
-        const workflowArtifactsTable = `<table class="ARTIFACTS-TABLE"><thead><tr><th class="artifact-th">Artifact</th><th class="workflow-th">Workflow</th></tr></thead><tbody ><tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/3262597270/artifacts/75928184>module-dependencies-license-report</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/1039932338>tests</a></td></tr>`
+        };
+        const workflowArtifactsTable = `<table class="ARTIFACTS-TABLE"><thead><tr><th class="artifact-th">Artifact</th><th class="workflow-th">Workflow</th></tr></thead><tbody ><tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/3262597270/artifacts/75928184>module-dependencies-license-report</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/1039932338>tests</a></td></tr>`;
         expect(generateArtifactsTable("", "", workflowArtifacts)).toMatch(workflowArtifactsTable);
     });
 });

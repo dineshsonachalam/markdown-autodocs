@@ -79,12 +79,9 @@ export default class GithubApi {
         const artifacts = (await get(url, this.headers)).artifacts;
         let artifactsDownloadUrl = [];
         for (let artifact of artifacts) {
-            let artifactId = artifact.id;
-            let artifactName = artifact.name;
-            let artifactDownloadUrl = `${githubInfo.url}/${this.repo}/suites/${checkSuiteId}/artifacts/${artifactId}`;
             artifactsDownloadUrl.push({
-                name: artifactName,
-                url : artifactDownloadUrl
+                name: artifact.name,
+                url : `${githubInfo.url}/${this.repo}/suites/${checkSuiteId}/artifacts/${artifact.id}`
             });
         }        
         return artifactsDownloadUrl;

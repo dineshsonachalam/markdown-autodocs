@@ -12,7 +12,7 @@ def get_cli_args():
     parser.add_argument('-output_file_paths', required=True)
     parser.add_argument('-categories', required=True)
     return parser.parse_args()
-    
+
 def option_processor(option):
     option = option.translate({ord(i):None for i in '[]" '})
     option = option.split(",")

@@ -15,9 +15,9 @@ export const get = async function(url, headers) {
     const requestOptions = {
         method: "GET",
         headers: headers
-    }
-    const response = await fetch(url, requestOptions)
-    return response.json()
+    };
+    const response = await fetch(url, requestOptions);
+    return response.json();
 }
 
 /**
@@ -32,8 +32,8 @@ export const getYamlConfigValue = async function(url, headers, filter) {
         method: "GET",
         headers: headers
     }
-    const response = await fetch(url, requestOptions)
-    const textResponse = await response.text()
+    const response = await fetch(url, requestOptions);
+    const textResponse = await response.text();
     const yamlDoc = YAML.parse(textResponse);
-    return yamlDoc[filter]
+    return yamlDoc[filter];
 }

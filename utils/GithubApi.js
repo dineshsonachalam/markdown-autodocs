@@ -1,10 +1,10 @@
-import {get, getYamlConfigValue} from './crud.js'
+import {get, getYamlConfigValue} from "./crud.js";
 
 const githubInfo = {
     "url": "https://github.com",
     "apiUrl": "https://api.github.com/repos",
     "workflowPath": ".github/workflows"
-}
+};
 
 /**
  * Module to interact with Github Api
@@ -28,15 +28,15 @@ export default class GithubApi {
      * @returns {Array} workflowNames
      */
     async getWorkflowNames(){
-        const url = `${githubInfo.apiUrl}/${this.repo}/contents/${githubInfo.workflowPath}?ref=${this.branch}`  
-        const workflows = await get(url, this.headers)
-        let workflowNames = []
+        const url = `${githubInfo.apiUrl}/${this.repo}/contents/${githubInfo.workflowPath}?ref=${this.branch}`; 
+        const workflows = await get(url, this.headers);
+        let workflowNames = [];
         for (let workflow of workflows) {
-            const workflowYamlUrl = workflow.download_url
-            let workflowName = await getYamlConfigValue(workflowYamlUrl, this.headers, "name")
+            const workflowYamlUrl = workflow.download_url;
+            let workflowName = await getYamlConfigValue(workflowYamlUrl, this.headers, "name");
             workflowNames.push(workflowName)
         }        
-        return workflowNames
+        return workflowNames;
     }
 
     /**
@@ -45,11 +45,11 @@ export default class GithubApi {
      * @returns {Array} workflowIds
      */
     async getWorkflowIds(workflowNames){
-        let workflowIds = []
-        let url = `${githubInfo.apiUrl}/${this.repo}/actions/runs?branch=${this.branch}`
+        let workflowIds = [];
+        let url = `${githubInfo.apiUrl}/${this.repo}/actions/runs?branch=${this.branch}`;
         let workflowRuns = (await get(url, this.headers)).workflow_runs
         workflowRuns.forEach((workflowRun) => {
-            let workflowName = workflowRun.name
+            let workflowName = workflowRun.name;
             if(workflowNames.includes(workflowName)){
                 let runId = (workflowRun.id).toString();
                 let checkSuiteId = (workflowRun.check_suite_id).toString()
@@ -60,12 +60,12 @@ export default class GithubApi {
                     "check_suite_id": checkSuiteId
                 })
                 workflowNames = workflowNames.filter(item => item !== workflowName)
-                if(workflowNames.length===0){
-                    return workflowIds
+                if(workflowNames.length === 0){
+                    return workflowIds;
                 }
              }
         });
-        return workflowIds
+        return workflowIds;
     }
 
     /**
@@ -75,19 +75,19 @@ export default class GithubApi {
      * @returns {array} artifactsDownloadUrl
     */
     async getArtifactsDownloadUrl(runId, checkSuiteId){
-        let url = `${githubInfo.apiUrl}/${this.repo}/actions/runs/${runId}/artifacts`
-        const artifacts = (await get(url, this.headers)).artifacts
-        let artifactsDownloadUrl = []
+        let url = `${githubInfo.apiUrl}/${this.repo}/actions/runs/${runId}/artifacts`;
+        const artifacts = (await get(url, this.headers)).artifacts;
+        let artifactsDownloadUrl = [];
         for (let artifact of artifacts) {
-            let artifactId = artifact.id
-            let artifactName = artifact.name
-            let artifactDownloadUrl = `${githubInfo.url}/${this.repo}/suites/${checkSuiteId}/artifacts/${artifactId}`
+            let artifactId = artifact.id;
+            let artifactName = artifact.name;
+            let artifactDownloadUrl = `${githubInfo.url}/${this.repo}/suites/${checkSuiteId}/artifacts/${artifactId}`;
             artifactsDownloadUrl.push({
                 name: artifactName,
                 url : artifactDownloadUrl
             })
         }        
-        return artifactsDownloadUrl
+        return artifactsDownloadUrl;
     }
 
     /**
@@ -96,18 +96,18 @@ export default class GithubApi {
      * @returns {Object} workflowArtifacts, totalArtifacts
      */
     async getWorkflowArtifacts(workflowIds){
-        let workflowArtifacts = []
-        let totalArtifacts = 0
+        let workflowArtifacts = [];
+        let totalArtifacts = 0;
         for (let workflow of workflowIds) {
-            let runId = workflow['run_id']
-            let checkSuiteId = workflow['check_suite_id']
-            let artifacts = await this.getArtifactsDownloadUrl(runId, checkSuiteId)
+            let runId = workflow["run_id"];
+            let checkSuiteId = workflow["check_suite_id"];
+            let artifacts = await this.getArtifactsDownloadUrl(runId, checkSuiteId);
             if(artifacts.length>0){
                 totalArtifacts = totalArtifacts + artifacts.length
                 workflowArtifacts.push(
                     {
-                        "name": workflow['name'],
-                        "run_url": workflow['run_url'],
+                        "name": workflow["name"],
+                        "run_url": workflow["run_url"],
                         "run_id": runId,
                         "check_suite_id": checkSuiteId,
                         "artifacts": artifacts
@@ -118,6 +118,6 @@ export default class GithubApi {
         return {
             "workflowArtifacts" : workflowArtifacts,
             "totalArtifacts" : totalArtifacts 
-        }
+        };
     }
 }

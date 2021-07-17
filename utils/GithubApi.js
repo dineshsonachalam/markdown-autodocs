@@ -110,14 +110,14 @@ export default class GithubApi {
                         "run_url": workflow["run_url"],
                         "run_id": runId,
                         "check_suite_id": checkSuiteId,
-                        "artifacts": artifacts
+                        artifacts
                     }
                 );
             }
         }
         return {
-            "workflowArtifacts" : workflowArtifacts,
-            "totalArtifacts" : totalArtifacts 
+            workflowArtifacts,
+            totalArtifacts 
         };
     }
 }

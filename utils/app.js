@@ -34,7 +34,7 @@ export const convertJsonToHtmlTable = function(content, options = {}, config) {
         let tableHeaderData = Object.keys(tableRows[0]);
         let tableHeaders = {};
         tableHeaderData.forEach((header) => {
-            tableHeaders[String(header)]=String(header)
+            tableHeaders[String(header)]=String(header);
         });
         return generateHtmlTable(tableHeaders, tableRows, "JSON-TO-HTML-TABLE");
     }else {
@@ -60,10 +60,10 @@ export const generateArtifactsTable = function(content, options = {}, config) {
                 "artifact": `<a href=${artifact.url}>${artifact.name}</a>`,
                 "workflow": `<a href=${workflow.run_url}>${workflow.name}</a>`
             });
-        })
+        });
     });
     return generateHtmlTable(tableHeaders, tableRows, "ARTIFACTS-TABLE");
-}
+};
 
 /**
  * @param {String} outputFilePath 

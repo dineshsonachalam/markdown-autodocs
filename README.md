@@ -1,12 +1,3 @@
-
-
-
-
-
-
-
-
-
 <h1 align="center">
   <a href="https://github.com/marketplace/actions/markdown-autodocs">
     <img src="https://i.imgur.com/ZAC4qPa.png"/>
@@ -55,11 +46,9 @@
 *   [Example Repo which uses all the markdown-autodocs feature](#example-repo-which-uses-all-the-markdown-autodocs-feature)
 
 *   [Local usage without Github action](#local-usage-without-github-action)
-
 *   [Usage](#usage)
     *   [Adding markdown-autodocs in your workflow](#adding-markdown-autodocs-in-your-workflow)
     *   [Extended example with all possible options available for this Action](#extended-example-with-all-possible-options-available-for-this-action)
-
 *   [Github Workflow Artifacts](#github-workflow-artifacts)
 
 *   [Contributing](#contributing)
@@ -137,15 +126,18 @@ Options:
 ```
 
 *   Code block
-```
+
+```sh
 markdown-autodocs -c code-block -o ./README.md 
 ```
 *   JSON to HTML table
-```
+
+```sh
 markdown-autodocs -c json-to-html-table -o ./README.md
 ```
 *   Github workflow artifacts table
-```
+
+```sh
 markdown-autodocs -c workflow-artifact-table -o ./README.md -r $REPO -b $BRANCH -a $ACCESSTOKEN
 ```
 

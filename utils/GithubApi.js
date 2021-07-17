@@ -59,7 +59,7 @@ export default class GithubApi {
                     "run_id": runId,
                     "check_suite_id": checkSuiteId
                 });
-                workflowNames = (workflowNames.filter(item => item !== workflowName));
+                workflowNames = workflowNames.filter(item => item !== workflowName);
                 if(workflowNames.length === 0){
                     return workflowIds;
                 }
@@ -85,7 +85,7 @@ export default class GithubApi {
             artifactsDownloadUrl.push({
                 name: artifactName,
                 url : artifactDownloadUrl
-            })
+            });
         }        
         return artifactsDownloadUrl;
     }
@@ -103,7 +103,7 @@ export default class GithubApi {
             let checkSuiteId = workflow["check_suite_id"];
             let artifacts = await this.getArtifactsDownloadUrl(runId, checkSuiteId);
             if(artifacts.length>0){
-                totalArtifacts = totalArtifacts + artifacts.length
+                totalArtifacts = totalArtifacts + artifacts.length;
                 workflowArtifacts.push(
                     {
                         "name": workflow["name"],

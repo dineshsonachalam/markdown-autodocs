@@ -12,10 +12,7 @@ import fetch from "cross-fetch";
  * @returns {Object} jsonResponse
  */
 export const get = async function(url, headers) {
-    const requestOptions = {
-        method: "GET",
-        headers: headers
-    };
+    const requestOptions = {method: "GET", headers: headers};
     const response = await fetch(url, requestOptions);
     return response.json();
 };
@@ -31,7 +28,7 @@ export const getYamlConfigValue = async function(url, headers, filter) {
     const requestOptions = {
         method: "GET",
         headers: headers
-    }
+    };
     const response = await fetch(url, requestOptions);
     const textResponse = await response.text();
     const yamlDoc = YAML.parse(textResponse);

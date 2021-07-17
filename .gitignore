@@ -6,9 +6,9 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
+TEST_README.md
 
 # test files
-TEST_README.md
 contributors.json
 sponsors.json
 

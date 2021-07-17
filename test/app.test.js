@@ -22,18 +22,18 @@ describe("should test App functionality", () => {
         (error, stdout, stderr) => Output(error, stdout, stderr)
     );
     
-    test("should test workflow-artifact-table", async () => {
-        expect(await app("./TEST_README.md", "workflow-artifact-table", repo, branch, githubApiToken))
-        .toMatch("Auto documented 3 artifacts in artifactsTable - ./TEST_README.md"); 
-    });
-    
     test("should test code-block", async () => {
         expect(await app("./TEST_README.md", "code-block", repo, branch, githubApiToken))
         .toMatch("Auto documented code-block in ./TEST_README.md");
     });
+    
     test("should test json-to-html-table", async () => {
         expect(await app("./TEST_README.md", "json-to-html-table", repo, branch, githubApiToken))
         .toMatch("Converted JSON to HTML table. Then auto-documented HTML table in ./TEST_README.md");
     });
 
+    test("should test workflow-artifact-table", async () => {
+        expect(await app("./TEST_README.md", "workflow-artifact-table", repo, branch, githubApiToken))
+        .toMatch("artifacts in artifactsTable - ./TEST_README.md"); 
+    });
 });

@@ -59,7 +59,7 @@ export default class GithubApi {
                     "run_id": runId,
                     "check_suite_id": checkSuiteId
                 });
-                workflowNames = workflowNames.filter(item => item !== workflowName);
+                workflowNames = workflowNames.filter(item => {item} !== workflowName);
                 if(workflowNames.length === 0){
                     return workflowIds;
                 }

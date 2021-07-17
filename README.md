@@ -26,21 +26,21 @@
 
 ## Table of contents
 
--  [Why markdown-autodocs?](#why-markdown-autodocs)
--  [Features](#features)
--  [Examples](#examples)
-   -  [CODE Block](#code-block)
-   -  [JSON to HTML table](#json-to-html-table)
-   -  [Github Workflow Artifacts table](#github-workflow-artifacts-table)
-   -  [Example Repo which uses all the markdown-autodocs feature](#example-repo-which-uses-all-the-markdown-autodocs-feature)
--  [Local usage without Github action](#local-usage-without-github-action)
--  [Usage](#usage)
-   -  [Adding markdown-autodocs in your workflow](#adding-markdown-autodocs-in-your-workflow)
-   -  [Extended example with all possible options available for this Action](#extended-example-with-all-possible-options-available-for-this-action)
--  [Github Workflow Artifacts](#github-workflow-artifacts)
--  [Contributing](#contributing)
--  [Used By](#-used-by)
--  [License](#license)
+*   [Why markdown-autodocs?](#why-markdown-autodocs)
+*   [Features](#features)
+*   [Examples](#examples)
+    *   [CODE Block](#code-block)
+    *   [JSON to HTML table](#json-to-html-table)
+    *   [Github Workflow Artifacts table](#github-workflow-artifacts-table)
+*   [Example Repo which uses all the markdown-autodocs feature](#example-repo-which-uses-all-the-markdown-autodocs-feature)
+*   [Local usage without Github action](#local-usage-without-github-action)
+*   [Usage](#usage)
+    *   [Adding markdown-autodocs in your workflow](#adding-markdown-autodocs-in-your-workflow)
+    *   [Extended example with all possible options available for this Action](#extended-example-with-all-possible-options-available-for-this-action)
+*   [Github Workflow Artifacts](#github-workflow-artifacts)
+*   [Contributing](#contributing)
+*   [Used By](#-used-by)
+*   [License](#license)
 
 ## Why markdown-autodocs
 To make your repo more appealing and useful you need to provide example code snippets in your README.md. Manually copy and pasting each code snippet in their respective places in your README would be inefficient and time-consuming.
@@ -48,9 +48,9 @@ To make your repo more appealing and useful you need to provide example code sni
 This problem can be solved using <b>markdown-autodocs</b> a GitHub Action that automatically generates & updates markdown content (like your README.md) from external or remote files. You need to add markers in your README.md that will tell markdown-autodocs where to insert the code snippet.
 
 ## Features
--  <b>Code block:</b> Insert code snippet in your markdown file from external or remote files.
--  <b>JSON to HTML table:</b> Insert HTML Table in your markdown file by converting JSON file contents to HTML table.
--  <b>Github Workflow Artifacts table:</b> Insert the Github workflow artifacts table in your markdown file by getting the latest artifacts for a workflow run.
+*   <b>Code block:</b> Insert code snippet in your markdown file from external or remote files.
+*   <b>JSON to HTML table:</b> Insert HTML Table in your markdown file by converting JSON file contents to HTML table.
+*   <b>Github Workflow Artifacts table:</b> Insert the Github workflow artifacts table in your markdown file by getting the latest artifacts for a workflow run.
 
 ## Examples
 
@@ -59,7 +59,7 @@ This problem can be solved using <b>markdown-autodocs</b> a GitHub Action that a
 Get code from an external file or URL and insert it in your markdown.
 
 **Options:**
--  `src`: The relative path to the code to pull in, or the `URL` where the raw code lives
+*   `src`: The relative path to the code to pull in, or the `URL` where the raw code lives
 
 <a href="./docs/examples.md#get-code-from-external-file" target="_blank">
     <img src="https://i.imgur.com/NUMReeR.png"/>
@@ -73,7 +73,7 @@ Get code from an external file or URL and insert it in your markdown.
 Get JSON contents from an external file and convert it into an HTML table and insert's it in your markdown.
 
 **Options:**
--  `src`: The relative path to the JSON file to pull in.
+*   `src`: The relative path to the JSON file to pull in.
 
 <a href="./docs/examples.md#json-to-html-table" target="_blank">
   <img src="https://i.imgur.com/5pTHIpS.png"/>
@@ -97,7 +97,7 @@ npm i -g markdown-autodocs
 ```
 
 **markdown-autodocs CLI usage:**
-```
+```sh
 dineshsonachalam@macbook ~ % markdown-autodocs --help
 Usage: markdown-autodocs [options]
 
@@ -110,15 +110,15 @@ Options:
   -h, --help                                 display help for command
 ```
 
--  Code block
+*   Code block
 ```
 markdown-autodocs -c code-block -o ./README.md 
 ```
--  JSON to HTML table
+*   JSON to HTML table
 ```
 markdown-autodocs -c json-to-html-table -o ./README.md
 ```
--  Github workflow artifacts table
+*   Github workflow artifacts table
 ```
 markdown-autodocs -c workflow-artifact-table -o ./README.md -r $REPO -b $BRANCH -a $ACCESSTOKEN
 ```
@@ -166,21 +166,20 @@ uses: dineshsonachalam/markdown-autodocs@v1.0.2
 
 ## Github Workflow Artifacts
 <!-- MARKDOWN-AUTO-DOCS:START (WORKFLOW_ARTIFACT_TABLE) -->
-<table class="ARTIFACTS-TABLE"><thead><tr><th class="artifact-th">Artifact</th><th class="workflow-th">Workflow</th></tr></thead><tbody ><tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/3262144372/artifacts/75915955>module-dependencies-license-report</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/1039684952>tests</a></td></tr>
-<tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/3262144372/artifacts/75915956>size-of-dependencies</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/1039684952>tests</a></td></tr>
-<tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/3262144372/artifacts/75915957>vulnerabilities-audit-report</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/1039684952>tests</a></td></tr></tbody></table>
+<table class="ARTIFACTS-TABLE"><thead><tr><th class="artifact-th">Artifact</th><th class="workflow-th">Workflow</th></tr></thead><tbody ><tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/3262037448/artifacts/75912872>module-dependencies-license-report</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/1039628416>tests</a></td></tr>
+<tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/3262037448/artifacts/75912873>size-of-dependencies</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/1039628416>tests</a></td></tr>
+<tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/3262037448/artifacts/75912874>vulnerabilities-audit-report</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/1039628416>tests</a></td></tr></tbody></table>
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## Contributing
 
--  [Code of Conduct](CODE_OF_CONDUCT.md)
--  [Contributing Guideline](CONTRIBUTING.md)
+*   [Code of Conduct](CODE_OF_CONDUCT.md)
+*   [Contributing Guideline](CONTRIBUTING.md)
 
 ## 🚀 Used By
 
--  [iro.js - 🎨 Modular color picker widget for JavaScript, with support for a bunch of color formats](https://github.com/jaames/iro.js)
--  [LucidDynamodb - A minimalistic wrapper to AWS DynamoDB](https://github.com/dineshsonachalam/Lucid-Dynamodb)
-
+*   [iro.js - 🎨 Modular color picker widget for JavaScript, with support for a bunch of color formats](https://github.com/jaames/iro.js)
+*   [LucidDynamodb - A minimalistic wrapper to AWS DynamoDB](https://github.com/dineshsonachalam/Lucid-Dynamodb)
 
 ## License
 

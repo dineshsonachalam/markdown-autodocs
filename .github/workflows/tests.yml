@@ -102,6 +102,7 @@ jobs:
             npm --no-git-tag-version version patch
             git config user.name dineshsonachalam
             git config user.email dineshsonachalam@gmail.com
+            git pull origin '${{ github.ref }}'
             git add docs/latest-release.yml docs/markdown-autodocs.yml package.json
             git commit -m "Updated release version in YAML docs" docs/latest-release.yml docs/markdown-autodocs.yml package.json
             git push origin '${{ github.ref }}'

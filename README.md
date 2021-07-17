@@ -185,3 +185,10 @@ uses: dineshsonachalam/markdown-autodocs@v1.0.2
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/) © [dineshsonachalam](https://www.github.com/dineshsonachalam)
+
+<!-- MARKDOWN-AUTO-DOCS:START (JSON_TO_HTML_TABLE:src=./contributors.json) -->
+<table class="JSON-TO-HTML-TABLE"><thead><tr><th class="username-th">username</th></tr></thead><tbody ><tr ><td class="username-td td_text">dineshsonachalam</td></tr></tbody></table>
+<!-- MARKDOWN-AUTO-DOCS:END -->
+<!-- MARKDOWN-AUTO-DOCS:START (JSON_TO_HTML_TABLE:src=./sponsors.json) -->
+
+<!-- MARKDOWN-AUTO-DOCS:END -->

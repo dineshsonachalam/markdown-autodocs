@@ -10,6 +10,12 @@
     </a>
 </p>
 <p align="center">
+    <a href="https://www.codacy.com/gh/dineshsonachalam/markdown-autodocs/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dineshsonachalam/markdown-autodocs&amp;utm_campaign=Badge_Grade">
+        <img src="https://app.codacy.com/project/badge/Grade/55bdbc75c542444d86b8e900bb0f4f91"/>
+    </a>
+    <a href="https://snyk.io/test/github/dineshsonachalam/markdown-autodocs">
+        <img src="https://snyk.io/test/github/dineshsonachalam/markdown-autodocs/badge.svg"/>
+    </a>
     <a href="https://github.com/dineshsonachalam/markdown-autodocs/actions/workflows/tests.yml">
         <img src="https://github.com/dineshsonachalam/markdown-autodocs/actions/workflows/tests.yml/badge.svg"/>
     </a>

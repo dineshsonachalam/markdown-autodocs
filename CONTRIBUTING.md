@@ -20,8 +20,8 @@ npm i
 ### Run locally
 
 To run markdown-autodocs locally follow these steps:
--  Make sure you have run `npm i` to install all packages
--  Finally, you can use the markdown-autodocs cli `node index.js -c code-block -o ./README.md -r $TEST_REPO -b $TEST_BRANCH -a $TEST_ACCESSTOKEN`
+*   Make sure you have run `npm i` to install all packages
+*   Finally, you can use the markdown-autodocs cli `node index.js -c code-block -o ./README.md -r $TEST_REPO -b $TEST_BRANCH -a $TEST_ACCESSTOKEN`
 
 If you have any questions please ping [@DSonachalam](https://twitter.com/DSonachalam) on Twitter.
 

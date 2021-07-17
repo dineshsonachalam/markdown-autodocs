@@ -1,8 +1,6 @@
 import {app} from "../utils/app.js";
-import * as child from 'child_process';
+import * as child from "child_process";
 function output(error, stdout, stderr){
-    /* eslint no-console: "error" */
-    console.log("message: ", stdout)
     return {};
 }
 

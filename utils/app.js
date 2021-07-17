@@ -34,8 +34,8 @@ export const convertJsonToHtmlTable = function(content, options = {}, config) {
         let tableHeaderData = Object.keys(tableRows[0]);
         let tableHeaders = {};
         tableHeaderData.forEach((header) => {
-            tableHeaders[header]=header
-        })
+            tableHeaders[String(header)]=String(header)
+        });
         return generateHtmlTable(tableHeaders, tableRows, "JSON-TO-HTML-TABLE");
     }else {
         return "";
@@ -54,16 +54,14 @@ export const generateArtifactsTable = function(content, options = {}, config) {
     let tableRows = [];
     let tableHeaders = { "artifact" : "Artifact", "workflow": "Workflow" };
     workflows.forEach((workflow) => {
-        let workflow_name = `<a href=${workflow.run_url}>${workflow.name}</a>`;
         let artifacts = workflow["artifacts"];
         artifacts.forEach((artifact) => {
-            let artifact_name = `<a href=${artifact.url}>${artifact.name}</a>`;
             tableRows.push({
-                "artifact": artifact_name,
-                "workflow": workflow_name
+                "artifact": `<a href=${artifact.url}>${artifact.name}</a>`,
+                "workflow": `<a href=${workflow.run_url}>${workflow.name}</a>`
             });
         })
-    })
+    });
     return generateHtmlTable(tableHeaders, tableRows, "ARTIFACTS-TABLE");
 }
 
@@ -78,18 +76,18 @@ export const app = async function(outputFilePath, category, repo, branch, github
     const markdownPath = path.join(outputFilePath);
     if(category === "code-block"){
         const config = {
-            matchWord: 'MARKDOWN-AUTO-DOCS'
+            matchWord: "MARKDOWN-AUTO-DOCS"
         };
-        markdownMagic(markdownPath, config)
+        markdownMagic(markdownPath, config);
         return `Auto documented code-block in ${outputFilePath}`;
     }else if(category === "json-to-html-table"){
         const config = {
-            matchWord: 'MARKDOWN-AUTO-DOCS',
+            matchWord: "MARKDOWN-AUTO-DOCS",
             transforms: {
               JSON_TO_HTML_TABLE: convertJsonToHtmlTable,
             },
         };
-        markdownMagic(markdownPath, config)        
+        markdownMagic(markdownPath, config);        
         return `Converted JSON to HTML table. Then auto-documented HTML table in ${outputFilePath}`;
     }else if(category === "workflow-artifact-table"){
         const github = new GithubApi(repo, branch, githubApiToken);
@@ -98,13 +96,13 @@ export const app = async function(outputFilePath, category, repo, branch, github
         const workflowInfo = await github.getWorkflowArtifacts(workflowIds);
         const workflows = workflowInfo.workflowArtifacts;
         const config = {
-            matchWord: 'MARKDOWN-AUTO-DOCS',
-            workflows: workflows,
+            matchWord: "MARKDOWN-AUTO-DOCS",
+            workflows,
             transforms: {
               WORKFLOW_ARTIFACT_TABLE: generateArtifactsTable,
             },
         };
-        markdownMagic(markdownPath, config)
+        markdownMagic(markdownPath, config);
         return `Auto documented ${workflowInfo.totalArtifacts} artifacts in artifactsTable - ${outputFilePath}`;
     }
 }

@@ -26,6 +26,8 @@
 
 ## Table of contents
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3266c222039b472ea50d740e4701bd43)](https://app.codacy.com/gh/dineshsonachalam/markdown-autodocs?utm_source=github.com&utm_medium=referral&utm_content=dineshsonachalam/markdown-autodocs&utm_campaign=Badge_Grade_Settings)
+
 *   [Why markdown-autodocs?](#why-markdown-autodocs)
 *   [Features](#features)
 *   [Examples](#examples)

@@ -105,12 +105,4 @@ export const app = async function(outputFilePath, category, repo, branch, github
         markdownMagic(markdownPath, config);
         return `Auto documented ${workflowInfo.totalArtifacts} artifacts in artifactsTable - ${outputFilePath}`;
     }
-}
-
-
-
-
-
-
-
-
+};

@@ -16,6 +16,7 @@
     <a href="https://snyk.io/test/github/dineshsonachalam/markdown-autodocs">
         <img src="https://snyk.io/test/github/dineshsonachalam/markdown-autodocs/badge.svg"/>
     </a>
+<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fdineshsonachalam%2Fmarkdown-autodocs?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdineshsonachalam%2Fmarkdown-autodocs.svg?type=shield"/></a>
     <a href="https://github.com/dineshsonachalam/markdown-autodocs/actions/workflows/tests.yml">
         <img src="https://github.com/dineshsonachalam/markdown-autodocs/actions/workflows/tests.yml/badge.svg"/>
     </a>
@@ -29,6 +30,9 @@
         <img src="https://badgen.net/github/license/dineshsonachalam/markdown-autodocs" alt="MIT License" height="20">
     </a>
 </p>
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdineshsonachalam%2Fmarkdown-autodocs.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdineshsonachalam%2Fmarkdown-autodocs?ref=badge_large)
 
 ## Table of contents
 

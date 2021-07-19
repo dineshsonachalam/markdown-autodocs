@@ -18,8 +18,7 @@ def options_processor(options, category):
     options = options.split(",")
     if category == "output_file_paths":
         options = [option for option in options if ".md" in option]
-    else:
-        options = ' '.join(options)
+    options = ' '.join(options)
     return options
 
 if __name__ == "__main__":

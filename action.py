@@ -13,11 +13,14 @@ def get_cli_args():
     parser.add_argument('-categories', required=True)
     return parser.parse_args()
 
-def option_processor(option):
-    option = option.translate({ord(i):None for i in '[]" '})
-    option = option.split(",")
-    option = ' '.join(option)
-    return option
+def options_processor(options, category):
+    options = options.translate({ord(i):None for i in '[]" '})
+    options = options.split(",")
+    if category == "output_file_paths":
+        options = [option for option in options if ".md" in option]
+    else:
+        options = ' '.join(options)
+    return options
 
 if __name__ == "__main__":
     args = get_cli_args()
@@ -27,8 +30,8 @@ if __name__ == "__main__":
     commit_user_email = args.commit_user_email
     commit_message = args.commit_message
     branch = (args.branch).split("/")[-1]
-    output_file_paths = option_processor(args.output_file_paths)
-    categories = option_processor(args.categories)
+    output_file_paths = options_processor(args.output_file_paths, "output_file_paths")
+    categories = options_processor(args.categories, "categories")
     ma_cli_command = "markdown-autodocs --outputFilePath {} --category {} --repo {} --branch {} --accessToken {}".format(output_file_paths, categories, repo, branch, access_token)
     os.system("git config user.name '{}'".format(commit_author))
     os.system("git config user.email '{}'".format(commit_user_email))

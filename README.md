@@ -188,6 +188,7 @@ uses: dineshsonachalam/markdown-autodocs@v1.0.3
 ## 🚀 Used By
 
 *   [iro.js - 🎨 Modular color picker widget for JavaScript, with support for a bunch of color formats](https://github.com/jaames/iro.js)
+*   [Fireworks.js - 🎆 A simple fireworks library](https://github.com/crashmax-dev/fireworks-js)
 *   [LucidDynamodb - A minimalistic wrapper to AWS DynamoDB](https://github.com/dineshsonachalam/Lucid-Dynamodb)
 
 ## License

@@ -30,6 +30,8 @@
     </a>
 </p>
 
+Ask questions in the <a href ="https://github.com/dineshsonachalam/markdown-autodocs/issues">GitHub issues</a>
+
 ## Table of contents
 
 *   [Why markdown-autodocs?](#why-markdown-autodocs)

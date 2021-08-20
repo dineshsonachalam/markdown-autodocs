@@ -53,8 +53,8 @@ describe("should test App functionality", () => {
         .toMatch("Converted JSON to HTML table. Then auto-documented HTML table in ./TEST_README.md");
     });
 
-    // test("should test workflow-artifact-table", async () => {
-    //     expect(await app("./TEST_README.md", "workflow-artifact-table", repo, branch, githubApiToken))
-    //     .toMatch("artifacts in artifactsTable - ./TEST_README.md"); 
-    // });
+    test("should test workflow-artifact-table", async () => {
+        expect(await app("./TEST_README.md", "workflow-artifact-table", repo, branch, githubApiToken))
+        .toMatch("artifacts in artifactsTable - ./TEST_README.md"); 
+    });
 });

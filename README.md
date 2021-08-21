@@ -1,4 +1,3 @@
-<!-- MARKDOWN-AUTO-DOCS:START (MARKDOWN:src=./docs/1-intro.md) -->
 <h1 align="center">
   <a href="https://github.com/marketplace/actions/markdown-autodocs">
     <img src="https://i.imgur.com/ZAC4qPa.png"/>
@@ -134,9 +133,7 @@ markdown-autodocs -c json-to-html-table -o ./README.md
 ```sh
 markdown-autodocs -c workflow-artifact-table -o ./README.md -r $REPO -b $BRANCH -a $ACCESSTOKEN
 ```
-<!-- MARKDOWN-AUTO-DOCS:END -->
 
-<!-- MARKDOWN-AUTO-DOCS:START (MARKDOWN:src=./docs/2-usage.md) -->
 ## Usage
 
 ### Adding markdown-autodocs in your workflow
@@ -147,9 +144,7 @@ Add the following step at the end of your job, after other steps that might add 
 ### Extended example with all possible options available for this Action
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./docs/markdown-autodocs.yml) -->
 <!-- MARKDOWN-AUTO-DOCS:END -->
-<!-- MARKDOWN-AUTO-DOCS:END -->
 
-<!-- MARKDOWN-AUTO-DOCS:START (MARKDOWN:src=./docs/3-extra.md) -->
 ## Github Workflow Artifacts
 <!-- MARKDOWN-AUTO-DOCS:START (WORKFLOW_ARTIFACT_TABLE) -->
 <!-- MARKDOWN-AUTO-DOCS:END -->
@@ -163,10 +158,8 @@ Add the following step at the end of your job, after other steps that might add 
 
 *   [iro.js - 🎨 Modular color picker widget for JavaScript, with support for a bunch of color formats](https://github.com/jaames/iro.js)
 *   [Fireworks.js - 🎆 A simple fireworks library](https://github.com/crashmax-dev/fireworks-js)
-*   [LucidDynamodb - 🗄️ A minimalistic wrapper to AWS DynamoDB](https://github.com/dineshsonachalam/Lucid-Dynamodb)
-*   [redis-cloudflare-kv - ⚡ Redis caching layer for Cloudflare KV in Golang](https://github.com/dineshsonachalam/redis-cloudflare-kv)
+*   [LucidDynamodb - A minimalistic wrapper to AWS DynamoDB](https://github.com/dineshsonachalam/Lucid-Dynamodb)
 
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/) © [dineshsonachalam](https://www.github.com/dineshsonachalam)
-<!-- MARKDOWN-AUTO-DOCS:END -->

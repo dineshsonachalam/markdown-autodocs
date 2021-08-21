@@ -27,7 +27,7 @@ inputs:
   categories:
     description: Categories to automatically sync or transform its contents in the markdown files.
     required: false
-    default: '[markdown,code-block,json-to-html-table,workflow-artifact-table]'
+    default: '[code-block,json-to-html-table,workflow-artifact-table,markdown]'
 
 runs:
   using: composite

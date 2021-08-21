@@ -14,5 +14,3 @@ jobs:
         - uses: actions/checkout@v2
         - name: Markdown autodocs
           uses: ./ # Uses an action in the root directory
-          with:
-            output_file_paths: '[./README.md,./docs/1-intro.md,./docs/2-usage.md,./docs/3-extra.md]'

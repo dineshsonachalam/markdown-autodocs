@@ -1,4 +1,4 @@
-import {app, convertJsonToHtmlTable, generateArtifactsTable} from "../utils/app.js";
+import {app, convertJsonToHtmlTable, generateArtifactsTable, addMarkdown} from "../utils/app.js";
 
 describe("should test App functionality", () => {
     const repo = process.env.TEST_REPO;
@@ -46,5 +46,14 @@ describe("should test App functionality", () => {
     test("should test workflow-artifact-table", async () => {
         expect(await app("./TEST_README.md", "workflow-artifact-table", repo, branch, githubApiToken))
         .toMatch("Auto documented workflow artifacts in artifactsTable - ./TEST_README.md"); 
+    });
+
+    test("should test markdown files append", async () => {
+        expect(await app("./TEST_README.md", "markdown", repo, branch, githubApiToken))
+        .toMatch("Appended markdown files in ./TEST_README.md");
+    });
+
+    test("should test markdown", async () => {
+        expect(addMarkdown("", {"src": "./TEST.md"}, "")).toMatch("<p>Test</p>");
     });
 });

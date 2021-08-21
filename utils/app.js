@@ -62,6 +62,17 @@ export const generateArtifactsTable = function(content, options = {}, config) {
 };
 
 /**
+ * Module to append markdown files
+ * @param {String} content 
+ * @param {Object} options 
+ * @param {Object} config 
+ * @returns {String} Markdown
+ */
+ export const addMarkdown = function(content, options = {}, config) {
+    return fs.readFileSync(options["src"]).toString();
+}
+
+/**
  * @param {String} outputFilePath 
  * @param {String} repo 
  * @param {String} branch 
@@ -100,5 +111,13 @@ export const app = async function(outputFilePath, category, repo, branch, github
         };
         markdownMagic(markdownPath, config);
         return `Auto documented workflow artifacts in artifactsTable - ${outputFilePath}`;
+    }else if(category === "markdown"){
+        markdownMagic(markdownPath, {
+            matchWord: "MARKDOWN-AUTO-DOCS",
+            transforms: {
+              MARKDOWN: addMarkdown,
+            },
+        });
+        return `Appended markdown files in ${outputFilePath}`;
     }
 };

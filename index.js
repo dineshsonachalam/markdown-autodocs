@@ -13,7 +13,7 @@ export const gitCliargs = function() {
   const program = new Command();
   program
     .option("-o, --outputFilePath <outputFilePaths...>", "Output file paths")
-    .option("-c, --category <categories...>", "code-block, json-to-html-table, workflow-artifact-table")
+    .option("-c, --category <categories...>", "code-block, json-to-html-table, workflow-artifact-table, markdown")
     .option("-r, --repo <type>", "Repo name")
     .option("-b, --branch <type>", "Branch name")
     .option("-a, --accessToken <type>", "Github Access token");

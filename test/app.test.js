@@ -1,8 +1,4 @@
 import {app, convertJsonToHtmlTable, generateArtifactsTable} from "../utils/app.js";
-import * as child from "child_process";
-function output(error, stdout, stderr){
-    return {};
-}
 
 describe("should test App functionality", () => {
     const repo = process.env.TEST_REPO;
@@ -17,7 +13,6 @@ describe("should test App functionality", () => {
     test("should test convertJsonToHtmlTable", () => {
         const htmlTable = `<table class="JSON-TO-HTML-TABLE"><thead><tr><th class="username-th">username</th></tr></thead><tbody ><tr ><td class="username-td td_text">dineshsonachalam</td></tr></tbody></table>`;
         expect(convertJsonToHtmlTable("", {"src": "./contributors.json"}, "")).toMatch(htmlTable);
-        expect(convertJsonToHtmlTable("", {"src": "./sponsors.json"}, "")).toMatch("");
     });
 
     test("should test generateArtifactsTable", () => {
@@ -50,6 +45,6 @@ describe("should test App functionality", () => {
 
     test("should test workflow-artifact-table", async () => {
         expect(await app("./TEST_README.md", "workflow-artifact-table", repo, branch, githubApiToken))
-        .toMatch("artifacts in artifactsTable - ./TEST_README.md"); 
+        .toMatch("Auto documented workflow artifacts in artifactsTable - ./TEST_README.md"); 
     });
 });

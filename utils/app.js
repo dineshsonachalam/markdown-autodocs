@@ -30,16 +30,12 @@ export const generateHtmlTable = function(tableHeaders, tableRows, className) {
 export const convertJsonToHtmlTable = function(content, options = {}, config) {
     const inputFilePath = options["src"];
     let tableRows = JSON.parse(fs.readFileSync(inputFilePath));
-    if(Object.keys(tableRows).length>0){
-        let tableHeaderData = Object.keys(tableRows[0]);
-        let tableHeaders = {};
-        tableHeaderData.forEach((header) => {
-            tableHeaders[String(header)]=String(header);
-        });
-        return generateHtmlTable(tableHeaders, tableRows, "JSON-TO-HTML-TABLE");
-    }else {
-        return "";
-    }
+    let tableHeaderData = Object.keys(tableRows[0]);
+    let tableHeaders = {};
+    tableHeaderData.forEach((header) => {
+        tableHeaders[String(header)]=String(header);
+    });
+    return generateHtmlTable(tableHeaders, tableRows, "JSON-TO-HTML-TABLE");
 };
 
 /**
@@ -103,6 +99,6 @@ export const app = async function(outputFilePath, category, repo, branch, github
             },
         };
         markdownMagic(markdownPath, config);
-        return `Auto documented ${workflowInfo.totalArtifacts} artifacts in artifactsTable - ${outputFilePath}`;
+        return `Auto documented workflow artifacts in artifactsTable - ${outputFilePath}`;
     }
 };

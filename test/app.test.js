@@ -54,7 +54,7 @@ describe("should test App functionality", () => {
         const workflowIds   = await github.getWorkflowIds(workflowNames);
         const workflowInfo = await github.getWorkflowArtifacts(workflowIds);
         const workflows = workflowInfo.workflowArtifacts;        
-        expect(workflows.length>0)
+        expect(workflows.length>=0)
         .toEqual(true)
     });
 });

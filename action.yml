@@ -20,14 +20,6 @@ inputs:
     description: Git branch name, where changes should be pushed too.
     required: false
     default: ${{ github.ref }}
-  output_file_paths:
-    description: Output markdown file paths.
-    required: false
-    default: '[./README.md]'
-  categories:
-    description: Categories to automatically sync or transform its contents in the markdown files.
-    required: false
-    default: '[code-block,json-to-html-table,workflow-artifact-table,markdown]'
 
 runs:
   using: composite

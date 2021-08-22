@@ -12,6 +12,7 @@ TEST_README.md
 contributors.json
 sponsors.json
 TEST.md
+test.js
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json

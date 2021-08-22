@@ -50,11 +50,23 @@ describe("should test App functionality", () => {
     });
 
     test("should test Github Workflow API", async () => {
-        const workflowNames = await github.getWorkflowNames();
-        const workflowIds   = await github.getWorkflowIds(workflowNames);
+        const workflowIds   = [
+            {
+              name: 'markdown-autodocs',
+              run_url: 'https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/1155604893',
+              run_id: '1155604893',
+              check_suite_id: '3562586999'
+            },
+            {
+              name: 'tests',
+              run_url: 'https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/1155595479',
+              run_id: '1155595479',
+              check_suite_id: '3562569351'
+            }
+        ];
         const workflowInfo = await github.getWorkflowArtifacts(workflowIds);
         const workflows = workflowInfo.workflowArtifacts;        
-        expect(workflows.length>=0)
+        expect(workflows.length>0)
         .toEqual(true)
     });
 });

@@ -1,10 +1,11 @@
-import {app, convertJsonToHtmlTable, generateArtifactsTable, addMarkdown} from "../utils/app.js";
+import {app, convertJsonToHtmlTable, generateArtifactsTable} from "../utils/app.js";
+import GithubApi from "../utils/GithubApi"
+const repo = process.env.TEST_REPO;
+const branch = process.env.TEST_BRANCH;
+const githubApiToken = process.env.TEST_ACCESSTOKEN;
+const github = new GithubApi(repo, branch, githubApiToken);
 
-describe("should test App functionality", () => {
-    const repo = process.env.TEST_REPO;
-    const branch = process.env.TEST_BRANCH;
-    const githubApiToken = process.env.TEST_ACCESSTOKEN;
-    
+describe("should test App functionality", () => {    
     test("should test code-block", async () => {
         expect(await app("./TEST_README.md", "code-block", repo, branch, githubApiToken))
         .toMatch("Auto documented code-block in ./TEST_README.md");
@@ -46,5 +47,14 @@ describe("should test App functionality", () => {
     test("should test workflow-artifact-table", async () => {
         expect(await app("./TEST_README.md", "workflow-artifact-table", repo, branch, githubApiToken))
         .toMatch("Auto documented workflow artifacts in artifactsTable - ./TEST_README.md"); 
+    });
+
+    test("should test Github Workflow API", async () => {
+        const workflowNames = await github.getWorkflowNames();
+        const workflowIds   = await github.getWorkflowIds(workflowNames);
+        const workflowInfo = await github.getWorkflowArtifacts(workflowIds);
+        const workflows = workflowInfo.workflowArtifacts;        
+        expect(workflows.length>0)
+        .toEqual(true)
     });
 });

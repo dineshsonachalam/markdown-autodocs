@@ -29,7 +29,7 @@ export const generateHtmlTable = function(tableHeaders, tableRows, className) {
  */
 export const convertJsonToHtmlTable = function(content, options = {}, config) {
     const inputFilePath = options["src"];
-    let tableRows = JSON.parse(fs.readFileSync(process.cwd()+inputFilePath.substring(1), 'utf8'));
+    let tableRows = JSON.parse(fs.readFileSync(process.cwd()+"/"+((inputFilePath.split("/")).slice(1)).join("/"), 'utf8'));
     let tableHeaderData = Object.keys(tableRows[0]);
     let tableHeaders = {};
     tableHeaderData.forEach((header) => {

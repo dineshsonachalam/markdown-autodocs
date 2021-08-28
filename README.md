@@ -142,47 +142,14 @@ markdown-autodocs -c workflow-artifact-table -o ./README.md -r $REPO -b $BRANCH 
 ### Adding markdown-autodocs in your workflow
 Add the following step at the end of your job, after other steps that might add or change files.
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./docs/latest-release.yml) -->
-<!-- The below code snippet is automatically added from ./docs/latest-release.yml -->
-```yml
-uses: dineshsonachalam/markdown-autodocs@v1.0.3
-```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ### Extended example with all possible options available for this Action
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./docs/markdown-autodocs.yml) -->
-<!-- The below code snippet is automatically added from ./docs/markdown-autodocs.yml -->
-```yml
-- name: Markdown autodocs
-- uses: dineshsonachalam/markdown-autodocs@v1.0.3
-  with:
-    # Optional, defaults to author of the commit that triggered the run
-    commit_author: Author <actions@github.com>
-
-    # Optional, defaults to "actions@github.com"
-    commit_user_email: actions@github.com
-
-    # Optional, but recommended
-    # Defaults to "Apply automatic changes"
-    commit_message: Apply automatic changes
-
-    # Optional branch name where commit should be pushed to.
-    # Defaults to the current branch.
-    branch: feature-123
-
-    # Optional output file paths, defaults to '[./README.md]'.
-    output_file_paths: '[./README.md]'
-
-    # Categories to automatically sync or transform its contents in the markdown files.
-    # Defaults to '[code-block,json-to-html-table,workflow-artifact-table]'
-    categories: '[code-block,json-to-html-table,workflow-artifact-table]'
-```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## Github Workflow Artifacts
 <!-- MARKDOWN-AUTO-DOCS:START (WORKFLOW_ARTIFACT_TABLE) -->
-<table class="ARTIFACTS-TABLE"><thead><tr><th class="artifact-th">Artifact</th><th class="workflow-th">Workflow</th></tr></thead><tbody ><tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/3618530425/artifacts/87483761>module-dependencies-license-report</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/1176412082>tests</a></td></tr>
-<tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/3618530425/artifacts/87483762>size-of-dependencies</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/1176412082>tests</a></td></tr>
-<tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/3618530425/artifacts/87483763>vulnerabilities-audit-report</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/1176412082>tests</a></td></tr></tbody></table>
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## Contributing

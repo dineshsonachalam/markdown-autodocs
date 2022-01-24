@@ -1,5 +1,6 @@
 import argparse
 import os
+import glob
 
 def get_cli_args():
     parser = argparse.ArgumentParser()
@@ -13,9 +14,16 @@ def get_cli_args():
     parser.add_argument('-categories', required=True)
     return parser.parse_args()
 
-def options_processor(options, category):
+def get_file_paths(options):
     options = options.translate({ord(i):None for i in '[]" '})
     options = options.split(",")
+    file_paths = []
+    for option in options:
+        file_paths += glob.glob(option)
+    return file_paths
+
+def options_processor(options, category):
+    options = get_file_paths(options)
     if category == "output_file_paths":
         options = [option for option in options if ".md" in option]
     options = ' '.join(options)

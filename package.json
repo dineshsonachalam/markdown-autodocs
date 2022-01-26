@@ -1,6 +1,6 @@
 {
   "name": "markdown-autodocs",
-  "version": "1.0.95",
+  "version": "1.0.97",
   "repository": {
     "type": "git",
     "url": "https://github.com/dineshsonachalam/markdown-autodocs"
@@ -22,7 +22,7 @@
     }
   },
   "scripts": {
-    "test": "wget -c -N https://gist.githubusercontent.com/dineshsonachalam/17965bed1d67ea51ee9c80473f70f078/raw/7fa0080ad03fb1e706a5d07f09c90cc05402d73f/TEST_README.md https://gist.githubusercontent.com/dineshsonachalam/db8cec9c076d2a423b28a09d105cd8c6/raw/52865d53575287adbdf203c03acd705c69938a6a/contributors.json https://gist.githubusercontent.com/dineshsonachalam/3531ec190b04fcca7b011ddce0112c6b/raw/ea480991b101fd81cce6290882daca455f47f9ca/TEST.md && jest test/**.test.js",
+    "test": "wget -c -N https://gist.githubusercontent.com/dineshsonachalam/17965bed1d67ea51ee9c80473f70f078/raw/7fa0080ad03fb1e706a5d07f09c90cc05402d73f/TEST_README.md https://gist.githubusercontent.com/dineshsonachalam/db8cec9c076d2a423b28a09d105cd8c6/raw/52865d53575287adbdf203c03acd705c69938a6a/contributors.json && jest test/**.test.js",
     "coverage": "jest test/**.test.js --coverage"
   },
   "type": "module",

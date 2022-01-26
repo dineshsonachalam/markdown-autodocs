@@ -24,7 +24,7 @@ class GithubAction:
         self.categories = cli_args.categories
 
     def get_output_file_paths(self):
-        file_paths = self.file_paths
+        file_paths = self.output_file_paths
         file_paths = file_paths.translate({ord(i):None for i in '[]" '})
         file_paths = file_paths.split(",")
         updated_file_paths = []
@@ -32,7 +32,7 @@ class GithubAction:
             updated_file_paths += glob.glob(file_path)
         updated_file_paths = [updated_file_path for updated_file_path in updated_file_paths if ".md" in updated_file_path]   
         updated_file_paths = ' '.join(updated_file_paths)
-        self.file_paths = updated_file_paths
+        self.output_file_paths = updated_file_paths
 
     def get_categories(self):
         categories = self.categories

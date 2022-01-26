@@ -46,17 +46,17 @@ class GithubAction:
         self.get_output_file_paths()
         self.get_categories()
         ma_cli_command = f"markdown-autodocs --outputFilePath {self.output_file_paths} --category {self.categories} --repo {self.repo} --branch {self.branch} --accessToken {self.access_token}"
-        print("ma_cli_command: ", ma_cli_command)
+        print(f"ma_cli_command: {ma_cli_command}")
         os.system("sudo npm i -g markdown-autodocs")
         os.system(ma_cli_command)
         
     def autodocument_markdown_files(self):
         self.start_markdown_autodocs()
-        os.system("git config user.name '{self.commit_author}'")
-        os.system("git config user.email '{self.commit_user_email}'")
-        os.system("git add {self.output_file_paths}")
-        os.system("git commit -m '{self.commit_message}' {self.output_file_paths}")
-        os.system("git push origin {self.branch}")
+        os.system(f"git config user.name '{self.commit_author}'")
+        os.system(f"git config user.email '{self.commit_user_email}'")
+        os.system(f"git add {self.output_file_paths}")
+        os.system(f"git commit -m '{self.commit_message}' {self.output_file_paths}")
+        os.system(f"git push origin {self.branch}")
 
 if __name__ == "__main__":
     gh_action = GithubAction()

@@ -20,7 +20,9 @@ jobs:
             TEST_REPO: ${{ secrets.TEST_REPO }}
             TEST_BRANCH: ${{ secrets.TEST_BRANCH }}
             TEST_ACCESSTOKEN: ${{ secrets.TEST_ACCESSTOKEN }}
-          run: npm test
+          run: |
+            npm test
+            python3 -m unittest action_test.py
   
         - name: SonarCloud Scan
           uses: sonarsource/sonarcloud-github-action@master

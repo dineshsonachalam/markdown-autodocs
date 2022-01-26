@@ -10,9 +10,10 @@ class TestGithubAction(unittest.TestCase):
         expected_output_file_paths = ["./CODE_OF_CONDUCT.md", 
                                       "./README.md", 
                                       "./CONTRIBUTING.md"]
-        self.assertEqual(output_file_paths,
+        self.assertCountEqual(output_file_paths,
                          expected_output_file_paths)
         
+
     def test_get_categories(self):
         gh_action = GithubAction()
         gh_action.categories = '[code-block,json-to-html-table,workflow-artifact-table]'
@@ -21,7 +22,7 @@ class TestGithubAction(unittest.TestCase):
         expected_categories = ["code-block", 
                                "json-to-html-table", 
                                "workflow-artifact-table"]
-        self.assertEqual(
+        self.assertCountEqual(
             categories,
             expected_categories
         )

@@ -2,48 +2,61 @@ import argparse
 import os
 import glob
 
-def get_cli_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-repo', required=True)
-    parser.add_argument('-access_token', required=True)
-    parser.add_argument('-commit_author', required=True)
-    parser.add_argument('-commit_user_email', required=True)
-    parser.add_argument('-commit_message', required=True)
-    parser.add_argument('-branch', required=True)
-    parser.add_argument('-output_file_paths', required=True)
-    parser.add_argument('-categories', required=True)
-    return parser.parse_args()
+class GithubAction:
+    def get_cli_args(self):
+        parser = argparse.ArgumentParser()
+        parser.add_argument('-repo', required=True)
+        parser.add_argument('-access_token', required=True)
+        parser.add_argument('-commit_author', required=True)
+        parser.add_argument('-commit_user_email', required=True)
+        parser.add_argument('-commit_message', required=True)
+        parser.add_argument('-branch', required=True)
+        parser.add_argument('-output_file_paths', required=True)
+        parser.add_argument('-categories', required=True)
+        cli_args = parser.parse_args()
+        self.repo = cli_args.repo
+        self.access_token = cli_args.access_token
+        self.commit_author = cli_args.commit_author
+        self.commit_user_email = cli_args.commit_user_email
+        self.commit_message = cli_args.commit_message
+        self.branch = (cli_args.branch).split("/")[-1]
+        self.output_file_paths = cli_args.output_file_paths
+        self.categories = cli_args.categories
 
-def get_file_paths(options):
-    options = options.translate({ord(i):None for i in '[]" '})
-    options = options.split(",")
-    file_paths = []
-    for option in options:
-        file_paths += glob.glob(option)
-    return file_paths
+    def get_output_file_paths(self):
+        file_paths = self.file_paths
+        file_paths = file_paths.translate({ord(i):None for i in '[]" '})
+        file_paths = file_paths.split(",")
+        updated_file_paths = []
+        for file_path in file_paths:
+            updated_file_paths += glob.glob(file_path)
+        updated_file_paths = [updated_file_path for updated_file_path in updated_file_paths if ".md" in updated_file_path]   
+        updated_file_paths = ' '.join(updated_file_paths)
+        self.file_paths = updated_file_paths
 
-def options_processor(options, category):
-    options = get_file_paths(options)
-    if category == "output_file_paths":
-        options = [option for option in options if ".md" in option]
-    options = ' '.join(options)
-    return options
+    def get_categories(self):
+        categories = self.categories
+        categories = categories.translate({ord(i):None for i in '[]" '})
+        categories = categories.split(",")
+        categories = ' '.join(categories)
+        self.categories = categories
+
+    def start_markdown_autodocs(self):
+        self.get_cli_args()
+        self.get_output_file_paths()
+        self.get_categories()
+        ma_cli_command = f"markdown-autodocs --outputFilePath {self.output_file_paths} --category {self.categories} --repo {self.repo} --branch {self.branch} --accessToken {self.access_token}"
+        os.system("sudo npm i -g markdown-autodocs")
+        os.system(ma_cli_command)
+        
+    def autodocument_markdown_files(self):
+        self.start_markdown_autodocs()
+        os.system("git config user.name '{self.commit_author}'")
+        os.system("git config user.email '{self.commit_user_email}'")
+        os.system("git add {self.output_file_paths}")
+        os.system("git commit -m '{self.commit_message}' {self.output_file_paths}")
+        os.system("git push origin {self.branch}")
 
 if __name__ == "__main__":
-    args = get_cli_args()
-    repo = args.repo
-    access_token = args.access_token
-    commit_author = args.commit_author
-    commit_user_email = args.commit_user_email
-    commit_message = args.commit_message
-    branch = (args.branch).split("/")[-1]
-    output_file_paths = options_processor(args.output_file_paths, "output_file_paths")
-    categories = options_processor(args.categories, "categories")
-    ma_cli_command = "markdown-autodocs --outputFilePath {} --category {} --repo {} --branch {} --accessToken {}".format(output_file_paths, categories, repo, branch, access_token)
-    os.system("git config user.name '{}'".format(commit_author))
-    os.system("git config user.email '{}'".format(commit_user_email))
-    os.system("sudo npm i -g markdown-autodocs")
-    os.system(ma_cli_command)
-    os.system("git add {}".format(output_file_paths))
-    os.system("git commit -m '{}' {}".format(commit_message, output_file_paths))
-    os.system("git push origin {}".format(branch))
+    gh_action = GithubAction()
+    gh_action.autodocument_markdown_files()

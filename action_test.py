@@ -6,7 +6,7 @@ class TestGithubAction(unittest.TestCase):
         gh_action = GithubAction()
         gh_action.output_file_paths = '["./*"]'
         gh_action.get_output_file_paths()
-        output_file_paths = gh_action.file_paths.split(" ")
+        output_file_paths = gh_action.output_file_paths.split(" ")
         expected_output_file_paths = ["./CODE_OF_CONDUCT.md", 
                                       "./README.md", 
                                       "./CONTRIBUTING.md"]

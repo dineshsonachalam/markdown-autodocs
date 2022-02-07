@@ -70,7 +70,13 @@ This problem can be solved using <b>markdown-autodocs</b> a GitHub Action that a
 Get code from an external file or URL and insert it in your markdown.
 
 **Options:**
-*   `src`: The relative path to the code to pull in, or the `URL` where the raw code lives
+* `src`: The relative path to the code to pull in, or the `URL` where the raw code lives
+* `lines` (optional): a range with lines of code which will then be replaced with code from the file. The line range should be defined as: "lines=*startLine*-*EndLine*" (for example: "lines=22-44"). Please see the example below
+* `syntax` (optional): Syntax will be inferred by fileType if not specified
+* `header` (optional): Will add header comment to code snippet. Useful for pointing to relative source directory or adding live doc links
+
+Options are concatenated via the ```&``` sign.
+For example ```(CODE:src=readme.md&lines=10-20)```
 
 <a href="./docs/examples.md#get-code-from-external-file" target="_blank">
     <img src="https://i.imgur.com/NUMReeR.png"/>

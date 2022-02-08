@@ -196,6 +196,7 @@ uses: dineshsonachalam/markdown-autodocs@v1.0.4
 *   [Fireworks.js - 🎆 A simple fireworks library](https://github.com/crashmax-dev/fireworks-js)
 *   [LucidDynamodb - 🗄️ A minimalistic wrapper to AWS DynamoDB](https://github.com/dineshsonachalam/Lucid-Dynamodb)
 *   [redis-cloudflare-kv - ⚡ Redis caching layer for Cloudflare KV in Golang](https://github.com/dineshsonachalam/redis-cloudflare-kv)
+*   [lib-bpmn-engine - An embeddable BPMN engine, written in Go](https://github.com/nitram509/lib-bpmn-engine)
 
 ## License
 

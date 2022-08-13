@@ -1,5 +1,5 @@
 - name: Markdown autodocs
-- uses: dineshsonachalam/markdown-autodocs@v1.0.4
+- uses: dineshsonachalam/markdown-autodocs@v1.0.5
   with:
     # Optional, defaults to author of the commit that triggered the run
     commit_author: Author <actions@github.com>

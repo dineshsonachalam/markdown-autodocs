@@ -1,4 +1,4 @@
-<h1 align="center">
+<h1 align="center"> 
   <a href="https://github.com/marketplace/actions/markdown-autodocs">
     <img src="https://i.imgur.com/ZAC4qPa.png"/>
   </a>
@@ -196,7 +196,7 @@ uses: dineshsonachalam/markdown-autodocs@v1.0.4
 *   [Code of Conduct](CODE_OF_CONDUCT.md)
 *   [Contributing Guideline](CONTRIBUTING.md)
 
-## 🚀 Used By
+## Used By
 
 *   [iro.js - 🎨 Modular color picker widget for JavaScript, with support for a bunch of color formats](https://github.com/jaames/iro.js)
 *   [Fireworks.js - 🎆 A simple fireworks library](https://github.com/crashmax-dev/fireworks-js)

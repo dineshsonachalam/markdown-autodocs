@@ -1,4 +1,4 @@
-import fs from "fs";
+import * as fs from 'fs';
 import path from "path";
 import markdownMagic from "markdown-magic";
 import Table from "table-builder";

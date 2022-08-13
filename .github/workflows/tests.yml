@@ -17,6 +17,7 @@ jobs:
 
         - name: Downgrade doctoc version
           run: |
+            npm install @technote-space/doctoc@2.1.0 --save-dev
             npm install -g @technote-space/doctoc@2.1.0
         
         - name: Start integration test

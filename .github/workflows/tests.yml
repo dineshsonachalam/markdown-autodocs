@@ -6,7 +6,7 @@ on:
       - '**'  # matches every branch
 jobs:
   tests:
-      runs-on: ubuntu-latest
+      runs-on: ubuntu-22.04
       steps:
         - uses: actions/checkout@v2
           with:
@@ -14,6 +14,12 @@ jobs:
         
         - name: Install dependencies
           run: npm i
+
+        - name: Downgrade doctoc version
+          run: |
+            npm i doctoc@2.1.0 --save-dev
+            rm -rf ./node_modules/@technote-space/doctoc
+            cp -rf ./node_modules/doctoc ./node_modules/@technote-space
         
         - name: Start integration test
           env: 

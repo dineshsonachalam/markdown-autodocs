@@ -47,6 +47,7 @@ class GithubAction:
         self.get_categories()
         ma_cli_command = f"markdown-autodocs --outputFilePath {self.output_file_paths} --category {self.categories} --repo {self.repo} --branch {self.branch} --accessToken {self.access_token}"
         print(f"ma_cli_command: {ma_cli_command}")
+        os.system("sudo npm i -g doctoc@2.1.0")
         os.system("sudo npm i -g markdown-autodocs")
         os.system(ma_cli_command)
         

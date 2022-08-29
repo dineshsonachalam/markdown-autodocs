@@ -14,6 +14,7 @@ class GithubAction:
         parser.add_argument('-output_file_paths', required=True)
         parser.add_argument('-categories', required=True)
         cli_args = parser.parse_args()
+        print("=====> Branch name: ", os.environ['github.ref_name'])
         self.repo = cli_args.repo
         self.access_token = cli_args.access_token
         self.commit_author = cli_args.commit_author

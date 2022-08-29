@@ -14,7 +14,6 @@ class GithubAction:
         parser.add_argument('-output_file_paths', required=True)
         parser.add_argument('-categories', required=True)
         cli_args = parser.parse_args()
-        print("=====> Branch name: ", os.environ['github.ref_name'])
         self.repo = cli_args.repo
         self.access_token = cli_args.access_token
         self.commit_author = cli_args.commit_author
@@ -47,7 +46,9 @@ class GithubAction:
         self.get_output_file_paths()
         self.get_categories()
         ma_cli_command = f"markdown-autodocs --outputFilePath {self.output_file_paths} --category {self.categories} --repo {self.repo} --branch {self.branch} --accessToken {self.access_token}"
-        print(f"ma_cli_command: {ma_cli_command}")
+        print("=====> Branch name: ", os.environ['github.ref_name'])
+        print(f"=====>ma_cli_command: {ma_cli_command}")
+        print("=====> Branch name: ", os.environ['github.ref_name'])
         os.system("sudo npm i -g doctoc@2.1.0")
         os.system("sudo npm i -g markdown-autodocs")
         os.system(ma_cli_command)

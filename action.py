@@ -19,7 +19,7 @@ class GithubAction:
         self.commit_author = cli_args.commit_author
         self.commit_user_email = cli_args.commit_user_email
         self.commit_message = cli_args.commit_message
-        self.branch = os.environ['GITHUB_REF_NAME']
+        self.branch = os.environ['GITHUB_HEAD_REF']
         self.output_file_paths = cli_args.output_file_paths
         self.categories = cli_args.categories
 

@@ -200,9 +200,10 @@ uses: dineshsonachalam/markdown-autodocs@v1.0.5
 
 *   [iro.js - 🎨 Modular color picker widget for JavaScript, with support for a bunch of color formats](https://github.com/jaames/iro.js)
 *   [Fireworks.js - 🎆 A simple fireworks library](https://github.com/crashmax-dev/fireworks-js)
-*   [LucidDynamodb - 🗄️ A minimalistic wrapper to AWS DynamoDB](https://github.com/dineshsonachalam/Lucid-Dynamodb)
+*   [TWallpaper - Multicolor gradient wallpaper created algorithmically and shimmers smoothly.](https://github.com/crashmax-dev/twallpaper)
 *   [redis-cloudflare-kv - ⚡ Redis caching layer for Cloudflare KV in Golang](https://github.com/dineshsonachalam/redis-cloudflare-kv)
 *   [lib-bpmn-engine - An embeddable BPMN engine, written in Go](https://github.com/nitram509/lib-bpmn-engine)
+*   [LucidDynamodb - 🗄️ A minimalistic wrapper to AWS DynamoDB](https://github.com/dineshsonachalam/Lucid-Dynamodb)
 
 ## License
 

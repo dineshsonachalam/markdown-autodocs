@@ -150,7 +150,7 @@ Add the following step at the end of your job, after other steps that might add 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./docs/latest-release.yml) -->
 <!-- The below code snippet is automatically added from ./docs/latest-release.yml -->
 ```yml
-uses: dineshsonachalam/markdown-autodocs@v1.0.5
+uses: dineshsonachalam/markdown-autodocs@v1.0.6
 ```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
@@ -159,7 +159,7 @@ uses: dineshsonachalam/markdown-autodocs@v1.0.5
 <!-- The below code snippet is automatically added from ./docs/markdown-autodocs.yml -->
 ```yml
 - name: Markdown autodocs
-- uses: dineshsonachalam/markdown-autodocs@v1.0.5
+- uses: dineshsonachalam/markdown-autodocs@v1.0.6
   with:
     # Optional, defaults to author of the commit that triggered the run
     commit_author: Author <actions@github.com>
@@ -186,9 +186,9 @@ uses: dineshsonachalam/markdown-autodocs@v1.0.5
 
 ## Github Workflow Artifacts
 <!-- MARKDOWN-AUTO-DOCS:START (WORKFLOW_ARTIFACT_TABLE) -->
-<table class="ARTIFACTS-TABLE"><thead><tr><th class="artifact-th">Artifact</th><th class="workflow-th">Workflow</th></tr></thead><tbody ><tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/8013334839/artifacts/344819684>module-dependencies-license-report</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/2940352102>tests</a></td></tr>
-<tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/8013334839/artifacts/344819686>size-of-dependencies</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/2940352102>tests</a></td></tr>
-<tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/8013334839/artifacts/344819687>vulnerabilities-audit-report</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/2940352102>tests</a></td></tr></tbody></table>
+<table class="ARTIFACTS-TABLE"><thead><tr><th class="artifact-th">Artifact</th><th class="workflow-th">Workflow</th></tr></thead><tbody ><tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/8027182578/artifacts/344837788>module-dependencies-license-report</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/2947511316>tests</a></td></tr>
+<tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/8027182578/artifacts/344837789>size-of-dependencies</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/2947511316>tests</a></td></tr>
+<tr ><td class="artifact-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/suites/8027182578/artifacts/344837790>vulnerabilities-audit-report</a></td><td class="workflow-td td_text"><a href=https://github.com/dineshsonachalam/markdown-autodocs/actions/runs/2947511316>tests</a></td></tr></tbody></table>
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## Contributing

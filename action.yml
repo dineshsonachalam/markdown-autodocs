@@ -19,7 +19,7 @@ inputs:
   branch:
     description: Git branch name, where changes should be pushed too.
     required: false
-    default: ${{ github.ref_name }}
+    default: ${{ github.head_ref }}
   output_file_paths:
     description: Output markdown file paths.
     required: false

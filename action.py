@@ -54,10 +54,19 @@ class GithubAction:
     def autodocument_markdown_files(self):
         self.start_markdown_autodocs()
         os.system(f"git config user.name '{self.commit_author}'")
+        print(f"git config user.name '{self.commit_author}'")
+
         os.system(f"git config user.email '{self.commit_user_email}'")
+        print(f"git config user.email '{self.commit_user_email}'")
+
         os.system(f"git add {self.output_file_paths}")
+        print(f"git add {self.output_file_paths}")
+
         os.system(f"git commit -m '{self.commit_message}' {self.output_file_paths}")
+        print(f"git commit -m '{self.commit_message}' {self.output_file_paths}")
+        
         os.system(f"git push origin {self.branch}")
+        print(f"git push origin {self.branch}")
 
 if __name__ == "__main__":
     gh_action = GithubAction()

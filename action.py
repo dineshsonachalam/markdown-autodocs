@@ -46,9 +46,9 @@ class GithubAction:
         self.get_output_file_paths()
         self.get_categories()
         ma_cli_command = f"markdown-autodocs --outputFilePath {self.output_file_paths} --category {self.categories} --repo {self.repo} --branch {self.branch} --accessToken {self.access_token}"
-        # print("=====> Branch name: ", os.environ['ref_name'])
-        for name, value in os.environ.items():
-            print("{0}: {1}".format(name, value))
+        print("=====> 1. Branch name: ", os.environ['GITHUB_REF_NAME'])
+        # for name, value in os.environ.items():
+        #     print("{0}: {1}".format(name, value))
         print(f"=====>ma_cli_command: {ma_cli_command}")
         # print("=====> Branch name: ", os.environ['ref_name'])
         os.system("sudo npm i -g doctoc@2.1.0")

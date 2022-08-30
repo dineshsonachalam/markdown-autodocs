@@ -25,7 +25,7 @@ class GithubAction:
 
     def get_branch_name(self, branch):
         if "refs/heads/" in branch or "refs/pull" in branch:
-            return os.environ['GITHUB_HEAD_REF']
+            return os.environ['GITHUB_REF_NAME']
         else:
             return branch
 

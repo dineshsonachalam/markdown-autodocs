@@ -19,9 +19,15 @@ class GithubAction:
         self.commit_author = cli_args.commit_author
         self.commit_user_email = cli_args.commit_user_email
         self.commit_message = cli_args.commit_message
-        self.branch = cli_args.branch
+        self.branch = self.get_branch_name(cli_args.branch)
         self.output_file_paths = cli_args.output_file_paths
         self.categories = cli_args.categories
+
+    def get_branch_name(self, branch):
+        if "refs/heads/" in branch or "refs/pull" in branch:
+            return os.environ['GITHUB_HEAD_REF']
+        else:
+            return branch
 
     def get_output_file_paths(self):
         file_paths = self.output_file_paths

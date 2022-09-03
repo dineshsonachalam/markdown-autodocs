@@ -101,6 +101,7 @@ jobs:
   update_release_version:
       needs: size-of-dependencies-stats
       runs-on: ubuntu-latest
+      if: github.ref == 'refs/heads/master'
       steps:
         - uses: actions/checkout@v2
         - name: Update release and bump package version

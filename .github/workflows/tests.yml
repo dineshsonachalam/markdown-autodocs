@@ -134,7 +134,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build pdoc docs image
+      - name: Build markdown-autodocs image
         run: docker build --no-cache -t dineshsonachalam/markdown-autodocs:latest .
         
       - name: Log into registry

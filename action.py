@@ -51,13 +51,10 @@ class GithubAction:
         self.get_cli_args()
         self.get_output_file_paths()
         self.get_categories()
-        ma_cli_command = f"markdown-autodocs --outputFilePath {self.output_file_paths} --category {self.categories} --repo {self.repo} --branch {self.branch} --accessToken {self.access_token}"
-        os.system("docker build -t markdown-autodocs:latest .")
-        os.system(f"docker run {ma_cli_command}")
-        # print(f"ma_cli_command: {ma_cli_command}")
-        # os.system("sudo npm i -g doctoc@2.1.0")
-        # os.system("sudo npm i -g markdown-autodocs")
-        # os.system(ma_cli_command)
+        docker_image = "markdown-autodocs"
+        options = f"--outputFilePath {self.output_file_paths} --category {self.categories} --repo {self.repo} --branch {self.branch} --accessToken {self.access_token}"
+        os.system(f"docker pull {docker_image}")
+        os.system(f"docker run {docker_image} {options}")
         
     def autodocument_markdown_files(self):
         self.start_markdown_autodocs()

@@ -125,3 +125,19 @@ jobs:
         - uses: JS-DevTools/npm-publish@v1
           with:
             token:  ${{ secrets.NPM_ACCESS_TOKEN }}
+  
+  upload-cli-to-docker-hub:
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build pdoc docs image
+        run: docker build --no-cache -t dineshsonachalam/markdown-autodocs:latest .
+        
+      - name: Log into registry
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Push image
+        run: docker push dineshsonachalam/markdown-autodocs:latest

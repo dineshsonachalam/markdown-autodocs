@@ -133,14 +133,12 @@ jobs:
     if: github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v2
-
-      - name: Build markdown-autodocs image
-        run: |
-          markdown_autodocs_version=`npm show markdown-autodocs version`
-          docker build --no-cache -t dineshsonachalam/markdown-autodocs:$markdown_autodocs_version .
-        
+      
       - name: Log into registry
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Push image
-        run: docker push dineshsonachalam/markdown-autodocs:$markdown_autodocs_version
+      - name: Build markdown-autodocs image and push it to Docker Hub
+        run: |
+          markdown_autodocs_version=`npm show markdown-autodocs version`
+          docker build --no-cache -t dineshsonachalam/markdown-autodocs:$markdown_autodocs_version .
+          docker push dineshsonachalam/markdown-autodocs:$markdown_autodocs_version

@@ -141,4 +141,6 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Push image
-        run: docker push dineshsonachalam/markdown-autodocs:latest
+        run: |
+          markdown_autodocs_version=`npm show markdown-autodocs version`
+          docker push dineshsonachalam/markdown-autodocs:$markdown_autodocs_version

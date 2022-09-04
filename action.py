@@ -56,7 +56,7 @@ class GithubAction:
         docker_image = "dineshsonachalam/markdown-autodocs"
         options = f"--outputFilePath {self.output_file_paths} --category {self.categories} --repo {self.repo} --branch {self.branch} --accessToken {self.access_token}"
         os.system(f"docker pull {docker_image}:{markdown_autodocs_version}")
-        os.system(f"docker run -v $(pwd):/usr/src/app {docker_image} {options}")
+        os.system(f"docker run -v $(pwd):/usr/src/app {docker_image}:{markdown_autodocs_version} {options}")
         
     def autodocument_markdown_files(self):
         self.start_markdown_autodocs()

@@ -53,7 +53,7 @@ Ask questions in the <a href ="https://github.com/dineshsonachalam/markdown-auto
     *   [Extended example with all possible options available for this Action](#extended-example-with-all-possible-options-available-for-this-action)
 *   [Github Workflow Artifacts](#github-workflow-artifacts)
 *   [Contributing](#contributing)
-*   [Used By](#-used-by)
+*   [Used By](#used-by)
 *   [License](#license)
 
 ## Why markdown-autodocs
@@ -201,12 +201,19 @@ uses: dineshsonachalam/markdown-autodocs@v1.0.7
 
 ## Used By
 
-*   [iro.js - 🎨 Modular color picker widget for JavaScript, with support for a bunch of color formats](https://github.com/jaames/iro.js)
-*   [Fireworks.js - 🎆 A simple fireworks library](https://github.com/crashmax-dev/fireworks-js)
-*   [TWallpaper - 🌈 Multicolor gradient wallpaper created algorithmically and shimmers smoothly.](https://github.com/crashmax-dev/twallpaper)
-*   [redis-cloudflare-kv - ⚡ Redis caching layer for Cloudflare KV in Golang](https://github.com/dineshsonachalam/redis-cloudflare-kv)
-*   [lib-bpmn-engine - An embeddable BPMN engine, written in Go](https://github.com/nitram509/lib-bpmn-engine)
-*   [LucidDynamodb - 🗄️ A minimalistic wrapper to AWS DynamoDB](https://github.com/dineshsonachalam/Lucid-Dynamodb)
+
+|  Repo | Stars  | Usage |
+|--|--|--|
+| <a href="https://github.com/jaames/iro.js">Iro.js</a> |<img src="https://img.shields.io/github/stars/jaames/iro.js?style=social">| 🎨 Modular, design-conscious color picker widget for JavaScript - with support for a bunch of color formats|
+| <a  href="https://github.com/crashmax-dev/fireworks-js"> Fireworks.js </a> | <img  src="https://img.shields.io/github/stars/crashmax-dev/fireworks-js?style=social"> | 🎆 A simple fireworks library! Ready to use components available for React, Vue 3, Svelte, Angular, Preact, Solid, and Web Components. |
+| <a  href="https://github.com/nitram509/lib-bpmn-engine"> BPMN engine </a> | <img  src="https://img.shields.io/github/stars/nitram509/lib-bpmn-engine?style=social"> | A BPMN engine, meant to be embedded in Go applications with minimal hurdles, and a pleasant developer experience using it. This approach can increase transparency for non-developers. |
+| <a  href="https://github.com/d-edge/foss-acronyms"> FOSS Community Acronyms</a> | <img  src="https://img.shields.io/github/stars/d-edge/foss-acronyms?style=social"> | List of abbreviations used within the FOSS community, and their definitions and usages. |
+| <a href="https://github.com/crashmax-dev/twallpaper"> TWallpaper  </a> | <img  src="https://img.shields.io/github/stars/crashmax-dev/twallpaper?style=social"> | 🌈 Multicolor gradient wallpaper created algorithmically and shimmers smoothly. |
+| <a  href="https://github.com/dusk-network/dusk-ui-kit"> Dusk UI Kit </a> | <img  src="https://img.shields.io/github/stars/dusk-network/dusk-ui-kit?style=social"> | 🧱 Dusk UI component library |
+| <a  href="https://github.com/yapkhaichuen/LTSM-Stock-Predictor"> LTSM Stock Predictor </a> | <img  src="https://img.shields.io/github/stars/yapkhaichuen/LTSM-Stock-Predictor?style=social"> | Predicting different stock prices using Long Short-Term Memory Recurrent Neural Network in Python using TensorFlow 2 and Keras. |
+| <a  href="https://github.com/jimbrig/PowerShell"> PowerShell </a> | <img  src="https://img.shields.io/github/stars/jimbrig/PowerShell?style=social"> | PowerShell Core Profile Directory |
+| <a  href="https://github.com/holly-cummins/quarkus-minecraft-observability-extension"> Mincecraft Observability extension </a> | <img  src="https://img.shields.io/github/stars/holly-cummins/quarkus-minecraft-observability-extension?style=social"> | Uses minecraft as a client for viewing observability metrics. |
+| <a  href="https://github.com/entelecheia/ekorpkit"> eKonomic Research Python Toolkit </a> | <img  src="https://img.shields.io/github/stars/entelecheia/ekorpkit?style=social"> | A NLP Library for Social Science Research |
 
 ## License
 

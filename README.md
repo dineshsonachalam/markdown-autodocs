@@ -16,6 +16,9 @@
     <a href="https://snyk.io/test/github/dineshsonachalam/markdown-autodocs">
         <img src="https://snyk.io/test/github/dineshsonachalam/markdown-autodocs/badge.svg"/>
     </a>
+    <a href="https://hub.docker.com/r/dineshsonachalam/markdown-autodocs" alt="Docker pulls">
+        <img src="https://img.shields.io/docker/pulls/dineshsonachalam/markdown-autodocs.svg" />
+    </a>
     <a href="https://github.com/dineshsonachalam/markdown-autodocs/actions/workflows/tests.yml">
         <img src="https://github.com/dineshsonachalam/markdown-autodocs/actions/workflows/tests.yml/badge.svg"/>
     </a>
@@ -24,9 +27,6 @@
     </a>
     <a href="https://sonarcloud.io/dashboard?id=markdown-autodocs">
         <img src="https://sonarcloud.io/api/project_badges/measure?project=markdown-autodocs&metric=coverage"/>
-    </a>
-    <a href="https://hub.docker.com/repository/docker/dineshsonachalam/markdown-autodocs" alt="Docker pulls">
-        <img src="https://img.shields.io/docker/pulls/dineshsonachalam/markdown-autodocs.svg" />
     </a>
     <a href="https://www.npmjs.com/package/markdown-autodocs">
       <img src="https://img.shields.io/npm/v/markdown-autodocs?color=dark%20green&label=npm%20package" alt="npm version" height="20">     

@@ -34,7 +34,7 @@
     "log4js": "^6.3.0",
     "markdown-magic": "^2.6.0",
     "table-builder": "^2.1.1",
-    "yaml": "^1.10.2"
+    "yaml": "^2.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
